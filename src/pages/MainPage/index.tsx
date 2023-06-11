@@ -1,11 +1,3 @@
-import React from 'react';
+import {MainPageAsync} from "./ui/MainPage.async";
 
-const MainPage = () => {
-    return (
-        <div>
-            MAIN
-        </div>
-    );
-};
-
-export default MainPage;
+export {MainPageAsync as MainPage}

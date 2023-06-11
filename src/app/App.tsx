@@ -1,10 +1,10 @@
 import React, {Suspense} from 'react';
 import {Link, Route, Routes} from 'react-router-dom';
-import {useTheme} from "./theme/useTheme";
-import MainPage from "./pages/MainPage/loader";
-import AboutPage from "./pages/AboutPage/loader";
+import {classNames} from "shared/lib/classNames/classNames";
+import {useTheme} from "app/providers/ThemeProvider";
+import {MainPage} from "pages/MainPage";
+import {AboutPage} from "pages/AboutPage";
 import './styles/index.scss';
-import {classNames} from "./helpers/classNames/classNames";
 
 
 
