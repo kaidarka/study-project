@@ -8,13 +8,12 @@ import './styles/index.scss';
 
 
 export const App = () => {
-    const {theme, themeToggle} = useTheme();
+    const {theme} = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])}>
             <Navbar/>
             <AppRouter/>
-            <button onClick={themeToggle}>Toggle Theme</button>
         </div>
     );
 };
