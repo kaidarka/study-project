@@ -1,5 +1,5 @@
-export function ads (asd: number): number {
-	console.log(asd);
+export function ads(asd: number): number {
+    console.log(asd);
 
-	return 111;
+    return 111;
 }
