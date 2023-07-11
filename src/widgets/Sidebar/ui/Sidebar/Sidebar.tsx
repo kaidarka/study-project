@@ -11,25 +11,25 @@ interface ISidebarProps {
 
 export const Sidebar = (props: ISidebarProps) => {
     const { className } = props;
-    // const { t } = useTranslation()
-    // const [collapsed, setCollapsed] = useState(false);
+    const { t } = useTranslation();
+    const [collapsed, setCollapsed] = useState(false);
 
-    // const onToggle = () => {
-    //     setCollapsed((state) => !state);
-    // };
+    const onToggle = () => {
+        setCollapsed((state) => !state);
+    };
 
     return (
         <div
             data-testid="sidebar"
-            // className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
-            {/* <button */}
-            {/*    data-testid="sidebar-toggle" */}
-            {/*    type="button" */}
-            {/*    onClick={onToggle} */}
-            {/* > */}
-            {/*    {t('toggle')} */}
-            {/* </button> */}
+            <button
+                data-testid="sidebar-toggle"
+                type="button"
+                onClick={onToggle}
+            >
+                {t('Переключить')}
+            </button>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LanguageSwitcher className={cls.lang} />
