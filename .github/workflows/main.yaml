@@ -1,0 +1,30 @@
+name: lint, test, build
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [17.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Starting Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install modules
+        run: npm install
+      - name: build prod
+        run: npm run build:prod
+      - name: lint ts
+        run: npm run lint:ts
+      - name: lint css
+        run: npm run lint:scss
+      - name: unit testing
+        run: npm run test:unit
+
