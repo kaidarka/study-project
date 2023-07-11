@@ -91,6 +91,7 @@
     "react-i18next": "13.0.1",
     "react-router-dom": "6.14.0"
   },
+  "overrides": { "loki": { "@storybook/react": "$@storybook/react" } },
   "loki": {
     "configurations": {
       "chrome.laptop": {
