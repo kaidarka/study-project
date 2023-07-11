@@ -15,8 +15,8 @@
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
-    "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "storybook:build": "build-storybook -c ./config/storybook"
+    "storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "storybook:build": "storybook build -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +30,7 @@
     "@storybook/addon-interactions": "^7.0.24",
     "@storybook/addon-links": "^7.0.24",
     "@storybook/blocks": "^7.0.24",
+    "@storybook/cli": "^7.0.26",
     "@storybook/react": "^7.0.24",
     "@storybook/react-webpack5": "^7.0.2",
     "@storybook/testing-library": "^0.0.14-next.2",
@@ -90,18 +91,17 @@
     "react-i18next": "13.0.1",
     "react-router-dom": "6.14.0"
   },
-  "overrides": { "loki": { "@storybook/react": "$@storybook/react" } },
   "loki": {
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     }
