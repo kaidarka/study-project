@@ -4,5 +4,13 @@
   "Язык": "English",
   "Короткий язык": "En",
   "Переключить": "Toggle",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Форма авторизации": "Login form",
+  "вы ввели неверные логин или пароль": "Unknown login or password",
+  "Войти": "Login",
+  "Главная": "Main page",
+  "О сайте": "About",
+  "Введите имя": "Enter login",
+  "Введите пароль": "Enter password",
+  "Выйти": "Выйти"
 }
