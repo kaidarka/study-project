@@ -34,16 +34,8 @@
     flex-direction: column;
 }
 
-.item {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-}
 
-.icon {
-    fill: var(--inverted-primary-color);
-    margin-right: 10px;
-}
+
 
 .collapsed {
     width: var(--sidebar-width-collapsed);

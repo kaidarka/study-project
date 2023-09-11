@@ -16,7 +16,6 @@ type Story = StoryObj<typeof Navbar>;
 export const Light: Story = {
     decorators: [
         (Story) => StoreDecorator({})(Story),
-        (Story) => StoreDecorator({})(Story),
     ],
 };
 

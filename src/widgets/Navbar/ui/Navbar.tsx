@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -11,7 +11,7 @@ interface INavbarProps {
     className?: string;
 }
 
-export const Navbar = (props: INavbarProps) => {
+export const Navbar = memo((props: INavbarProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const dispatch = useDispatch();
@@ -58,4 +58,4 @@ export const Navbar = (props: INavbarProps) => {
             )}
         </div>
     );
-};
+});
