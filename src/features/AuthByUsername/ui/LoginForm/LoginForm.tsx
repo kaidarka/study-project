@@ -49,7 +49,7 @@ const LoginForm = memo((props: ILoginFormProps) => {
             const result = await dispatch(
                 loginByUsername({ username, password }),
             );
-            if (result.meta.requestStatus === 'fulfilled') {
+            if (result.meta.requestStatus === 'fulfilled' && onSuccess) {
                 onSuccess();
             }
         },

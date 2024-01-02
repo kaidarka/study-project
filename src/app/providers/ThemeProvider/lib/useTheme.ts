@@ -11,10 +11,10 @@ export function useTheme(): IUseThemeResult {
 
     const themeToggle = () => {
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-        setTheme(newTheme);
+        setTheme?.(newTheme);
         document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 
-    return { theme, themeToggle };
+    return { theme: theme || Theme.LIGHT, themeToggle };
 }
