@@ -1,4 +1,8 @@
 export {
+    getProfileValidateErrors,
+} from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+
+export {
     updateProfileData,
 } from './model/services/updateProfileData/updateProfileData';
 export {
