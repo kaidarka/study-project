@@ -3,6 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetailed } from 'entities/Article';
 import { useParams } from 'react-router-dom';
+import cls from './ArticleDetailedPage.module.scss';
 
 interface IArticlesDetailedPageProps {
     className?: string;
