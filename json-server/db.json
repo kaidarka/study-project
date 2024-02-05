@@ -85,15 +85,23 @@
   "comments": [
     {
       "id": "1",
-      "body": "some comment",
-      "postId": "1"
+      "text": "some comment",
+      "postId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "text": "some comment",
+      "postId": "1",
+      "userId": "1"
     }
   ],
   "users": [
     {
       "id": "1",
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     }
   ],
   "profile": {
