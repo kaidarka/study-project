@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -94,6 +96,48 @@
       "text": "some comment",
       "postId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "asdfasdf",
+      "id": "Tuxi_21"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "safsdafdas",
+      "id": "Ej317lj"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qwerqwerqwerwr",
+      "id": "-QH4fxY"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "qwerqwerqwerwr",
+      "id": "zP4Zojv"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "asdfasdf",
+      "id": "jJ8sn1x"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "sdafsdaf",
+      "id": "3zvDf8a"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "1231231231",
+      "id": "JhmWW2x"
     }
   ],
   "users": [
@@ -102,16 +146,36 @@
       "username": "admin",
       "password": "123",
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     }
   ],
-  "profile": {
-    "firstName": "qwefqw",
-    "lastName": "Kaydarov",
-    "age": 223,
-    "currency": "rub",
-    "country": "Russia",
-    "city": "SPb",
-    "username": "kaidarka",
-    "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "qwefqw",
+      "lastName": "Kaydarov",
+      "age": 223,
+      "currency": "rub",
+      "country": "Russia",
+      "city": "SPb",
+      "username": "admin",
+      "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
+    },
+    {
+      "id": "2",
+      "firstName": "afasd",
+      "lastName": "asfasdf",
+      "age": 22,
+      "currency": "rub",
+      "country": "Russia",
+      "city": "SPb",
+      "username": "user",
+      "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
+    }
+  ]
 }

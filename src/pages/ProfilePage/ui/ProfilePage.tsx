@@ -14,7 +14,7 @@ import {
     ProfileCard,
     profileReducer,
 } from 'entities/Profile';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
@@ -22,6 +22,8 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useTranslation } from 'react-i18next';
+import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -34,6 +36,8 @@ interface IProfilePageProps {
 export const ProfilePage = (props: IProfilePageProps) => {
     const { className } = props;
     const dispatch = useAppDispatch();
+    const { id } = useParams<{ id: string; }>();
+
     const { t } = useTranslation('profile');
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
@@ -49,11 +53,11 @@ export const ProfilePage = (props: IProfilePageProps) => {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны для заполнения'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useMountEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstName = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ firstName: value || '' }));

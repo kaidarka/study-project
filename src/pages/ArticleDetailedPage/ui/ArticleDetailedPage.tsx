@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetailed } from 'entities/Article';
@@ -15,6 +15,7 @@ import {
     fetchCommentsByArticleId,
 } from 'pages/ArticleDetailedPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { AddCommentForm } from 'features/AddCommentForm';
 import cls from './ArticleDetailedPage.module.scss';
 import {
     articleDetailedCommentsReducer,
@@ -24,6 +25,9 @@ import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
 } from '../model/selectors/comments';
+import {
+    addCommentForArticle,
+} from '../model/services/addCommentForArticle/addCommentForArticle';
 
 interface IArticlesDetailedPageProps {
     className?: string;
@@ -41,6 +45,10 @@ const ArticleDetailedPage = (props: IArticlesDetailedPageProps) => {
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const commentsError = useSelector(getArticleCommentsError);
+
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
 
     useMountEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -62,6 +70,7 @@ const ArticleDetailedPage = (props: IArticlesDetailedPageProps) => {
             >
                 <ArticleDetailed id={id} />
                 <Text title={t('Комментарии')} className={cls.commentTitle} />
+                <AddCommentForm onSubmit={onSendComment} />
                 {commentsError
                     ? <Text text={t('Ошибка загрузки комментариев')} />
                     : (

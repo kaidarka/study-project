@@ -73,7 +73,7 @@ export const Input = memo((props: IInputProps) => {
                     ref={ref}
                     className={cls.Input}
                     type={type}
-                    value={value}
+                    value={value || ''}
                     onChange={onChangeHandler}
                     onBlur={onBlur}
                     onFocus={onFocus}
