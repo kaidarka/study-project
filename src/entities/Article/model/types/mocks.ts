@@ -1,22 +1,20 @@
 /* eslint-disable max-len */
-import type { Meta, StoryObj } from '@storybook/react';
-import { IArticle } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
-import ArticlesDetailedPage from './ArticleDetailedPage';
+import { IArticle, ArticleBlockType, ArticleType } from './article';
 
-const article: IArticle = {
+export const article: IArticle = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
-    type: [ArticleType.IT],
     user: {
         id: '1',
+        avatar:
+            'https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740',
         username: 'Admin',
     },
+    type: [ArticleType.IT],
     blocks: [
         {
             id: '1',
@@ -76,25 +74,5 @@ const article: IArticle = {
                 'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
             ],
         },
-    ],
-};
-
-const meta: Meta<typeof ArticlesDetailedPage> = {
-    title: 'pages/ArticlesDetailedPage',
-    component: ArticlesDetailedPage,
-};
-
-export default meta;
-type Story = StoryObj<typeof ArticlesDetailedPage>;
-
-export const Normal: Story = {
-    args: {
-    },
-    decorators: [
-        (Story) => StoreDecorator({
-            articleDetailed: {
-                data: article,
-            },
-        })(Story),
     ],
 };

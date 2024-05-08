@@ -25,4 +25,36 @@
     --overlay-bg-color: rgb(0 0 0 / 60%);
     --red-light: #f22;
     --red-dark: #9d0c0c;
+
+    // GAP
+    --gap-s: 8px;
+    --gap-m: 16px;
+    --gap-l: 32px;
+}
+
+// BREAKPOINTS
+$bp-xs: 0;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
+// GRID
+@media screen and (min-width: $bp-xs) {
+    :root {
+        --grid-columns: 1;
+    }
+}
+
+@media screen and (min-width: $bp-lg) {
+    :root {
+        --grid-columns: 2;
+    }
+}
+
+@media screen and (min-width: $bp-xl) {
+    :root {
+        --grid-columns: 3;
+    }
 }

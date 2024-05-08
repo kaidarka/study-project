@@ -1,0 +1,8 @@
+.Card {
+    padding: 15px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m);
+}
