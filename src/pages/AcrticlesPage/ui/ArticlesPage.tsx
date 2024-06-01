@@ -8,8 +8,13 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Page } from 'shared/ui/Page/Page';
 import {
-    getArticlesPageIsLoading, getArticlesPageView,
+    fetchArticlesNextPage,
+} from '../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
+import {
+    getArticlesPageIsLoading,
+    getArticlesPageView,
 } from '../model/selectors/articlesPageSelector';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import {
@@ -35,9 +40,17 @@ const ArticlesPage = (props: IArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const view = useSelector(getArticlesPageView);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchArticlesNextPage());
+    }, [dispatch]);
+
     useMountEffect(() => {
-        dispatch(fetchArticlesList());
         dispatch(articlePageActions.initState());
+        dispatch(fetchArticlesList(
+            {
+                page: 1,
+            },
+        ));
     });
 
     const onChangeView = useCallback((view: ArticlesViews) => {
@@ -46,8 +59,9 @@ const ArticlesPage = (props: IArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div
+            <Page
                 className={classNames(cls.ArticlesPage, {}, [className])}
+                onScrollEnd={onLoadNextPart}
             >
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
                 <ArticleList
@@ -55,7 +69,7 @@ const ArticlesPage = (props: IArticlesPageProps) => {
                     view={view}
                     articles={articles}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

@@ -15,6 +15,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import {
     fetchCommentsByArticleId,
 } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -59,17 +60,17 @@ const ArticleDetailedPage = (props: IArticlesDetailedPageProps) => {
 
     if (!id) {
         return (
-            <div
+            <Page
                 className={classNames(cls.ArticlesDetailedPage, {}, [className])}
             >
                 {t('Такой статьи не существует')}
-            </div>
+            </Page>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div
+            <Page
                 className={classNames(cls.ArticlesDetailedPage, {}, [className])}
             >
                 <Button theme={ButtonTheme.OUTLINE} onClick={onClickBack}>
@@ -86,7 +87,7 @@ const ArticleDetailedPage = (props: IArticlesDetailedPageProps) => {
                             isLoading={commentsIsLoading}
                         />
                     )}
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

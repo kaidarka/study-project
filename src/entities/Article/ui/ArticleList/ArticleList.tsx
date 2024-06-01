@@ -17,21 +17,6 @@ export const ArticleList = memo((props: IArticleListProps) => {
         className, articles, isLoading, view = ArticlesViews.GRID,
     } = props;
 
-    if (isLoading) {
-        return (
-            <div
-                className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-            >
-                {
-                    new Array(view === ArticlesViews.GRID ? 9 : 3).fill(0).map((item, index) => (
-
-                        <ArticleListItemSkeleton view={view} key={index} />
-                    ))
-                }
-            </div>
-        );
-    }
-
     const renderArticle = (article: IArticle) => (
         <ArticleListItem article={article} view={view} key={article.id} />
     );
@@ -41,6 +26,11 @@ export const ArticleList = memo((props: IArticleListProps) => {
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
         >
             {articles.length > 0 ? articles.map(renderArticle) : null}
+            {isLoading && new Array(
+                view === ArticlesViews.GRID ? 9 : 3,
+            ).fill(0).map((item, index) => (
+                <ArticleListItemSkeleton view={view} key={index} />
+            ))}
         </div>
     );
 });
