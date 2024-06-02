@@ -8,7 +8,7 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import {
     fetchArticlesNextPage,
