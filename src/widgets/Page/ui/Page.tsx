@@ -28,7 +28,7 @@ export const Page = memo((props: IPageProps) => {
             className={classNames(cls.Page, {}, [className])}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </main>
     );
 });
