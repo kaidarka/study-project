@@ -3,20 +3,20 @@ import {
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
+import { ScrollSliceReducer } from 'widgets/Page';
 import { $api } from 'shared/api/api';
-import { To, NavigateOptions } from 'react-router';
+import { createReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
 
 export function createReduxStore(
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void,
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scroll: ScrollSliceReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -29,7 +29,6 @@ export function createReduxStore(
             thunk: {
                 extraArgument: {
                     api: $api,
-                    navigate,
                 },
             },
         }),

@@ -9,6 +9,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Page } from 'widgets/Page';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import {
     fetchArticlesNextPage,
 } from '../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
@@ -16,7 +17,6 @@ import {
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from '../model/selectors/articlesPageSelector';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import {
     articlePageActions,
     articlePageReducer,
@@ -45,12 +45,7 @@ const ArticlesPage = (props: IArticlesPageProps) => {
     }, [dispatch]);
 
     useMountEffect(() => {
-        dispatch(articlePageActions.initState());
-        dispatch(fetchArticlesList(
-            {
-                page: 1,
-            },
-        ));
+        dispatch(initArticlesPage());
     });
 
     const onChangeView = useCallback((view: ArticlesViews) => {
@@ -58,7 +53,7 @@ const ArticlesPage = (props: IArticlesPageProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 className={classNames(cls.ArticlesPage, {}, [className])}
                 onScrollEnd={onLoadNextPart}

@@ -6,15 +6,16 @@ import {
 } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { NavigateOptions, To } from 'react-router';
 import { ArticleDetailedSchema } from 'entities/Article';
 import { ArticleDetailedCommentsSchema } from 'pages/ArticleDetailedPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/AcrticlesPage';
+import { ScrollSchema } from 'widgets/Page';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scroll: ScrollSchema;
 
     // async reducers
     loginForm?: LoginSchema;
@@ -40,7 +41,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
 export interface ThunkConfig<T> {
