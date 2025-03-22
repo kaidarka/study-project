@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ArticlesViews } from 'entities/Article';
 import { ScrollSchema } from '../types/ScrollSchema';
 
 const initialState: ScrollSchema = {
