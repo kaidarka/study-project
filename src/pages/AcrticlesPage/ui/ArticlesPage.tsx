@@ -9,6 +9,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Page } from 'widgets/Page';
+import { ArticlesPageFilters } from 'pages/AcrticlesPage/ui/Filters/ArticlesPageFilters';
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import {
     fetchArticlesNextPage,
@@ -18,7 +19,6 @@ import {
     getArticlesPageView,
 } from '../model/selectors/articlesPageSelector';
 import {
-    articlePageActions,
     articlePageReducer,
     getArticles,
 } from '../model/slices/articlePageSlice';
@@ -48,21 +48,18 @@ const ArticlesPage = (props: IArticlesPageProps) => {
         dispatch(initArticlesPage());
     });
 
-    const onChangeView = useCallback((view: ArticlesViews) => {
-        dispatch(articlePageActions.setView(view));
-    }, [dispatch]);
-
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 className={classNames(cls.ArticlesPage, {}, [className])}
                 onScrollEnd={onLoadNextPart}
             >
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticlesPageFilters />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
                     articles={articles}
+                    className={cls.list}
                 />
             </Page>
         </DynamicModuleLoader>
