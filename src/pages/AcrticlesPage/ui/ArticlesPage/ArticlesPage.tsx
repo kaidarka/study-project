@@ -50,7 +50,6 @@ const ArticlesPage = (props: IArticlesPageProps) => {
         dispatch(initArticlesPage(searchParams));
     });
 
-
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
