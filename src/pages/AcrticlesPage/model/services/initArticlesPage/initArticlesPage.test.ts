@@ -21,7 +21,7 @@ describe('initArticlesPAge.test', () => {
             },
         });
 
-        await thunk.callThunk();
+        await thunk.callThunk(new URLSearchParams());
 
         expect(thunk.dispatch)
             .toBeCalled();
@@ -41,7 +41,7 @@ describe('initArticlesPAge.test', () => {
             },
         });
 
-        await thunk.callThunk();
+        await thunk.callThunk(new URLSearchParams());
 
         expect(thunk.dispatch)
             .toBeCalled();

@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text } from 'shared/ui/Text/Text';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticlesViews, IArticle } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
@@ -20,6 +21,16 @@ export const ArticleList = memo((props: IArticleListProps) => {
     const renderArticle = (article: IArticle) => (
         <ArticleListItem article={article} view={view} key={article.id} />
     );
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div
+                className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            >
+                <Text text="Статьи не найдены" />
+            </div>
+        );
+    }
 
     return (
         <div
