@@ -20,11 +20,7 @@ export const fetchArticlesNextPage = createAsyncThunk<
         const page = getArticlesPageNum(getState());
         const isLoading = getArticlesPageIsLoading(getState());
         if (hasMore && !isLoading) {
-            dispatch(fetchArticlesList(
-                {
-                    page: page + 1,
-                },
-            ));
+            dispatch(fetchArticlesList({}));
 
             dispatch(articlePageActions.setPage(page + 1));
         }

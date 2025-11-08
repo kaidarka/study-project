@@ -1,0 +1,8 @@
+.Tab {
+    cursor: pointer;
+}
+
+.active {
+    background: var(--inverted-bg-color);
+    color: var(--inverted-secondary-color);
+}

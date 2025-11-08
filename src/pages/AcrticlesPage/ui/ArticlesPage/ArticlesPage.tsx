@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { ArticleList, ArticlesViews, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -9,19 +9,20 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Page } from 'widgets/Page';
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from 'pages/AcrticlesPage/ui/Filters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     fetchArticlesNextPage,
-} from '../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
+} from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
 import {
     getArticlesPageIsLoading,
     getArticlesPageView,
-} from '../model/selectors/articlesPageSelector';
+} from '../../model/selectors/articlesPageSelector';
 import {
-    articlePageActions,
     articlePageReducer,
     getArticles,
-} from '../model/slices/articlePageSlice';
+} from '../../model/slices/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
 
 interface IArticlesPageProps {
@@ -34,6 +35,7 @@ const reducers: ReducersList = {
 
 const ArticlesPage = (props: IArticlesPageProps) => {
     const { className } = props;
+    const [searchParams] = useSearchParams();
     const dispatch = useAppDispatch();
 
     const articles = useSelector(getArticles.selectAll);
@@ -45,12 +47,8 @@ const ArticlesPage = (props: IArticlesPageProps) => {
     }, [dispatch]);
 
     useMountEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
-
-    const onChangeView = useCallback((view: ArticlesViews) => {
-        dispatch(articlePageActions.setView(view));
-    }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
@@ -58,11 +56,12 @@ const ArticlesPage = (props: IArticlesPageProps) => {
                 className={classNames(cls.ArticlesPage, {}, [className])}
                 onScrollEnd={onLoadNextPart}
             >
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticlesPageFilters />
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
                     articles={articles}
+                    className={cls.list}
                 />
             </Page>
         </DynamicModuleLoader>

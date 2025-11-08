@@ -1,7 +1,10 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticlesViews, IArticle } from 'entities/Article';
+import {
+    ArticlesViews, IArticle, ArticleSortField, ArticleType,
+} from 'entities/Article';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
@@ -24,6 +27,11 @@ const articlePageSlice = createSlice({
         page: 1,
         hasMore: true,
         _inited: false,
+        limit: 9,
+        sort: ArticleSortField.CREATED,
+        search: '',
+        order: 'asc',
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticlesViews>) => {
@@ -32,6 +40,18 @@ const articlePageSlice = createSlice({
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
+        },
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
+            state.order = action.payload;
+        },
+        setSort: (state, action: PayloadAction<ArticleSortField>) => {
+            state.sort = action.payload;
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload;
+        },
+        setType: (state, action: PayloadAction<ArticleType>) => {
+            state.type = action.payload;
         },
         initState: (state) => {
             const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticlesViews;
@@ -42,18 +62,24 @@ const articlePageSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchArticlesList.pending, (state) => {
+            .addCase(fetchArticlesList.pending, (state, action) => {
                 state.error = undefined;
                 state.isLoading = true;
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.removeAll(state);
+                }
             })
-            .addCase(
-                fetchArticlesList.fulfilled,
-                (state, action: PayloadAction<IArticle[]>) => {
-                    state.isLoading = false;
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.hasMore = action.payload.length >= (state.limit || 0);
+
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
+                } else {
                     articlesAdapter.addMany(state, action.payload);
-                    state.hasMore = action.payload.length > 0;
-                },
-            )
+                }
+            })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
@@ -61,7 +87,4 @@ const articlePageSlice = createSlice({
     },
 });
 
-export const {
-    reducer: articlePageReducer,
-    actions: articlePageActions,
-} = articlePageSlice;
+export const { reducer: articlePageReducer, actions: articlePageActions } = articlePageSlice;

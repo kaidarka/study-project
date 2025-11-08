@@ -24,7 +24,7 @@ describe('fetchArticlesNextPage.test', () => {
 
         expect(thunk.dispatch)
             .toBeCalledTimes(4);
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+        expect(fetchArticlesList).toHaveBeenCalled();
     });
 
     test('fetchArticleList not called', async () => {
@@ -43,7 +43,7 @@ describe('fetchArticlesNextPage.test', () => {
 
         expect(thunk.dispatch)
             .toBeCalledTimes(2);
-        expect(fetchArticlesList).not.toHaveBeenCalledWith({ page: 3 });
+        expect(fetchArticlesList).not.toHaveBeenCalled();
     });
 
     test('fetchArticleList not called with is loading', async () => {
@@ -62,6 +62,6 @@ describe('fetchArticlesNextPage.test', () => {
 
         expect(thunk.dispatch)
             .toBeCalledTimes(2);
-        expect(fetchArticlesList).not.toHaveBeenCalledWith({ page: 3 });
+        expect(fetchArticlesList).not.toHaveBeenCalled();
     });
 });
