@@ -48,7 +48,7 @@ export interface IArticleTextBlock extends IArticleBlockBase {
 
 export type TArticleBlock = IArticleCodeBlock | IArticleImageBlock | IArticleTextBlock;
 
-export interface IArticle {
+export interface Article {
     id: string;
     title: string;
     subtitle: string;
@@ -59,3 +59,6 @@ export interface IArticle {
     blocks: TArticleBlock[]
     type: ArticleType[],
 }
+
+/** @deprecated use Article instead */
+export type IArticle = Article

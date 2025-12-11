@@ -1,7 +1,8 @@
 export { ArticlesViews, ArticleSortField } from './model/types/article';
 export { getArticleDetailedData } from './model/selectors/articleDetailed';
 export { ArticleDetailedSchema } from './model/types/articleDetailedSchema';
-export { IArticle, ArticleType } from './model/types/article';
+
+export { Article, ArticleType, IArticle } from './model/types/article';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleDetailed } from './ui/ArticleDetailed/ArticleDetailed';

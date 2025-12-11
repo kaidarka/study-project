@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetailed } from 'entities/Article';
+import { ArticleDetailed, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
@@ -21,18 +21,27 @@ import {
 } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleDetailedPage.module.scss';
 import {
-    articleDetailedCommentsReducer,
     getArticleComments,
 } from '../model/slices/articleDetailedCommentsSlice';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../model/selectors/comments';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
+import {
+    getArticleRecommendations,
+} from '../model/slices/articleDetailedRecommendationsSlice';
+import {
+    getArticleRecommendationsIsLoading,
+} from '../model/selectors/recommendations';
+import {
+    fetchArticlesRecommendations,
+} from '../model/services/fetchArticlesRecommendations/fetchArticlesRecommendations';
+import { articleDetailedPageReducer } from '../model/slices';
 
 interface IArticlesDetailedPageProps {
     className?: string;
 }
 
 const reducers: ReducersList = {
-    articleDetailedComments: articleDetailedCommentsReducer,
+    articleDetailedPage: articleDetailedPageReducer,
 };
 
 const ArticleDetailedPage = (props: IArticlesDetailedPageProps) => {
@@ -44,12 +53,16 @@ const ArticleDetailedPage = (props: IArticlesDetailedPageProps) => {
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const commentsError = useSelector(getArticleCommentsError);
 
+    const recommendations = useSelector(getArticleRecommendations.selectAll);
+    const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
+
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
 
     useMountEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchArticlesRecommendations());
     });
 
     const navigate = useNavigate();
@@ -77,6 +90,13 @@ const ArticleDetailedPage = (props: IArticlesDetailedPageProps) => {
                     {t('Назад к списку')}
                 </Button>
                 <ArticleDetailed id={id} />
+                <Text title={t('Рекомендуемые статьи')} className={cls.commentTitle} />
+                <ArticleList
+                    articles={recommendations}
+                    isLoading={recommendationsIsLoading}
+                    className={cls.recommendations}
+                    target="_blank"
+                />
                 <Text title={t('Комментарии')} className={cls.commentTitle} />
                 <AddCommentForm onSubmit={onSendComment} />
                 {commentsError

@@ -1,8 +1,9 @@
 {
   "ArticlesDetailedPage": "ArticlesDetailedPage",
   "ArticlesPage": "ArticlesPage",
-  "Комментарии": "Комментарии",
-  "Назад к списку": "Назад к списку",
-  "Ошибка загрузки комментариев": "Ошибка загрузки комментариев",
-  "Такой статьи не существует": "Такой статьи не существует"
+  "Комментарии": "Comments",
+  "Назад к списку": "Back to the list",
+  "Ошибка загрузки комментариев": "Error loading comments",
+  "Рекомендуемые статьи": "Recommended articles",
+  "Такой статьи не существует": "This article does not exist"
 }

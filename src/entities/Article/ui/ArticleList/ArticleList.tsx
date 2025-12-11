@@ -1,25 +1,27 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-import { ArticlesViews, IArticle } from '../../model/types/article';
+import { ArticlesViews, Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 
-interface IArticleListProps {
+interface ArticleListProps {
     className?: string;
-    articles: IArticle[];
+    articles: Article[];
     isLoading?: boolean;
     view?: ArticlesViews
+    target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleList = memo((props: IArticleListProps) => {
+export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className, articles, isLoading, view = ArticlesViews.GRID,
+        target,
     } = props;
 
-    const renderArticle = (article: IArticle) => (
-        <ArticleListItem article={article} view={view} key={article.id} />
+    const renderArticle = (article: Article) => (
+        <ArticleListItem article={article} view={view} key={article.id} target={target} />
     );
 
     if (!isLoading && !articles.length) {
