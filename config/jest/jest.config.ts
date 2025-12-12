@@ -39,6 +39,12 @@ export default {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '^entities/(.*)$': '<rootDir>src/entities/$1',
+        '^features/(.*)$': '<rootDir>src/features/$1',
+        '^shared/(.*)$': '<rootDir>src/shared/$1',
+        '^app/(.*)$': '<rootDir>src/app/$1',
+        '^widgets/(.*)$': '<rootDir>src/widgets/$1',
+        '^pages/(.*)$': '<rootDir>src/pages/$1',
     },
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
