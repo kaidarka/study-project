@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { Text } from 'shared/ui/Text/Text';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
@@ -23,7 +23,7 @@ export const Dark: Story = {
         children: <Text text="text" title="TITLE" />,
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.DARK)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     ],
 };
 
@@ -32,6 +32,6 @@ export const Red: Story = {
         children: <Text text="text" title="TITLE" />,
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.RED)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.RED)(Story),
     ],
 };

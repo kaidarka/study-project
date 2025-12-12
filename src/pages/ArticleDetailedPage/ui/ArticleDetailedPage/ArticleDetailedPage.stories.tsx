@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { IArticle } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
@@ -91,7 +91,7 @@ export const Normal: Story = {
     args: {
     },
     decorators: [
-        (Story) => StoreDecorator({
+        (Story: StoryFn) => StoreDecorator({
             articleDetailed: {
                 data: article,
             },

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
@@ -33,7 +33,7 @@ export const PrimaryDark: Story = {
         children: 'Text',
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.DARK)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     ],
 };
 
@@ -43,6 +43,6 @@ export const SecondaryDark: Story = {
         theme: AppLinkTheme.SECONDARY,
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.DARK)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     ],
 };

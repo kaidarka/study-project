@@ -2,5 +2,7 @@ export { ArticleDetailedCommentsSchema } from './model/types/ArticleDetailedComm
 export {
     ArticleDetailedRecommendationsSchema,
 } from './model/types/ArticleDetailedRecommendationsSchema';
-export { ArticleDetailedPageAsync as ArticlesDetailedPage } from './ui/ArticleDetailedPage.async';
+export {
+    ArticleDetailedPageAsync as ArticlesDetailedPage,
+} from './ui/ArticleDetailedPage/ArticleDetailedPage.async';
 export { ArticleDetailedPageSchema } from './model/types';

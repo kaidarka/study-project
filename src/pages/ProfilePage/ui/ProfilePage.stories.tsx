@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
@@ -11,7 +11,7 @@ const meta: Meta<typeof ProfilePage> = {
     title: 'pages/ProfilePage',
     component: ProfilePage,
     decorators: [
-        (Story) => StoreDecorator({
+        (Story: StoryFn) => StoreDecorator({
             profile: {
                 form: {
                     username: 'asd',
@@ -38,6 +38,6 @@ export const Dark: Story = {
     args: {
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.DARK)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     ],
 };

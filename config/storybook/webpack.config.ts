@@ -12,6 +12,14 @@ export default ({ config }: {config: webpack.Configuration}) => {
     };
     config.resolve!.modules!.push(paths.src);
     config.resolve!.extensions!.push('.ts', '.tsx');
+    
+    // Убеждаемся, что node_modules разрешается правильно
+    if (!config.resolve!.modules) {
+        config.resolve!.modules = ['node_modules'];
+    }
+    if (Array.isArray(config.resolve!.modules)) {
+        config.resolve!.modules.push('node_modules');
+    }
 
     // @ts-ignore
     config.module!.rules = config.module!.rules!.map((rule: webpack.RuleSetRule) => {

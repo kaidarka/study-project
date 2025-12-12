@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
@@ -53,6 +53,6 @@ export const Dark: Story = {
             + 'Corporis dicta eos quibusdam.',
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.DARK)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     ],
 };

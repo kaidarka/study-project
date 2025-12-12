@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Skeleton } from './Skeleton';
@@ -23,7 +23,7 @@ export const NormalDark: Story = {
         height: 200,
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.DARK)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     ],
 };
 export const NormalRed: Story = {
@@ -32,7 +32,7 @@ export const NormalRed: Story = {
         height: 200,
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.RED)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.RED)(Story),
     ],
 };
 
@@ -51,7 +51,7 @@ export const CircleDark: Story = {
         height: 100,
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.DARK)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     ],
 };
 
@@ -62,6 +62,6 @@ export const CircleRed: Story = {
         height: 100,
     },
     decorators: [
-        (Story) => ThemeDecorator(Theme.RED)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.RED)(Story),
     ],
 };

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
 import { article } from '../../model/types/mocks';
 import { ArticleDetailed } from './ArticleDetailed';
@@ -14,7 +14,7 @@ type Story = StoryObj<typeof ArticleDetailed>;
 export const Normal: Story = {
     args: {},
     decorators: [
-        (Story) => StoreDecorator({
+        (Story: StoryFn) => StoreDecorator({
             articleDetailed: {
                 data: article,
             },
@@ -25,7 +25,7 @@ export const Normal: Story = {
 export const Loading: Story = {
     args: {},
     decorators: [
-        (Story) => StoreDecorator({
+        (Story: StoryFn) => StoreDecorator({
             articleDetailed: {
                 isLoading: true,
             },
@@ -36,7 +36,7 @@ export const Loading: Story = {
 export const Error: Story = {
     args: {},
     decorators: [
-        (Story) => StoreDecorator({
+        (Story: StoryFn) => StoreDecorator({
             articleDetailed: {
                 error: 'some error',
             },

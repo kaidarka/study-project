@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview, StoryFn } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storyBook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storyBook/RouterDecorator/RouterDecorator';
@@ -15,9 +15,9 @@ const preview: Preview = {
         },
     },
     decorators: [
-        (Story) => StyleDecorator(Story),
-        (Story) => ThemeDecorator(Theme.LIGHT)(Story),
-        (Story) => RouterDecorator(Story),
+        (Story: StoryFn) => StyleDecorator(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.LIGHT)(Story),
+        (Story: StoryFn) => RouterDecorator(Story),
     ],
 };
 

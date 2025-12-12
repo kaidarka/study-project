@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Code } from './Code';
@@ -34,13 +34,13 @@ export const Normal: Story = {
 export const Dark: Story = {
     args: {},
     decorators: [
-        (Story) => ThemeDecorator(Theme.DARK)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
     ],
 };
 
 export const Red: Story = {
     args: {},
     decorators: [
-        (Story) => ThemeDecorator(Theme.RED)(Story),
+        (Story: StoryFn) => ThemeDecorator(Theme.RED)(Story),
     ],
 };

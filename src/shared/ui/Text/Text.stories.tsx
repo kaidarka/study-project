@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Text, TextSize, TextTheme } from './Text';
@@ -39,7 +39,7 @@ export const OnlyText: Story = {
 };
 
 export const PrimaryDark: Story = {
-    decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
     args: {
         title: 'Title',
         text: 'Text',
@@ -47,14 +47,14 @@ export const PrimaryDark: Story = {
 };
 
 export const OnlyTitleDark: Story = {
-    decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
     args: {
         title: 'Title',
     },
 };
 
 export const OnlyTextDark: Story = {
-    decorators: [(Story) => ThemeDecorator(Theme.DARK)(Story)],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
     args: {
         text: 'Text',
     },

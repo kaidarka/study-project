@@ -18,23 +18,28 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page';
 import {
     fetchCommentsByArticleId,
-} from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleDetailedPage.module.scss';
 import {
     getArticleComments,
-} from '../model/slices/articleDetailedCommentsSlice';
-import { getArticleCommentsError, getArticleCommentsIsLoading } from '../model/selectors/comments';
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
+} from '../../model/slices/articleDetailedCommentsSlice';
+import {
+    getArticleCommentsError,
+    getArticleCommentsIsLoading,
+} from '../../model/selectors/comments';
+import {
+    addCommentForArticle,
+} from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
     getArticleRecommendations,
-} from '../model/slices/articleDetailedRecommendationsSlice';
+} from '../../model/slices/articleDetailedRecommendationsSlice';
 import {
     getArticleRecommendationsIsLoading,
-} from '../model/selectors/recommendations';
+} from '../../model/selectors/recommendations';
 import {
     fetchArticlesRecommendations,
-} from '../model/services/fetchArticlesRecommendations/fetchArticlesRecommendations';
-import { articleDetailedPageReducer } from '../model/slices';
+} from '../../model/services/fetchArticlesRecommendations/fetchArticlesRecommendations';
+import { articleDetailedPageReducer } from '../../model/slices';
 
 interface IArticlesDetailedPageProps {
     className?: string;

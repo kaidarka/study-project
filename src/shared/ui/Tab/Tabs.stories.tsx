@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { Tabs } from './Tabs';
 
 const meta: Meta<typeof Tabs> = {
@@ -22,7 +21,6 @@ export const Primary: Story = {
             },
         ],
         value: 'tab1',
-        onTabClick: action('onTabClick'),
     },
 };
 
