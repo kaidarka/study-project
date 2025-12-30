@@ -3,6 +3,6 @@ export {
     ArticleDetailedRecommendationsSchema,
 } from './model/types/ArticleDetailedRecommendationsSchema';
 export {
-    ArticleDetailedPageAsync as ArticlesDetailedPage,
+    ArticleDetailedPageAsync as ArticleDetailedPage,
 } from './ui/ArticleDetailedPage/ArticleDetailedPage.async';
 export { ArticleDetailedPageSchema } from './model/types';

@@ -22,7 +22,8 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "plop": "cross-env NODE_OPTIONS='--import tsx' plop --plopfile=plopfile.ts"
   },
   "keywords": [],
   "author": "",
@@ -54,6 +55,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.3",
     "babel-plugin-i18next-extract": "^0.8.3",
+    "cross-env": "^10.1.0",
     "css-loader": "^6.8.1",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -86,6 +88,7 @@
     "stylelint-config-standard-scss": "^9.0.0",
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "webpack": "^5.103.0",
     "webpack-bundle-analyzer": "^4.9.0",

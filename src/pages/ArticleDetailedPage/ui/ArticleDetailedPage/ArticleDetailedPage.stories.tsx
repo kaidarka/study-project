@@ -3,7 +3,7 @@ import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { IArticle } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
-import ArticlesDetailedPage from './ArticleDetailedPage';
+import ArticleDetailedPage from './ArticleDetailedPage';
 
 const article: IArticle = {
     id: '1',
@@ -79,13 +79,13 @@ const article: IArticle = {
     ],
 };
 
-const meta: Meta<typeof ArticlesDetailedPage> = {
-    title: 'pages/ArticlesDetailedPage',
-    component: ArticlesDetailedPage,
+const meta: Meta<typeof ArticleDetailedPage> = {
+    title: 'pages/ArticleDetailedPage',
+    component: ArticleDetailedPage,
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticlesDetailedPage>;
+type Story = StoryObj<typeof ArticleDetailedPage>;
 
 export const Normal: Story = {
     args: {
