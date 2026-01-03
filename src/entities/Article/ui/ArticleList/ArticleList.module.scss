@@ -5,11 +5,11 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
-    gap: var(--gap-l)
+    gap: var(--gap-lg)
 }
 
 .list {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-l);
+    gap: var(--gap-lg);
 }

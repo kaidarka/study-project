@@ -29,13 +29,8 @@
 }
 
 .items {
-    margin: 20px 0 0 30px;
-    display: flex;
-    flex-direction: column;
+    padding-left: 10px;
 }
-
-
-
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
