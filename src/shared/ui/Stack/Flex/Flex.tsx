@@ -1,5 +1,5 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { ReactNode } from 'react';
+import { DetailedHTMLProps, ReactNode } from 'react';
 import cls from './Flex.module.scss';
 
 export const FlexAlignItems = {
@@ -60,7 +60,9 @@ const gapClasses: Record<FlexGapType, string> = {
     lg: cls.gapLg,
 };
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+
+export interface FlexProps extends DivProps {
     className?: string;
     children: ReactNode;
     alignItems?: FlexAlignItemsType;

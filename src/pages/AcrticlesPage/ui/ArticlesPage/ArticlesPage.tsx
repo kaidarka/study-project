@@ -11,6 +11,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Page } from 'widgets/Page';
 import { ArticlesPageFilters } from 'pages/AcrticlesPage/ui/Filters/ArticlesPageFilters';
 import { useSearchParams } from 'react-router-dom';
+import { VStack } from 'shared/ui/Stack';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     fetchArticlesNextPage,
@@ -23,7 +24,6 @@ import {
     articlePageReducer,
     getArticles,
 } from '../../model/slices/articlePageSlice';
-import cls from './ArticlesPage.module.scss';
 
 interface IArticlesPageProps {
     className?: string;
@@ -53,16 +53,17 @@ const ArticlesPage = (props: IArticlesPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
-                className={classNames(cls.ArticlesPage, {}, [className])}
+                className={classNames('', {}, [className])}
                 onScrollEnd={onLoadNextPart}
             >
-                <ArticlesPageFilters />
-                <ArticleList
-                    isLoading={isLoading}
-                    view={view}
-                    articles={articles}
-                    className={cls.list}
-                />
+                <VStack gap="md" max>
+                    <ArticlesPageFilters />
+                    <ArticleList
+                        isLoading={isLoading}
+                        view={view}
+                        articles={articles}
+                    />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     );

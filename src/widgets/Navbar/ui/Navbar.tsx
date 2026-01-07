@@ -57,7 +57,6 @@ export const Navbar = memo((props: INavbarProps) => {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
                 onClick={onShowModal}

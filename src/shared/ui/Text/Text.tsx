@@ -20,6 +20,12 @@ export enum TextSize {
     L = 'sizeL',
 }
 
+const mapSizeToHeaderTag: Record<TextSize, React.ElementType> = {
+    [TextSize.S]: 'h3',
+    [TextSize.M]: 'h2',
+    [TextSize.L]: 'h1',
+};
+
 interface ITextProps {
     className?: string;
     title?: string;
@@ -37,6 +43,9 @@ export const Text = memo((props: ITextProps) => {
         align = TextAlign.LEFT,
         size = TextSize.M,
     } = props;
+
+    const HeaderTag = mapSizeToHeaderTag[size];
+
     return (
         <div
             className={classNames(
@@ -45,7 +54,7 @@ export const Text = memo((props: ITextProps) => {
                 [className, cls[theme], cls[align], cls[size]],
             )}
         >
-            {title && (<p className={cls.title}>{title}</p>)}
+            {title && (<HeaderTag className={cls.title}>{title}</HeaderTag>)}
             {text && (<p className={cls.text}>{text}</p>)}
         </div>
     );
