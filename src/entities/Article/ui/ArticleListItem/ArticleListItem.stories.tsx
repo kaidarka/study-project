@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { ArticlesViews } from 'entities/Article';
 import { ArticleListItem } from './ArticleListItem';
 import { article } from '../../model/types/mocks';
