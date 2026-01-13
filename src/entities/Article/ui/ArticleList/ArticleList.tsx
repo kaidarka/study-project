@@ -24,7 +24,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <ArticleListItem article={article} view={view} key={article.id} target={target} />
     );
 
-    if (!isLoading && !articles.length) {
+    if (!isLoading && !articles?.length) {
         return (
             <div
                 className={classNames(cls.ArticleList, {}, [className, cls[view]])}
@@ -38,7 +38,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <div
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
         >
-            {articles.length > 0 ? articles.map(renderArticle) : null}
+            {articles?.length > 0 ? articles.map(renderArticle) : null}
             {isLoading && new Array(
                 view === ArticlesViews.GRID ? 9 : 3,
             ).fill(0).map((item, index) => (

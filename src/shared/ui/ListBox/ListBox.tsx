@@ -1,31 +1,54 @@
 import {
     Listbox as HeadlessListbox, ListboxButton, ListboxOption, ListboxOptions,
 } from '@headlessui/react';
-import { useState } from 'react';
+import { Fragment, ReactNode } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/ui/Button/Button';
 import cls from './ListBox.module.scss';
 
-const people = [
-    { id: 1, name: 'Durward Reynolds' },
-    { id: 2, name: 'Kenton Towne' },
-    { id: 3, name: 'Therese Wunsch' },
-    { id: 4, name: 'Benedict Kessler' },
-    { id: 5, name: 'Katelyn Rohan' },
-];
+export interface ListBoxItem {
+    value: string;
+    content: ReactNode;
+}
 
-export const ListBox = () => {
-    const [selectedPerson, setSelectedPerson] = useState(people[0]);
+interface ListBoxProps {
+    items: ListBoxItem[];
+    className?: string;
+    value?: string;
+    onChange?: (value: string) => void;
+    placeholder?: string;
+}
+
+export const ListBox = (props: ListBoxProps) => {
+    const {
+        items, value, className, onChange, placeholder = 'Select...',
+    } = props;
 
     return (
-        <HeadlessListbox value={selectedPerson} onChange={setSelectedPerson}>
-            <ListboxButton>{selectedPerson.name}</ListboxButton>
-            <ListboxOptions anchor="bottom">
-                {people.map((person) => (
+        <HeadlessListbox
+            as="div"
+            className={classNames(cls.ListBox, {}, [className])}
+            value={value}
+            onChange={onChange}
+        >
+            <ListboxButton className={cls.button}>
+                <Button>
+                    {value ? items.find((item) => item.value === value)?.content : placeholder}
+                </Button>
+            </ListboxButton>
+            <ListboxOptions anchor="bottom" className={cls.options}>
+                {items.map((person) => (
                     <ListboxOption
-                        key={person.id}
+                        key={person.value}
                         value={person}
-                        className={cls.option}
+                        as={Fragment}
                     >
-                        {person.name}
+                        {({ focus, selected }) => (
+                            <li className={classNames(cls.item, { [cls.active]: focus })}>
+                                {selected && '!'}
+                                {person.content}
+                            </li>
+                        )}
                     </ListboxOption>
                 ))}
             </ListboxOptions>

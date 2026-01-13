@@ -1,5 +1,5 @@
 :root {
-    --font-family-main: consolas, 'Times New Roman', serif;
+    --font-family-main: Consolas, monaco, monospace;
     --font-size-s: 14px;
     --font-line-s: 22px;
     --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
@@ -31,6 +31,12 @@
     --gap-sm: 8px;
     --gap-md: 16px;
     --gap-lg: 32px;
+
+    // PADDING
+    --padding-xs: 4px;
+    --padding-sm: 8px;
+    --padding-md: 16px;
+    --padding-lg: 24px;
 }
 
 // BREAKPOINTS
