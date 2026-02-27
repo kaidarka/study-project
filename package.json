@@ -91,7 +91,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
-    "@reduxjs/toolkit": "^1.9.5",
+    "@reduxjs/toolkit": "^1.9.7",
     "axios": "1.13.2",
     "concurrently": "^8.2.2",
     "i18next": "23.2.3",

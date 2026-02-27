@@ -1,6 +1,4 @@
-import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { ArticleList } from 'entities/Article';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -17,13 +15,9 @@ import {
     fetchArticlesNextPage,
 } from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
 import {
-    getArticlesPageIsLoading,
-    getArticlesPageView,
-} from '../../model/selectors/articlesPageSelector';
-import {
     articlePageReducer,
-    getArticles,
 } from '../../model/slices/articlePageSlice';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
 interface IArticlesPageProps {
     className?: string;
@@ -37,10 +31,6 @@ const ArticlesPage = (props: IArticlesPageProps) => {
     const { className } = props;
     const [searchParams] = useSearchParams();
     const dispatch = useAppDispatch();
-
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlesPageIsLoading);
-    const view = useSelector(getArticlesPageView);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchArticlesNextPage());
@@ -58,11 +48,7 @@ const ArticlesPage = (props: IArticlesPageProps) => {
             >
                 <VStack gap="md" max>
                     <ArticlesPageFilters />
-                    <ArticleList
-                        isLoading={isLoading}
-                        view={view}
-                        articles={articles}
-                    />
+                    <ArticleInfiniteList />
                 </VStack>
             </Page>
         </DynamicModuleLoader>

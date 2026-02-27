@@ -2,25 +2,25 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import cls from './Text.module.scss';
 
-export enum TextTheme {
-    PRIMARY = 'primary',
-    INVERTED = 'inverted',
-    ERROR = 'error',
-}
+export const TextTheme = {
+    PRIMARY: 'primary',
+    INVERTED: 'inverted',
+    ERROR: 'error',
+} as const;
 
-export enum TextAlign {
-    RIGHT = 'right',
-    LEFT = 'left',
-    CENTER = 'center'
-}
+export const TextAlign = {
+    RIGHT: 'right',
+    LEFT: 'left',
+    CENTER: 'center',
+} as const;
 
-export enum TextSize {
-    S = 'sizeS',
-    M = 'sizeM',
-    L = 'sizeL',
-}
+export const TextSize = {
+    S: 'sizeS',
+    M: 'sizeM',
+    L: 'sizeL',
+} as const;
 
-const mapSizeToHeaderTag: Record<TextSize, React.ElementType> = {
+const mapSizeToHeaderTag: Record<typeof TextSize[keyof typeof TextSize], React.ElementType> = {
     [TextSize.S]: 'h3',
     [TextSize.M]: 'h2',
     [TextSize.L]: 'h1',
@@ -30,9 +30,9 @@ interface ITextProps {
     className?: string;
     title?: string;
     text?: string;
-    theme?: TextTheme;
-    align?: TextAlign;
-    size?: TextSize
+    theme?: typeof TextTheme[keyof typeof TextTheme];
+    align?: typeof TextAlign[keyof typeof TextAlign];
+    size?: typeof TextSize[keyof typeof TextSize];
 }
 
 export const Text = memo((props: ITextProps) => {
