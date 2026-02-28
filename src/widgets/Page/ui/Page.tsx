@@ -1,5 +1,5 @@
 import {
-    memo, MutableRefObject, ReactNode, UIEventHandler, useRef,
+    memo, ReactNode, UIEventHandler, useRef,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInfinityScroll } from 'shared/lib/hooks/useInfinityScroll';
@@ -21,8 +21,8 @@ interface IPageProps {
 
 export const Page = memo((props: IPageProps) => {
     const { className, children, onScrollEnd } = props;
-    const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
-    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const wrapperRef = useRef<HTMLElement | null>(null);
+    const triggerRef = useRef<HTMLDivElement | null>(null);
     const { pathname } = useLocation();
     const dispatch = useAppDispatch();
     const scrollPosition = useSelector((state: StateSchema) => getScrollByPath(state, pathname));
@@ -34,7 +34,9 @@ export const Page = memo((props: IPageProps) => {
     });
 
     useMountEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition;
+        if (wrapperRef.current) {
+            wrapperRef.current.scrollTop = scrollPosition;
+        }
     });
 
     const onScroll: UIEventHandler<HTMLElement> = useThrottle((e) => {

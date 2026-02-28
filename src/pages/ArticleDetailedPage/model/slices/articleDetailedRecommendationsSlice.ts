@@ -1,7 +1,4 @@
-import {
-    PayloadAction,
-    createEntityAdapter, createSlice,
-} from '@reduxjs/toolkit';
+import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
 import {
@@ -11,7 +8,7 @@ import {
     fetchArticlesRecommendations,
 } from '../services/fetchArticlesRecommendations/fetchArticlesRecommendations';
 
-const recommendationsAdapter = createEntityAdapter<Article>({
+const recommendationsAdapter = createEntityAdapter<Article, string>({
     selectId: (article) => article.id,
 });
 
@@ -21,14 +18,14 @@ export const getArticleRecommendations = recommendationsAdapter.getSelectors<Sta
     ),
 );
 
+const initialState: ArticleDetailedRecommendationsSchema = recommendationsAdapter.getInitialState({
+    isLoading: false,
+    error: undefined,
+});
+
 const articleDetailedRecommendationsSlice = createSlice({
     name: 'articleDetailedRecommendationsSlice',
-    initialState: recommendationsAdapter.getInitialState<ArticleDetailedRecommendationsSchema>({
-        isLoading: false,
-        error: undefined,
-        ids: [],
-        entities: {},
-    }),
+    initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -45,7 +42,7 @@ const articleDetailedRecommendationsSlice = createSlice({
             )
             .addCase(fetchArticlesRecommendations.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.error = action.payload ?? '';
             });
     },
 });

@@ -5,7 +5,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useMemo } from 'react';
 
 interface RequireAuthProps {
-    children: JSX.Element;
+    children: React.ReactNode;
     roles?: UserRoleType[];
 }
 

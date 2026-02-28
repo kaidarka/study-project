@@ -1,4 +1,4 @@
-import type { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { Dropdown, DropdownAnchor } from './Dropdown';
 import { Button } from '../Button/Button';
 
@@ -6,12 +6,12 @@ const meta: Meta<typeof Dropdown> = {
     title: 'shared/Dropdown',
     component: Dropdown,
     decorators: [
-        (Story: StoryFn) => (
+        (Story) => (
             <div style={{
                 display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh',
             }}
             >
-                <Story />
+                {Story()}
             </div>
         ),
     ],

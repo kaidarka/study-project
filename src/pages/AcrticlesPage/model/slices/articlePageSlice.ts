@@ -1,14 +1,15 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import {
-    ArticlesViews, IArticle, ArticleSortField, ArticleType,
+    ArticlesViews, ArticleSortField, ArticleType,
+    Article,
 } from 'entities/Article';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
-const articlesAdapter = createEntityAdapter<IArticle>({
+const articlesAdapter = createEntityAdapter<Article, string>({
     selectId: (article) => article.id,
 });
 
@@ -16,23 +17,23 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
     (state) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
+const initialState: ArticlesPageSchema = articlesAdapter.getInitialState({
+    isLoading: false,
+    error: undefined,
+    view: ArticlesViews.GRID,
+    page: 1,
+    hasMore: true,
+    _inited: false,
+    limit: 9,
+    sort: ArticleSortField.CREATED,
+    search: '',
+    order: 'asc',
+    type: ArticleType.ALL,
+});
+
 const articlePageSlice = createSlice({
     name: 'articlePageSlice',
-    initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
-        isLoading: false,
-        error: undefined,
-        ids: [],
-        entities: {},
-        view: ArticlesViews.GRID,
-        page: 1,
-        hasMore: true,
-        _inited: false,
-        limit: 9,
-        sort: ArticleSortField.CREATED,
-        search: '',
-        order: 'asc',
-        type: ArticleType.ALL,
-    }),
+    initialState,
     reducers: {
         setView: (state, action: PayloadAction<ArticlesViews>) => {
             state.view = action.payload;
@@ -82,7 +83,7 @@ const articlePageSlice = createSlice({
             })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.error = action.payload as string;
             });
     },
 });

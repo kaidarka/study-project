@@ -8,7 +8,7 @@ import {
     fetchCommentsByArticleId,
 } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-const commentsAdapter = createEntityAdapter<IComment>({
+const commentsAdapter = createEntityAdapter<IComment, string>({
     selectId: (comment) => comment.id,
 });
 
@@ -16,14 +16,14 @@ export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
     (state) => state.articleDetailedPage?.comments || commentsAdapter.getInitialState(),
 );
 
+const initialState: ArticleDetailedCommentsSchema = commentsAdapter.getInitialState({
+    isLoading: false,
+    error: undefined,
+});
+
 const articleDetailedCommentsSlice = createSlice({
     name: 'articleDetailedCommentsSlice',
-    initialState: commentsAdapter.getInitialState<ArticleDetailedCommentsSchema>({
-        isLoading: false,
-        error: undefined,
-        ids: [],
-        entities: {},
-    }),
+    initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -40,7 +40,7 @@ const articleDetailedCommentsSlice = createSlice({
             )
             .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.error = action.payload ?? '';
             });
     },
 });
