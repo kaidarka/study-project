@@ -548,12 +548,21 @@
       "id": "1",
       "username": "admin",
       "password": "123",
+      "roles": ["admin"],
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
+      "roles": ["user"],
+      "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": ["manager"],
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     }
   ],
