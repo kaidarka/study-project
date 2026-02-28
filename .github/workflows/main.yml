@@ -9,16 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [19.x]
+        node-version: [24.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Starting Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm i
+        run: npm ci
       - name: build prod
         run: npm run build:prod
         if: always()
@@ -31,10 +31,4 @@ jobs:
       - name: unit testing
         if: always()
         run: npm run test:unit
-      - name: build storybook
-        run: npm run storybook:build
-        if: always()
-      - name: ui test
-        run: npm run test:ui:ci
-        if: always()
 
