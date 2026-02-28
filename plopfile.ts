@@ -3,7 +3,9 @@ import { NodePlopAPI } from 'plop';
 interface ComponentAnswers {
     name: string;
     layer: string;
-    subPath: string;
+    subPath?: string;
+    featureSlice?: string;
+    sharedSegment?: string;
 }
 
 function pascalCaseHelper(text: string): string {
@@ -59,9 +61,7 @@ export default function plopConfig(plop: NodePlopAPI) {
                 message: 'Название компонента (например, MyComponent):',
                 validate: (value: string): string | true => {
                     if (!value) return 'Название обязательно';
-                    if (!/^[A-Z]/.test(value)) {
-                        return 'Должно начинаться с заглавной буквы';
-                    }
+
                     return true;
                 },
             },
@@ -69,8 +69,57 @@ export default function plopConfig(plop: NodePlopAPI) {
         actions: (data) => {
             const answers = data as ComponentAnswers;
             const componentName = answers.name;
+
+            if (answers.layer === 'shared') {
+                const basePath = `src/shared/ui/${componentName}`;
+
+                return [
+                    {
+                        type: 'add',
+                        path: `${basePath}/${componentName}.tsx`,
+                        templateFile: 'plop-templates/component.tsx.hbs',
+                    },
+                    {
+                        type: 'add',
+                        path: `${basePath}/${componentName}.module.scss`,
+                        templateFile: 'plop-templates/component.module.scss.hbs',
+                    },
+                    {
+                        type: 'add',
+                        path: `${basePath}/index.ts`,
+                        templateFile: 'plop-templates/index.ts.hbs',
+                    },
+                ];
+            }
+
+            if (answers.layer === 'features') {
+                let subPath = answers.subPath?.trim() || '';
+                if (subPath.endsWith(componentName)) {
+                    subPath = subPath.slice(0, -componentName.length).replace(/\/$/, '');
+                }
+                const basePath = `src/features/${subPath}/${componentName}`;
+
+                return [
+                    {
+                        type: 'add',
+                        path: `${basePath}/ui/${pascalCaseHelper(componentName)}.tsx`,
+                        templateFile: 'plop-templates/feature/component.tsx.hbs',
+                    },
+                    {
+                        type: 'add',
+                        path: `${basePath}/ui/${pascalCaseHelper(componentName)}.module.scss`,
+                        templateFile: 'plop-templates/feature/component.module.scss.hbs',
+                    },
+                    {
+                        type: 'add',
+                        path: `${basePath}/index.ts`,
+                        templateFile: 'plop-templates/feature/index.ts.hbs',
+                    },
+                ];
+            }
+
             // Убираем название компонента из пути, если оно там есть
-            let subPath = answers.subPath.trim();
+            let subPath = answers.subPath?.trim() || '';
             if (subPath.endsWith(componentName)) {
                 subPath = subPath.slice(0, -componentName.length).replace(/\/$/, '');
             }

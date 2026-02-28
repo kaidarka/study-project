@@ -1,17 +1,1 @@
-import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './{{pascalCase name}}.module.scss';
-
-interface {{pascalCase name}}Props {
-    className?: string;
-}
-
-export const {{pascalCase name}} = memo((props: {{pascalCase name}}Props) => {
-    const { className } = props;
-
-    return (
-        <div className={classNames(cls.{{pascalCase name}}, {}, [className])}>
-            {/* Content */}
-        </div>
-    );
-});
+export { {{pascalCase name}} } from './{{pascalCase name}}';

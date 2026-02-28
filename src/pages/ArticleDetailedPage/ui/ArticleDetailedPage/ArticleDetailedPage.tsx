@@ -12,7 +12,7 @@ import { ArticleRecomendationsList } from 'features/Articles/articleRecomendatio
 import cls from './ArticleDetailedPage.module.scss';
 import { articleDetailedPageReducer } from '../../model/slices';
 import { ArticleDetailedPageHeader } from '../ArticleDetailedPageHeader/ArticleDetailedPageHeader';
-import { ArticleDetailedComments } from '../ArticleDeatiledConmments/ArticleDetailedComments';
+import { ArticleDetailedComments } from '../ArticleDeatiledComments/ArticleDetailedComments';
 
 interface IArticleDetailedPageProps {
     className?: string;

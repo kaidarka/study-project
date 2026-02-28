@@ -43,7 +43,7 @@ export const ArticleDetailedComments = (props: ArticleDetailedCommentsProps) => 
     });
 
     return (
-        <VStack gap="md">
+        <VStack gap="md" max>
             <Text title={t('Комментарии')} />
             <AddCommentForm onSubmit={onSendComment} />
             {commentsError ? (
