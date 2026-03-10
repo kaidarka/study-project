@@ -10,8 +10,11 @@ import {
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Dropdown, DropdownAnchor } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import { Icon } from 'shared/ui/Icon/Icon';
+import NotificationIcon from 'shared/assets/icons/notification.svg';
+import { Dropdown, DropdownAnchor } from 'shared/ui/Popups';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -52,19 +55,24 @@ export const Navbar = memo((props: INavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Dropdown
-                    className={cls.dropdown}
-                    buttonContent={<Avatar size={30} src={authData.avatar} />}
-                    items={[
-                        { content: t('Профиль'), href: RoutePath.profile + authData.id },
-                        ...(isAdminPanelAvailable ? [{
-                            content: t('Админ панель'),
-                            href: RoutePath.adminPanel,
-                        }] : []),
-                        { content: t('Выйти'), onClick: logout },
-                    ]}
-                    anchor={DropdownAnchor.BOTTOM_END}
-                />
+                <HStack gap="lg" className={cls.actions} alignItems="center">
+                    <Button theme={ButtonTheme.CLEAR}>
+                        <Icon Svg={NotificationIcon} inverted />
+                    </Button>
+                    <Dropdown
+                        buttonContent={<Avatar size={30} src={authData.avatar} />}
+                        items={[
+                            { content: t('Профиль'), href: RoutePath.profile + authData.id },
+                            ...(isAdminPanelAvailable ? [{
+                                content: t('Админ панель'),
+                                href: RoutePath.adminPanel,
+                            }] : []),
+                            { content: t('Выйти'), onClick: logout },
+                        ]}
+                        anchor={DropdownAnchor.BOTTOM_END}
+                    />
+
+                </HStack>
             </header>
         );
     }
