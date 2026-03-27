@@ -14,7 +14,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { HStack } from 'shared/ui/Stack';
 import { Icon } from 'shared/ui/Icon/Icon';
 import NotificationIcon from 'shared/assets/icons/notification.svg';
-import { Dropdown, DropdownAnchor } from 'shared/ui/Popups';
+import { Dropdown, AnchorPosition, Popover } from 'shared/ui/Popups';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -56,22 +56,32 @@ export const Navbar = memo((props: INavbarProps) => {
                     {t('Создать статью')}
                 </AppLink>
                 <HStack gap="lg" className={cls.actions} alignItems="center">
-                    <Button theme={ButtonTheme.CLEAR}>
-                        <Icon Svg={NotificationIcon} inverted />
-                    </Button>
+                    <Popover
+                        buttonContent={(
+                            <Button theme={ButtonTheme.CLEAR}>
+                                <Icon Svg={NotificationIcon} inverted />
+                            </Button>
+                        )}
+                        anchor="bottom start"
+                    >
+                        test popup
+                    </Popover>
                     <Dropdown
                         buttonContent={<Avatar size={30} src={authData.avatar} />}
                         items={[
                             { content: t('Профиль'), href: RoutePath.profile + authData.id },
-                            ...(isAdminPanelAvailable ? [{
-                                content: t('Админ панель'),
-                                href: RoutePath.adminPanel,
-                            }] : []),
+                            ...(isAdminPanelAvailable
+                                ? [
+                                    {
+                                        content: t('Админ панель'),
+                                        href: RoutePath.adminPanel,
+                                    },
+                                ]
+                                : []),
                             { content: t('Выйти'), onClick: logout },
                         ]}
-                        anchor={DropdownAnchor.BOTTOM_END}
+                        anchor={AnchorPosition.BOTTOM_END}
                     />
-
                 </HStack>
             </header>
         );
@@ -79,16 +89,10 @@ export const Navbar = memo((props: INavbarProps) => {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <Button
-                theme={ButtonTheme.CLEAR_INVERTED}
-                onClick={onShowModal}
-                className={cls.links}
-            >
+            <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal} className={cls.links}>
                 {t('Войти')}
             </Button>
-            {isAuthModal && (
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-            )}
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
         </header>
     );
 });
