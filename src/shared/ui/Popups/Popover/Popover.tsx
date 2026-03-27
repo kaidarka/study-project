@@ -1,6 +1,8 @@
 import { memo, ReactNode } from 'react';
 import {
-    MenuButton, MenuItems, Menu,
+    Popover as HPopover,
+    PopoverButton,
+    PopoverPanel,
 } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Popover.module.scss';
@@ -20,11 +22,11 @@ export const Popover = memo((props: PopoverProps) => {
     } = props;
 
     return (
-        <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
-            <MenuButton className={popupCls.button}>{buttonContent}</MenuButton>
-            <MenuItems as="ul" anchor={anchor} className={popupCls.items}>
+        <HPopover as="div" className={classNames(cls.Dropdown, {}, [className])}>
+            <PopoverButton className={popupCls.button}>{buttonContent}</PopoverButton>
+            <PopoverPanel as="ul" anchor={anchor} className={popupCls.items}>
                 {children}
-            </MenuItems>
-        </Menu>
+            </PopoverPanel>
+        </HPopover>
     );
 });
