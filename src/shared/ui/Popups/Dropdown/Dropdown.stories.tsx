@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { Dropdown, DropdownAnchor } from './Dropdown';
-import { Button } from '../Button/Button';
+import { Dropdown } from './Dropdown';
+import { Button } from '../../Button/Button';
+import { AnchorPosition } from '../model/consts';
 
 const meta: Meta<typeof Dropdown> = {
-    title: 'shared/Dropdown',
+    title: 'shared/Popups/Dropdown',
     component: Dropdown,
     decorators: [
         (Story) => (
@@ -51,7 +52,7 @@ export const BottomEnd: Story = {
                 },
             },
         ],
-        anchor: DropdownAnchor.BOTTOM_END,
+        anchor: AnchorPosition.BOTTOM_END,
     },
 };
 
@@ -66,7 +67,7 @@ export const TopEnd: Story = {
                 },
             },
         ],
-        anchor: DropdownAnchor.TOP_END,
+        anchor: AnchorPosition.TOP_END,
     },
 };
 
@@ -81,7 +82,7 @@ export const BottomStart: Story = {
                 },
             },
         ],
-        anchor: DropdownAnchor.BOTTOM_START,
+        anchor: AnchorPosition.BOTTOM_START,
     },
 };
 
@@ -96,6 +97,6 @@ export const TopStart: Story = {
                 },
             },
         ],
-        anchor: DropdownAnchor.TOP_START,
+        anchor: AnchorPosition.TOP_START,
     },
 };

@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
 import { HStack } from 'shared/ui/Stack';
 import cls from './ListBox.module.scss';
+import popupCls from '../styles/popup.module.scss';
 
 export interface ListBoxItem {
     value: string;
@@ -38,12 +39,12 @@ export const ListBox = (props: ListBoxProps) => {
                 onChange={onChange}
                 disabled={readonly}
             >
-                <ListboxButton className={cls.button}>
+                <ListboxButton className={popupCls.button}>
                     <Button disabled={readonly}>
                         {items.find((item) => item.value === value)?.content || placeholder}
                     </Button>
                 </ListboxButton>
-                <ListboxOptions anchor="top" className={cls.options}>
+                <ListboxOptions anchor="top" className={popupCls.items}>
                     {items.map((item) => (
                         <ListboxOption
                             key={item.value}
@@ -54,8 +55,8 @@ export const ListBox = (props: ListBoxProps) => {
                             {({ focus, selected }) => (
                                 <li
                                     className={classNames(cls.item, {
-                                        [cls.active]: focus,
-                                        [cls.disabled]: item.disabled,
+                                        [popupCls.active]: focus,
+                                        [popupCls.disabled]: item.disabled,
                                     })}
                                 >
                                     {selected && '!'}

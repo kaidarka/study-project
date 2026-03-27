@@ -5,15 +5,10 @@ import {
 } from '@headlessui/react';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import cls from './Dropdown.module.scss';
+import popupCls from '../styles/popup.module.scss';
+import { AnchorPosition } from '../model/consts';
 
-export const DropdownAnchor = {
-    BOTTOM_START: 'bottom start',
-    BOTTOM_END: 'bottom end',
-    TOP_START: 'top start',
-    TOP_END: 'top end',
-} as const;
-
-type DropdownAnchorType = typeof DropdownAnchor[keyof typeof DropdownAnchor];
+type DropdownAnchorType = typeof AnchorPosition[keyof typeof AnchorPosition];
 
 export interface DropdownItem {
     disabled?: boolean;
@@ -31,13 +26,13 @@ interface DropdownProps {
 
 export const Dropdown = memo((props: DropdownProps) => {
     const {
-        className, items, buttonContent, anchor = 'bottom start',
+        className, items, buttonContent, anchor = AnchorPosition.BOTTOM_START,
     } = props;
 
     return (
         <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
-            <MenuButton className={cls.button}>{buttonContent}</MenuButton>
-            <MenuItems as="ul" anchor={anchor} className={cls.items}>
+            <MenuButton className={popupCls.button}>{buttonContent}</MenuButton>
+            <MenuItems as="ul" anchor={anchor} className={popupCls.items}>
                 {items.map((item) => {
                     const content = (({ focus }: { focus: boolean }) => (
                         <button
@@ -45,7 +40,8 @@ export const Dropdown = memo((props: DropdownProps) => {
                             onClick={item.onClick}
                             disabled={item.disabled}
                             className={classNames(cls.item, {
-                                [cls.active]: focus,
+                                [popupCls.active]: focus,
+                                [popupCls.disabled]: item.disabled,
                             })}
                         >
                             {item.content}

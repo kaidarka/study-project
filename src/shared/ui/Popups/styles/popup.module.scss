@@ -1,0 +1,26 @@
+
+.button {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.items {
+    background: var(--listbox-bg);
+    border-radius: 4px;
+    border: none;
+    box-shadow: 0 4px 10px 0 var(--listbox-bg);
+    overflow: hidden;
+}
+
+.active {
+    background: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
