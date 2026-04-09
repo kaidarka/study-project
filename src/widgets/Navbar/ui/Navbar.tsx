@@ -15,6 +15,7 @@ import { HStack } from 'shared/ui/Stack';
 import { Icon } from 'shared/ui/Icon/Icon';
 import NotificationIcon from 'shared/assets/icons/notification.svg';
 import { Dropdown, AnchorPosition, Popover } from 'shared/ui/Popups';
+import { NotificationsList } from 'entities/Notification';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -62,9 +63,9 @@ export const Navbar = memo((props: INavbarProps) => {
                                 <Icon Svg={NotificationIcon} inverted />
                             </Button>
                         )}
-                        anchor="bottom start"
+                        anchor={AnchorPosition.TOP_END}
                     >
-                        test popup
+                        <NotificationsList className={cls.notifications} />
                     </Popover>
                     <Dropdown
                         buttonContent={<Avatar size={30} src={authData.avatar} />}
