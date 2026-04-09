@@ -1,0 +1,27 @@
+.Drawer {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    background: var(--bg-color);
+    border-left: 1px solid var(--primary-color);
+    z-index: var(--modal-z-index);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.opened {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.content {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}

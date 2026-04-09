@@ -13,6 +13,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { HStack } from 'shared/ui/Stack';
 import { NotificationButton } from 'features/notifications/notificationButton';
 import { AvatarDropdown } from 'features/avatarDropdown';
+import { Drawer } from 'shared/ui/Drawer';
 import cls from './Navbar.module.scss';
 
 interface INavbarProps {
@@ -33,6 +34,16 @@ export const Navbar = memo((props: INavbarProps) => {
         setIsAuthModal(true);
     }, []);
 
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    const onOpenDrawer = useCallback(() => {
+        setIsDrawerOpen(true);
+    }, []);
+
+    const onCloseDrawer = useCallback(() => {
+        setIsDrawerOpen(false);
+    }, []);
+
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -45,6 +56,12 @@ export const Navbar = memo((props: INavbarProps) => {
                     {t('Создать статью')}
                 </AppLink>
                 <HStack gap="lg" className={cls.actions} alignItems="center">
+                    <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
+                        Click me
+                    </Button>
+                    <Drawer isOpen={isDrawerOpen} onClose={onCloseDrawer} className={cls.drawer}>
+                        content
+                    </Drawer>
                     <NotificationButton />
                     <AvatarDropdown />
                 </HStack>
