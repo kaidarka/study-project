@@ -11,7 +11,9 @@ interface NotificationsListProps {
 
 export const NotificationsList = memo((props: NotificationsListProps) => {
     const { className } = props;
-    const { data: notifications, isLoading } = useGetNotificationsQuery(null);
+    const { data: notifications, isLoading } = useGetNotificationsQuery(null, {
+        pollingInterval: 5000,
+    });
 
     if (isLoading) {
         return (
