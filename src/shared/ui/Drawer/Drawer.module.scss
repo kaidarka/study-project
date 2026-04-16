@@ -1,13 +1,14 @@
 .Drawer {
     position: fixed;
     inset: 0;
-    opacity: 0;
-    pointer-events: none;
-    z-index: -1;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10000;
     display: flex;
     align-items: flex-end;
 }
 
+.sheet,
 .content {
     height: 70%;
     background: var(--bg-color);
@@ -24,6 +25,7 @@
     z-index: 10000;
 }
 
+.sheet::before,
 .content::before {
     content: "";
     position: relative;
