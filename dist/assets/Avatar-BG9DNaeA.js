@@ -1,0 +1,1 @@
+import{a as e,t}from"./react-B0GdOMoI.js";import{M as n,t as r}from"./jsx-runtime-DmCrob_c.js";var i=e(t()),a={Avatar:`_Avatar_10msq_1`},o=r(),s=e=>{let{className:t,src:r,alt:s,size:c=150}=e;return(0,o.jsx)(`img`,{src:r,style:(0,i.useMemo)(()=>({width:c,height:c}),[c]),className:n(a.Avatar,{},[t]),alt:s})};export{s as t};

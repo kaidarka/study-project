@@ -3,8 +3,9 @@ import {
 } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
+import { ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 import { HStack } from '@/shared/ui/Stack';
+import buttonCls from '@/shared/ui/Button/Button.module.scss';
 import cls from './ListBox.module.scss';
 import popupCls from '../styles/popup.module.scss';
 
@@ -39,10 +40,18 @@ export const ListBox = (props: ListBoxProps) => {
                 onChange={onChange}
                 disabled={readonly}
             >
-                <ListboxButton className={popupCls.button}>
-                    <Button disabled={readonly}>
-                        {items.find((item) => item.value === value)?.content || placeholder}
-                    </Button>
+                <ListboxButton
+                    className={classNames(
+                        popupCls.button,
+                        { [buttonCls.disabled]: readonly },
+                        [
+                            buttonCls.Button,
+                            buttonCls[ButtonTheme.OUTLINE],
+                            buttonCls[ButtonSize.M],
+                        ],
+                    )}
+                >
+                    {items.find((item) => item.value === value)?.content || placeholder}
                 </ListboxButton>
                 <ListboxOptions anchor="top" className={popupCls.items}>
                     {items.map((item) => (

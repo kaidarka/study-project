@@ -1,8 +1,8 @@
-@import "reset";
-@import "variables/globals";
-@import "themes/normal";
-@import "themes/dark";
-@import "themes/red";
+@use "reset";
+@use "variables/globals";
+@use "themes/normal";
+@use "themes/dark";
+@use "themes/red";
 
 body,
 .app,

@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { AnchorPosition, Popover } from '@/shared/ui/Popups';
-import NotificationIcon from '@/shared/assets/icons/notification.svg';
+import NotificationIcon from '@/shared/assets/icons/notification.svg?react';
 import { Icon } from '@/shared/ui/Icon';
 import { NotificationsList } from '@/entities/Notification';
 import { Drawer } from '@/shared/ui/Drawer';
@@ -19,24 +19,32 @@ export const NotificationButton = () => {
         setIsDrawerOpen(false);
     }, []);
 
-    const trigger = (
+    const triggerMobile = (
         <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
             <Icon Svg={NotificationIcon} inverted />
         </Button>
+    );
+
+    // Для desktop `PopoverButton` сам рендерит `<button>`.
+    // Поэтому внутрь него нельзя класть наш `<Button>` (тоже `<button>`).
+    const triggerDesktop = (
+        <span>
+            <Icon Svg={NotificationIcon} inverted />
+        </span>
     );
 
     return (
         <div>
             <BrowserView>
                 <Popover
-                    buttonContent={trigger}
+                    buttonContent={triggerDesktop}
                     anchor={AnchorPosition.TOP_END}
                 >
                     <NotificationsList className={cls.notifications} />
                 </Popover>
             </BrowserView>
             <MobileView>
-                {trigger}
+                {triggerMobile}
                 <Drawer isOpen={isDrawerOpen} onClose={onCloseDrawer} className={cls.drawer}>
                     <NotificationsList />
                 </Drawer>

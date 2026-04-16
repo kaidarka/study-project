@@ -1,0 +1,1 @@
+import{t as e}from"./react-B0GdOMoI.js";import{t}from"./Page-CZHaQffn.js";import{t as n}from"./jsx-runtime-DmCrob_c.js";import{t as r}from"./useTranslation-A0RqR2AN.js";e();var i=n(),a=()=>{let{t:e}=r(`about`);return(0,i.jsx)(t,{children:e(`О сайте`)})};export{a as default};
