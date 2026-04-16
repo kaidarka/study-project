@@ -33,7 +33,7 @@ export const Dropdown = memo((props: DropdownProps) => {
         <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
             <MenuButton className={popupCls.button}>{buttonContent}</MenuButton>
             <MenuItems as="ul" anchor={anchor} className={popupCls.items}>
-                {items.map((item) => {
+                {items.map((item, index) => {
                     const content = (({ focus }: { focus: boolean }) => (
                         <button
                             type="button"
@@ -50,13 +50,21 @@ export const Dropdown = memo((props: DropdownProps) => {
 
                     if (item.href) {
                         return (
-                            <MenuItem as={AppLink} to={item.href}>
+                            <MenuItem
+                                as={AppLink}
+                                to={item.href}
+                                key={`dropdown-link-${index}`}
+                            >
                                 {content}
                             </MenuItem>
                         );
                     }
                     return (
-                        <MenuItem as={Fragment} disabled={item.disabled}>
+                        <MenuItem
+                            as={Fragment}
+                            disabled={item.disabled}
+                            key={`dropdown-item-${index}`}
+                        >
                             {content}
                         </MenuItem>
                     );
