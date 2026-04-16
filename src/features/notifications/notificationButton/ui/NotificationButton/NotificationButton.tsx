@@ -6,7 +6,6 @@ import NotificationIcon from '@/shared/assets/icons/notification.svg';
 import { Icon } from '@/shared/ui/Icon';
 import { NotificationsList } from '@/entities/Notification';
 import { Drawer } from '@/shared/ui/Drawer';
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 
 export const NotificationButton = () => {
@@ -38,11 +37,9 @@ export const NotificationButton = () => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <AnimationProvider>
-                    <Drawer isOpen={isDrawerOpen} onClose={onCloseDrawer} className={cls.drawer}>
-                        <NotificationsList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer isOpen={isDrawerOpen} onClose={onCloseDrawer} className={cls.drawer}>
+                    <NotificationsList />
+                </Drawer>
             </MobileView>
         </div>
 
