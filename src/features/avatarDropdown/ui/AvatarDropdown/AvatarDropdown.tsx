@@ -1,12 +1,12 @@
-import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entities/User';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Avatar } from 'shared/ui/Avatar';
-import { AnchorPosition, Dropdown } from 'shared/ui/Popups';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from '@/entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { Avatar } from '@/shared/ui/Avatar';
+import { AnchorPosition, Dropdown } from '@/shared/ui/Popups';
 
 export const AvatarDropdown = () => {
     const { t } = useTranslation();

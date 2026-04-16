@@ -1,15 +1,15 @@
 import { memo, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Page } from 'widgets/Page';
-import { ArticlesPageFilters } from 'pages/AcrticlesPage/ui/Filters/ArticlesPageFilters';
-import { useSearchParams } from 'react-router-dom';
-import { VStack } from 'shared/ui/Stack';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Page } from '@/widgets/Page';
+import { ArticlesPageFilters } from '@/pages/AcrticlesPage/ui/Filters/ArticlesPageFilters';
+import { VStack } from '@/shared/ui/Stack';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
     fetchArticlesNextPage,

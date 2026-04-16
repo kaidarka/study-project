@@ -1,5 +1,5 @@
-import { ArticleList } from 'entities/Article';
 import { useSelector } from 'react-redux';
+import { ArticleList } from '@/entities/Article';
 import { getArticles } from '../../model/slices/articlePageSlice';
 import {
     getArticlesPageIsLoading,

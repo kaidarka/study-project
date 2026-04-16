@@ -5,14 +5,14 @@ import {
     ArticleSortField, ArticlesViews, ArticleViewSelector, ArticleSortSelector,
     ArticleType,
     ArticleTypeTabs,
-} from 'entities/Article';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { SortOrder } from 'shared/types';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { TabItem } from 'shared/ui/Tab';
-import { HStack, VStack } from 'shared/ui/Stack';
+} from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { SortOrder } from '@/shared/types';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
+import { TabItem } from '@/shared/ui/Tab';
+import { HStack, VStack } from '@/shared/ui/Stack';
 
 import {
     getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort,

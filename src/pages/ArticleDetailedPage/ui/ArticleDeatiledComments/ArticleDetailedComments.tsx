@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { CommentList } from 'entities/Comment';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { VStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text';
-import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
+import { AddCommentForm } from '@/features/AddCommentForm';
+import { CommentList } from '@/entities/Comment';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
 import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

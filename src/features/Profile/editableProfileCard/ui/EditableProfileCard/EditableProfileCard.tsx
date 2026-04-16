@@ -3,17 +3,17 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
     ProfileCard,
-} from 'entities/Profile';
-import { Currency } from 'entities/Currency';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { Country } from 'entities/Country';
+} from '@/entities/Profile';
+import { Currency } from '@/entities/Currency';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { Country } from '@/entities/Country';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from 'shared/ui/Stack';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/Stack';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';

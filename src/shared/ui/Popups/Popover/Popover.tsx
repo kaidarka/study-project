@@ -4,7 +4,7 @@ import {
     PopoverButton,
     PopoverPanel,
 } from '@headlessui/react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Popover.module.scss';
 import popupCls from '../styles/popup.module.scss';
 import { AnchorPosition } from '../model/consts';

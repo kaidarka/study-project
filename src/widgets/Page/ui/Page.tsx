@@ -1,16 +1,16 @@
 import {
     memo, ReactNode, UIEventHandler, useRef,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useInfinityScroll } from 'shared/lib/hooks/useInfinityScroll';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { ScrollSliceActions } from 'widgets/Page/model/slices/ScrollSlice';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getScrollByPath } from 'widgets/Page/model/selectors/scroll';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { useMountEffect } from 'shared/lib/hooks/useMountEffect';
-import { useThrottle } from 'shared/lib/hooks/useThrottle';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useInfinityScroll } from '@/shared/lib/hooks/useInfinityScroll';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { ScrollSliceActions } from '@/widgets/Page/model/slices/ScrollSlice';
+import { getScrollByPath } from '@/widgets/Page/model/selectors/scroll';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import cls from './Page.module.scss';
 
 interface IPageProps {

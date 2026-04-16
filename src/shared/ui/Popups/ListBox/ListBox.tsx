@@ -2,9 +2,9 @@ import {
     Listbox as HeadlessListbox, ListboxButton, ListboxOption, ListboxOptions,
 } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button/Button';
+import { HStack } from '@/shared/ui/Stack';
 import cls from './ListBox.module.scss';
 import popupCls from '../styles/popup.module.scss';
 

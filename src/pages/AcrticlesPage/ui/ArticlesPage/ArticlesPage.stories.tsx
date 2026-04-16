@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
-import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator/StoreDecorator';
-import { ArticlesViews } from 'entities/Article';
+import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator/StoreDecorator';
+import { ArticlesViews } from '@/entities/Article';
 import ArticlesPage from './ArticlesPage';
 
 const meta: Meta<typeof ArticlesPage> = {

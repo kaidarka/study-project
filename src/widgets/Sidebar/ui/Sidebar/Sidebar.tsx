@@ -1,10 +1,10 @@
 import React, { memo, useMemo, useState } from 'react';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
-import { VStack } from 'shared/ui/Stack';
+import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
+import { LanguageSwitcher } from '@/widgets/LanguageSwitcher';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { VStack } from '@/shared/ui/Stack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';

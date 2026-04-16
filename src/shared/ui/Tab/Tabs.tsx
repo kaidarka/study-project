@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { TabItem } from './types';
 import cls from './Tabs.module.scss';
 import { Tab } from './Tab';

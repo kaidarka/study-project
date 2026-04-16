@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Card } from 'shared/ui/Card/Card';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Card } from '@/shared/ui/Card/Card';
 import { TabItem } from './types';
 
 import cls from './Tab.module.scss';
