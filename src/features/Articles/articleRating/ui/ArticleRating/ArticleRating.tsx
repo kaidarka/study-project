@@ -5,12 +5,12 @@ import { useGetArticleRatingQuery, useRateArticleMutation } from '../../api/arti
 import { getUserAuthData } from '@/entities/User';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
-type ArticleRatingProps = {
+export type ArticleRatingProps = {
     className?: string;
     articleId: string;
 }
 
-export const ArticleRating = (props: ArticleRatingProps) => {
+const ArticleRating = (props: ArticleRatingProps) => {
     const { className, articleId } = props;
     const userData = useSelector(getUserAuthData);
 
@@ -56,3 +56,5 @@ export const ArticleRating = (props: ArticleRatingProps) => {
         />
     );
 };
+
+export default ArticleRating;
