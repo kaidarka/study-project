@@ -13,6 +13,7 @@ import cls from './ArticleDetailedPage.module.scss';
 import { articleDetailedPageReducer } from '../../model/slices';
 import { ArticleDetailedPageHeader } from '../ArticleDetailedPageHeader/ArticleDetailedPageHeader';
 import { ArticleDetailedComments } from '../ArticleDeatiledComments/ArticleDetailedComments';
+import { ArticleRating } from '@/features/Articles/articleRating';
 
 interface IArticleDetailedPageProps {
     className?: string;
@@ -40,6 +41,7 @@ const ArticleDetailedPage = (props: IArticleDetailedPageProps) => {
             <Page className={classNames(cls.ArticleDetailedPage, {}, [className])}>
                 <ArticleDetailedPageHeader />
                 <ArticleDetailed id={id} />
+                <ArticleRating articleId={id} />
                 <ArticleRecomendationsList />
                 <ArticleDetailedComments id={id} />
             </Page>

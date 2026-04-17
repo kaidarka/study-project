@@ -548,21 +548,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["admin"],
+      "roles": [
+        "admin"
+      ],
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["user"],
+      "roles": [
+        "user"
+      ],
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["manager"],
+      "roles": [
+        "manager"
+      ],
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     }
   ],
@@ -609,6 +615,64 @@
       "title": "Notification 3",
       "description": "Description 3",
       "userId": "3"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "userId": "1",
+      "articleId": "1",
+      "feedback": "Good article"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "userId": "2",
+      "articleId": "1",
+      "feedback": "Great article"
+    },
+    {
+      "id": "3",
+      "rate": 3,
+      "userId": "3",
+      "articleId": "1",
+      "feedback": "Average article"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 4,
+      "id": "J-dE2bN"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "rate": 4,
+      "id": "Aulwcof"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "userId": "1",
+      "profileId": "1",
+      "feedback": "Good profile"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "userId": "2",
+      "profileId": "1",
+      "feedback": "Great profile"
+    },
+    {
+      "id": "3",
+      "rate": 3,
+      "userId": "3",
+      "profileId": "1",
+      "feedback": "Average article"
     }
   ]
 }

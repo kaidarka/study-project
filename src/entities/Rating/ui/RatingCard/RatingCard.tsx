@@ -7,7 +7,7 @@ import {
 } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import cls from './RatingCard.module.scss';
-import { StarRating, stars } from '@/shared/ui/StarRating';
+import { StarRating } from '@/shared/ui/StarRating';
 import { Modal } from '@/shared/ui/Modal';
 import { Input } from '@/shared/ui/Input';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
@@ -19,19 +19,26 @@ type RatingCardProps = {
     feedbackTitle?: string;
     hasFeedback?: boolean;
     onAccept?: (starsCount: number, feedback?: string) => void;
-    onCancel?: () => void;
+    onCancel?: (starsCount: number) => void;
+    rate?: number;
 }
 
 export const RatingCard = (props: RatingCardProps) => {
     const {
-        className, title, feedbackTitle, hasFeedback, onAccept, onCancel,
+        className,
+        title,
+        feedbackTitle,
+        hasFeedback,
+        onAccept,
+        onCancel,
+        rate,
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState<typeof stars[number]>();
+    const [starsCount, setStarsCount] = useState<number| undefined>(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((starsCount: typeof stars[number]) => {
+    const onSelectStars = useCallback((starsCount: number) => {
         setStarsCount(starsCount);
         if (hasFeedback) {
             setIsModalOpen(true);
@@ -46,10 +53,9 @@ export const RatingCard = (props: RatingCardProps) => {
     }, [onAccept, starsCount, feedback]);
 
     const cancelHandler = useCallback(() => {
-        onCancel?.();
+        onCancel?.(starsCount || 0);
         setIsModalOpen(false);
-        setStarsCount(undefined);
-    }, [onCancel]);
+    }, [onCancel, starsCount]);
 
     const modalContent = (
         <>
@@ -61,7 +67,7 @@ export const RatingCard = (props: RatingCardProps) => {
     return (
         <Card className={classNames(cls.RatingCard, {}, [className])}>
             <VStack>
-                <Text title={title} />
+                <Text title={starsCount ? 'Спасибо за оценку!' : title} />
                 <StarRating size={40} onSelect={onSelectStars} selectedStars={starsCount} />
             </VStack>
             <BrowserView>
