@@ -1,0 +1,15 @@
+.StarRating {
+}
+
+.starIcon > path {
+    fill: none;
+    cursor: pointer;
+}
+
+.starIcon.selected > path {
+    fill: var(--primary-color);
+}
+
+.starIcon.hovered > path {
+    fill: var(--primary-color);
+}

@@ -4,6 +4,7 @@ import { BugButton } from '@/app/providers/ErrorBoundary';
 import { Page } from '@/widgets/Page';
 import { HStack } from '@/shared/ui/Stack';
 import { ListBox } from '@/shared/ui/Popups';
+import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
@@ -24,6 +25,7 @@ const MainPage = () => {
                     placeholder="Выберите значение"
                 />
             </HStack>
+            <RatingCard title="Оцените статью" feedbackTitle="Оставьте отзыв" hasFeedback />
             <BugButton />
         </Page>
     );
