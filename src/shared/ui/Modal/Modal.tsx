@@ -2,8 +2,8 @@ import React, {
     ReactNode,
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Portal } from '@/shared/ui/Portal';
-import { Overlay } from '@/shared/ui/Overlay';
+import { Portal } from '../../ui/Portal';
+import { Overlay } from '../../ui/Overlay';
 import { useModal } from '@/shared/lib/hooks/useModal';
 import cls from './Modal.module.scss';
 

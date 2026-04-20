@@ -3,9 +3,9 @@ import {
 } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
-import { HStack } from '@/shared/ui/Stack';
-import buttonCls from '@/shared/ui/Button/Button.module.scss';
+import { ButtonSize, ButtonTheme } from '../../../ui/Button/Button';
+import { HStack } from '../../../ui/Stack';
+import buttonCls from '../../../ui/Button/Button.module.scss';
 import cls from './ListBox.module.scss';
 import popupCls from '../styles/popup.module.scss';
 

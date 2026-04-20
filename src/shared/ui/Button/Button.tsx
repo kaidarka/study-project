@@ -47,7 +47,6 @@ export const Button = memo((props: IButtonProps) => {
                 )
             }
             disabled={disabled}
-            // eslint-disable-next-line react/jsx-props-no-spreading
             {...otherProps}
         >
             {children}

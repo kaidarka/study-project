@@ -3,7 +3,7 @@ import {
     MenuButton, MenuItems, MenuItem, Menu,
 } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '../../../ui/AppLink/AppLink';
 import cls from './Dropdown.module.scss';
 import popupCls from '../styles/popup.module.scss';
 import { AnchorPosition } from '../model/consts';

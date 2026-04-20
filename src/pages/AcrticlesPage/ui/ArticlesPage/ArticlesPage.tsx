@@ -8,7 +8,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Page } from '@/widgets/Page';
-import { ArticlesPageFilters } from '@/pages/AcrticlesPage/ui/Filters/ArticlesPageFilters';
+import { ArticlesPageFilters } from '../Filters/ArticlesPageFilters';
 import { VStack } from '@/shared/ui/Stack';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {

@@ -17,7 +17,7 @@ function getStorybookPaths() {
 }
 
 /**
- * Настраивает resolve для абсолютных импортов
+ * Настраивает resolve для импортов
  */
 function configureResolvers(config: webpack.Configuration, srcPath: string): void {
     if (!config.resolve) {
@@ -27,6 +27,10 @@ function configureResolvers(config: webpack.Configuration, srcPath: string): voi
     config.resolve.preferAbsolute = true;
     config.resolve.modules = [srcPath, 'node_modules'];
     config.resolve.mainFiles = ['index'];
+    config.resolve.alias = {
+        ...config.resolve.alias,
+        '@': srcPath,
+    };
 
     // Добавляем расширения для TypeScript, если их ещё нет
     if (!config.resolve.extensions) {
