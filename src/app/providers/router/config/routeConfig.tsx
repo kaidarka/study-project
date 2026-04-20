@@ -1,4 +1,3 @@
-import { RouteProps } from 'react-router-dom';
 import { MainPage } from '@/pages/MainPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
@@ -7,43 +6,12 @@ import { ArticleDetailedPage } from '@/pages/ArticleDetailedPage';
 import { ArticlesPage } from '@/pages/AcrticlesPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
-import { UserRole, UserRoleType } from '@/entities/User';
+import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { AppRoutes, RoutePath } from '@/shared/const/router';
+import { AppRoutesProps } from '@/shared/types/router';
 
-export type AppRoutesProps = RouteProps & {
-    authOnly?: boolean;
-    roles?: UserRoleType[];
-}
-
-export enum AppRoutes {
-    MAIN = 'main',
-    ABOUT = 'about',
-    PROFILE = 'profile',
-    ARTICLES = 'articles',
-    ARTICLE_DETAILED = 'articleDetailed',
-    ARTICLE_CREATE = 'articleCreate',
-    ARTICLE_EDIT = 'articleEdit',
-    ADMIN_PANEL = 'adminPanel',
-    FORBIDDEN = 'forbidden',
-    // LAST
-    NOT_FOUND = 'not_found',
-}
-
-export const RoutePath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.PROFILE]: '/profile/', // +id
-    [AppRoutes.ARTICLES]: '/articles',
-    [AppRoutes.ARTICLE_DETAILED]: '/articles/', // +id
-    [AppRoutes.ARTICLE_CREATE]: '/articles/create',
-    [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
-    [AppRoutes.ADMIN_PANEL]: '/admin',
-    [AppRoutes.FORBIDDEN]: '/forbidden',
-    // LAST
-    [AppRoutes.NOT_FOUND]: '*',
-};
-
-export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
+export const routeConfig = {
     [AppRoutes.MAIN]: {
         path: RoutePath.main,
         element: <MainPage />,
@@ -92,4 +60,4 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         path: RoutePath.not_found,
         element: <NotFoundPage />,
     },
-};
+} as const satisfies Record<typeof AppRoutes[keyof typeof AppRoutes], AppRoutesProps>;
