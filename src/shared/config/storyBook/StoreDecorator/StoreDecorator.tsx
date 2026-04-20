@@ -1,12 +1,11 @@
-/* eslint-disable path-checker-kaidarka/public-api-imports */
 import React from 'react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
-import { articleDetailedReducer } from '@/entities/Article/model/slice/articleDetailedSlice';
-import { addCommentFormReducer } from '@/features/AddCommentForm/model/slices/addCommentFormSlice';
-import { articleDetailedPageReducer } from '@/pages/ArticleDetailedPage/model/slices';
-import { profileReducer } from '@/features/Profile/editableProfileCard/model/slice/profileSlice';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { articleDetailedReducer } from '@/entities/Article/testing';
+import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
+import { articleDetailedPageReducer } from '@/pages/ArticleDetailedPage/testing';
+import { profileReducer } from '@/features/Profile/editableProfileCard/testing';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,

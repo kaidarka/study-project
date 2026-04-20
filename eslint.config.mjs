@@ -60,7 +60,13 @@ export default [
             'no-shadow': 'off',
             'no-underscore-dangle': 'off',
             'path-checker-kaidarka/path-checker': ['error', {alias: '@'}],
-            'path-checker-kaidarka/public-api-imports': ['error', {alias: '@'}],
+            'path-checker-kaidarka/public-api-imports': [
+                'error',
+                {
+                    alias: '@',
+                    testFilesPatterns: ['**/*.stories.tsx', '**/*.test.tsx', '**/StoreDecorator.tsx'],
+                }
+            ],
         },
     },
     {
