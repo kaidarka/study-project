@@ -3,6 +3,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 import i18next from 'eslint-plugin-i18next';
 import reactHooks from 'eslint-plugin-react-hooks';
 import pathChecker from 'eslint-plugin-path-checker-kaidarka';
+import unusedImports from "eslint-plugin-unused-imports";
 import globals from 'globals';
 
 export default [
@@ -33,6 +34,7 @@ export default [
             i18next,
             'react-hooks': reactHooks,
             'path-checker-kaidarka': pathChecker,
+            "unused-imports": unusedImports,
         },
         rules: {
             indent: [2, 4, { SwitchCase: 1 }],
@@ -74,6 +76,7 @@ export default [
                     ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
                 }
             ],
+            "unused-imports/no-unused-imports": "error",
         },
     },
     {
