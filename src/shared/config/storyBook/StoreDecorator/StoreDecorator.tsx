@@ -7,13 +7,13 @@ import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
 import { articleDetailedPageReducer } from '@/pages/ArticleDetailedPage/testing';
 import { profileReducer } from '@/features/Profile/editableProfileCard/testing';
 
-const defaultAsyncReducers: ReducersList = {
+const defaultAsyncReducers = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetailed: articleDetailedReducer,
     addCommentForm: addCommentFormReducer,
     articleDetailedPage: articleDetailedPageReducer,
-};
+} as const satisfies ReducersList;
 
 export const StoreDecorator = (
     state: DeepPartial<StateSchema>,

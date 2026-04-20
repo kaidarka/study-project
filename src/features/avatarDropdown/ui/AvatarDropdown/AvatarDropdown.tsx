@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { Avatar } from '@/shared/ui/Avatar';
 import { AnchorPosition, Dropdown } from '@/shared/ui/Popups';
 
@@ -31,12 +31,12 @@ export const AvatarDropdown = () => {
         <Dropdown
             buttonContent={<Avatar size={30} src={authData.avatar} />}
             items={[
-                { content: t('Профиль'), href: RoutePath.profile + authData.id },
+                { content: t('Профиль'), href: getRouteProfile(authData.id) },
                 ...(isAdminPanelAvailable
                     ? [
                         {
                             content: t('Админ панель'),
-                            href: RoutePath.adminPanel,
+                            href: getRouteAdminPanel(),
                         },
                     ]
                     : []),

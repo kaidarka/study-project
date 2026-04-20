@@ -9,7 +9,7 @@ import {
 } from '@/entities/User';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notifications/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
@@ -38,7 +38,7 @@ export const Navbar = memo((props: INavbarProps) => {
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text title={t('AppName')} theme={TextTheme.INVERTED} className={cls.appName} />
                 <AppLink
-                    to={RoutePath.articleCreate}
+                    to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.createBtn}
                 >

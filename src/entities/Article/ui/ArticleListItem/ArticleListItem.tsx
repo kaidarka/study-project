@@ -7,7 +7,7 @@ import EyeIcon from '@/shared/assets/icons/eye.svg?react';
 import { Card } from '@/shared/ui/Card';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetailed } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/AppLink';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
@@ -60,7 +60,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             />
                         )}
                         <div className={cls.footer}>
-                            <AppLink to={RoutePath.articleDetailed + article.id} target={target}>
+                            <AppLink to={getRouteArticleDetailed(article.id)} target={target}>
                                 <Button theme={ButtonTheme.OUTLINE}>
                                     {t('Читать далее...')}
                                 </Button>
@@ -75,7 +75,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         default:
             return (
                 <AppLink
-                    to={RoutePath.articleDetailed + article.id}
+                    to={getRouteArticleDetailed(article.id)}
                     className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
                     target={target}
                 >

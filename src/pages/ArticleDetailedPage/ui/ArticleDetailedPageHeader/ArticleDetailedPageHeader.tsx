@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { getArticleDetailedData } from '@/entities/Article';
 import cls from './ArticleDetailedPageHeader.module.scss';
@@ -21,11 +21,11 @@ export const ArticleDetailedPageHeader = memo((props: ArticleDetailedPageHeaderP
     const article = useSelector(getArticleDetailedData);
 
     const onClickBack = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     const onClickEdit = () => {
-        navigate(`${RoutePath.articleDetailed}${article?.id}/edit`);
+        navigate(getRouteArticleEdit(article?.id || ''));
     };
 
     return (
