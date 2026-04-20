@@ -1,1 +1,0 @@
-import{M as e,t}from"./jsx-runtime-DmCrob_c.js";var n=t(),r=t=>{let{className:r}=t;return(0,n.jsxs)(`div`,{className:e(`lds-ellipsis`,{},[r]),children:[(0,n.jsx)(`div`,{}),(0,n.jsx)(`div`,{}),(0,n.jsx)(`div`,{}),(0,n.jsx)(`div`,{})]})};export{r as t};

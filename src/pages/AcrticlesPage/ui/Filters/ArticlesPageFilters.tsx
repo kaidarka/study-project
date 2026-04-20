@@ -2,10 +2,11 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
-    ArticleSortField, ArticlesViews, ArticleViewSelector, ArticleSortSelector,
-    ArticleType,
-    ArticleTypeTabs,
+    ArticleSortField, ArticlesViews, ArticleType,
 } from '@/entities/Article';
+import { ArticleSortSelector } from '@/features/Articles/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/Articles/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/Articles/ArticleViewSelector';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';

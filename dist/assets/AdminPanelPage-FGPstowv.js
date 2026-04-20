@@ -1,1 +1,0 @@
-import{a as e,t}from"./react-B0GdOMoI.js";import{t as n}from"./Page-CZHaQffn.js";import{M as r,t as i}from"./jsx-runtime-DmCrob_c.js";var a=e(t()),o={},s=i(),c=(0,a.memo)(e=>{let{className:t}=e;return(0,s.jsx)(n,{className:r(o.AdminPanelPage,{},[t]),children:`admin panel page`})});export{c as default};

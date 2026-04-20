@@ -1,1 +1,0 @@
-import{a as e,t}from"./react-B0GdOMoI.js";import{t as n}from"./Page-CZHaQffn.js";import{M as r,t as i}from"./jsx-runtime-DmCrob_c.js";import{t as a}from"./useTranslation-A0RqR2AN.js";var o=e(t()),s={},c=i(),l=(0,o.memo)(e=>{let{className:t}=e,{t:i}=a();return(0,c.jsx)(n,{className:r(s.ForbiddenPage,{},[t]),children:i(`У вас нет доступа к этой странице`)})});export{l as default};
