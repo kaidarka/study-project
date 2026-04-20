@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 import {
     FlexGap, FlexJustifyContent, HStack, VStack,
 } from '@/shared/ui/Stack';
