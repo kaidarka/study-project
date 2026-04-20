@@ -2,7 +2,7 @@ import type { Preview, StoryFn } from '@storybook/react-webpack5';
 import { StyleDecorator } from '../../src/shared/config/storyBook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storyBook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storyBook/RouterDecorator/RouterDecorator';
-import { Theme } from '../../src/app/providers/ThemeProvider';
+import { Theme } from '../../src/shared/const/theme';
 
 const preview: Preview = {
     parameters: {
