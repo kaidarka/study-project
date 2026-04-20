@@ -39,12 +39,7 @@ export default {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
-        '^entities/(.*)$': '<rootDir>src/entities/$1',
-        '^features/(.*)$': '<rootDir>src/features/$1',
-        '^shared/(.*)$': '<rootDir>src/shared/$1',
-        '^app/(.*)$': '<rootDir>src/app/$1',
-        '^widgets/(.*)$': '<rootDir>src/widgets/$1',
-        '^pages/(.*)$': '<rootDir>src/pages/$1',
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
     reporters: [
         'default',
@@ -184,7 +179,7 @@ export default {
     // This option allows use of a custom test runner
     // testRunner: "jest-circus/runner",
 
-    // eslint-disable-next-line max-len
+     
     // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
     // testURL: "http://localhost",
 
