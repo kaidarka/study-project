@@ -1,7 +1,7 @@
  
 import type { Meta, StoryObj, StoryFn } from '@storybook/react-webpack5';
 import { IArticle } from '@/entities/Article';
-import { ArticleBlockType, ArticleType } from '@/entities/Article/model/types/article';
+import { ArticleBlockType, ArticleType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storyBook/StoreDecorator/StoreDecorator';
 import ArticleDetailedPage from './ArticleDetailedPage';
 
