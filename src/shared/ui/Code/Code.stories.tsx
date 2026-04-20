@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryFn } from '@storybook/react-webpack5';
 import { ThemeDecorator } from '@/shared/config/storyBook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { Code } from './Code';
 
 const meta: Meta<typeof Code> = {

@@ -1,0 +1,5 @@
+export const Theme = {
+    LIGHT: 'app_light_theme',
+    DARK: 'app_dark_theme',
+    RED: 'app_red_theme',
+} as const;

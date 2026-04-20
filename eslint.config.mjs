@@ -67,6 +67,13 @@ export default [
                     testFilesPatterns: ['**/*.stories.tsx', '**/*.test.tsx', '**/StoreDecorator.tsx'],
                 }
             ],
+            'path-checker-kaidarka/layer-imports': [
+                'error',
+                {
+                    alias: '@',
+                    ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+                }
+            ],
         },
     },
     {
