@@ -15,41 +15,43 @@ interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-    const {
-        className, onChangeOrder, onChangeSort, order, sort,
-    } = props;
+    const { className, onChangeOrder, onChangeSort, order, sort } = props;
     const { t } = useTranslation();
 
-    const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
-        {
-            label: t('возрастанию'),
-            value: 'asc',
-        },
-        {
-            label: t('убыванию'),
-            value: 'desc',
-        },
-    ], [t]);
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+        () => [
+            {
+                label: t('возрастанию'),
+                value: 'asc',
+            },
+            {
+                label: t('убыванию'),
+                value: 'desc',
+            },
+        ],
+        [t]
+    );
 
-    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
-        {
-            label: t('дате создания'),
-            value: ArticleSortField.CREATED,
-        },
-        {
-            label: t('названию'),
-            value: ArticleSortField.TITLE,
-        },
-        {
-            label: t('просмотрам'),
-            value: ArticleSortField.VIEWS,
-        },
-    ], [t]);
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
+        () => [
+            {
+                label: t('дате создания'),
+                value: ArticleSortField.CREATED,
+            },
+            {
+                label: t('названию'),
+                value: ArticleSortField.TITLE,
+            },
+            {
+                label: t('просмотрам'),
+                value: ArticleSortField.VIEWS,
+            },
+        ],
+        [t]
+    );
 
     return (
-        <div
-            className={classNames(cls.ArticleSortSelector, {}, [className])}
-        >
+        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
             <Select<ArticleSortField>
                 value={sort}
                 options={sortFieldOptions}

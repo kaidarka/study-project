@@ -11,11 +11,5 @@ export const ArticleInfiniteList = () => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const view = useSelector(getArticlesPageView);
 
-    return (
-        <ArticleList
-            isLoading={isLoading}
-            view={view}
-            articles={articles}
-        />
-    );
+    return <ArticleList isLoading={isLoading} view={view} articles={articles} />;
 };

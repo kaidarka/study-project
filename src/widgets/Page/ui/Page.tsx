@@ -1,6 +1,4 @@
-import {
-    memo, ReactNode, UIEventHandler, useRef,
-} from 'react';
+import { memo, ReactNode, UIEventHandler, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -40,10 +38,12 @@ export const Page = memo((props: IPageProps) => {
     });
 
     const onScroll: UIEventHandler<HTMLElement> = useThrottle((e) => {
-        dispatch(ScrollSliceActions.setScrollPosition({
-            position: e.currentTarget.scrollTop,
-            path: pathname,
-        }));
+        dispatch(
+            ScrollSliceActions.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            })
+        );
     }, 500);
 
     return (

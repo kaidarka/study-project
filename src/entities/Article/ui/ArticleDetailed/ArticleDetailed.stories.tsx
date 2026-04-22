@@ -14,32 +14,35 @@ type Story = StoryObj<typeof ArticleDetailed>;
 export const Normal: Story = {
     args: {},
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            articleDetailed: {
-                data: article,
-            },
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                articleDetailed: {
+                    data: article,
+                },
+            })(Story),
     ],
 };
 
 export const Loading: Story = {
     args: {},
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            articleDetailed: {
-                isLoading: true,
-            },
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                articleDetailed: {
+                    isLoading: true,
+                },
+            })(Story),
     ],
 };
 
 export const Error: Story = {
     args: {},
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            articleDetailed: {
-                error: 'some error',
-            },
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                articleDetailed: {
+                    error: 'some error',
+                },
+            })(Story),
     ],
 };

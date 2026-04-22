@@ -1,4 +1,3 @@
- 
 import type { Meta, StoryObj, StoryFn } from '@storybook/react-webpack5';
 import { IArticle } from '@/entities/Article';
 import { ArticleBlockType, ArticleType } from '@/entities/Article';
@@ -88,13 +87,13 @@ export default meta;
 type Story = StoryObj<typeof ArticleDetailedPage>;
 
 export const Normal: Story = {
-    args: {
-    },
+    args: {},
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            articleDetailed: {
-                data: article,
-            },
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                articleDetailed: {
+                    data: article,
+                },
+            })(Story),
     ],
 };

@@ -36,34 +36,34 @@ const LoginForm = memo((props: ILoginFormProps) => {
     const error = useSelector(getLoginError);
     const isLoading = useSelector(getLoginIsLoading);
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
-
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
-
-    const onLoginClick = useCallback(
-        async () => {
-            const result = await dispatch(
-                loginByUsername({ username, password }),
-            );
-            if (result.meta.requestStatus === 'fulfilled' && onSuccess) {
-                onSuccess();
-            }
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
         },
-        [dispatch, onSuccess, password, username],
+        [dispatch]
     );
+
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch]
+    );
+
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled' && onSuccess) {
+            onSuccess();
+        }
+    }, [dispatch, onSuccess, password, username]);
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div
-                className={classNames(cls.LoginForm, {}, [className])}
-            >
+            <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
-                {error
-                && <Text text={t('вы ввели неверные логин или пароль')} theme={TextTheme.ERROR} />}
+                {error && (
+                    <Text text={t('вы ввели неверные логин или пароль')} theme={TextTheme.ERROR} />
+                )}
                 <Input
                     autofocus
                     className={cls.input}
@@ -87,7 +87,6 @@ const LoginForm = memo((props: ILoginFormProps) => {
                 </Button>
             </div>
         </DynamicModuleLoader>
-
     );
 });
 

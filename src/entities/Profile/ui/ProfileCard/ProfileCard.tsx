@@ -12,7 +12,7 @@ import cls from './ProfileCard.module.scss';
 
 interface IProfileCardProps {
     className?: string;
-    data?: Profile
+    data?: Profile;
     error?: string;
     isLoading?: boolean;
     readonly?: boolean;
@@ -46,9 +46,7 @@ export const ProfileCard = (props: IProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div
-                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
-            >
+            <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
                 <Loader />
             </div>
         );
@@ -56,9 +54,7 @@ export const ProfileCard = (props: IProfileCardProps) => {
 
     if (error) {
         return (
-            <div
-                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
-            >
+            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
@@ -74,9 +70,7 @@ export const ProfileCard = (props: IProfileCardProps) => {
     };
 
     return (
-        <div
-            className={classNames(cls.ProfileCard, mods, [className])}
-        >
+        <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>
                 {data?.avatar && (
                     <div className={cls.avatarWrapper}>

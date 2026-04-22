@@ -16,13 +16,7 @@ interface IAppLinkProps extends LinkProps {
 }
 
 export const AppLink = memo((props: IAppLinkProps) => {
-    const {
-        className,
-        children,
-        to,
-        theme = AppLinkTheme.PRIMARY,
-        ...otherProps
-    } = props;
+    const { className, children, to, theme = AppLinkTheme.PRIMARY, ...otherProps } = props;
     return (
         <Link
             to={to}

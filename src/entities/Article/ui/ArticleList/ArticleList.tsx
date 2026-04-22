@@ -10,15 +10,12 @@ interface ArticleListProps {
     className?: string;
     articles: Article[];
     isLoading?: boolean;
-    view?: ArticlesViews
+    view?: ArticlesViews;
     target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
-    const {
-        className, articles, isLoading, view = ArticlesViews.GRID,
-        target,
-    } = props;
+    const { className, articles, isLoading, view = ArticlesViews.GRID, target } = props;
 
     const renderArticle = (article: Article) => (
         <ArticleListItem article={article} view={view} key={article.id} target={target} />
@@ -26,24 +23,19 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (!isLoading && !articles?.length) {
         return (
-            <div
-                className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-            >
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
                 <Text text="Статьи не найдены" />
             </div>
         );
     }
 
     return (
-        <div
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-        >
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {articles?.length > 0 ? articles.map(renderArticle) : null}
-            {isLoading && new Array(
-                view === ArticlesViews.GRID ? 9 : 3,
-            ).fill(0).map((item, index) => (
-                <ArticleListItemSkeleton view={view} key={index} />
-            ))}
+            {isLoading &&
+                new Array(view === ArticlesViews.GRID ? 9 : 3)
+                    .fill(0)
+                    .map((item, index) => <ArticleListItemSkeleton view={view} key={index} />)}
         </div>
     );
 });

@@ -7,17 +7,13 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
-import {
-    fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slices/articleDetailedCommentsSlice';
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
 } from '../../model/selectors/comments';
-import {
-    addCommentForArticle,
-} from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailedCommentsProps {
     id: string;
@@ -36,7 +32,7 @@ export const ArticleDetailedComments = (props: ArticleDetailedCommentsProps) => 
         (text: string) => {
             dispatch(addCommentForArticle(text));
         },
-        [dispatch],
+        [dispatch]
     );
     useMountEffect(() => {
         dispatch(fetchCommentsByArticleId(id));

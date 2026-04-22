@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Avatar>;
 export const Primary: Story = {
     args: {
         // TODO create local image and use in there
-         
+
         src: 'https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740',
         size: 150,
     },

@@ -11,9 +11,7 @@ interface TabsProps {
 }
 
 export const Tabs = (props: TabsProps) => {
-    const {
-        className, tabs, value, onTabClick,
-    } = props;
+    const { className, tabs, value, onTabClick } = props;
     return (
         <div className={classNames(cls.Tabs, {}, [className])}>
             {tabs.map((tab) => (

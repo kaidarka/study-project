@@ -17,11 +17,11 @@ export enum ButtonSize {
     XL = 'size_xl',
 }
 
-interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
     square?: boolean;
-    size?: ButtonSize
+    size?: ButtonSize;
     children?: ReactNode;
 }
 
@@ -39,13 +39,11 @@ export const Button = memo((props: IButtonProps) => {
     return (
         <button
             type="button"
-            className={
-                classNames(
-                    cls.Button,
-                    { [cls.square]: square, [cls.disabled]: disabled },
-                    [className, cls[theme], cls[size]],
-                )
-            }
+            className={classNames(cls.Button, { [cls.square]: square, [cls.disabled]: disabled }, [
+                className,
+                cls[theme],
+                cls[size],
+            ])}
             disabled={disabled}
             {...otherProps}
         >

@@ -13,9 +13,7 @@ import {
     addCommentFormActions,
     addCommentFormReducer,
 } from '../../model/slices/addCommentFormSlice';
-import {
-    getAddCommentFormText,
-} from '../../model/selectors/addCommentFormSelectors';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
 
 interface IAddCommentFormProps {
@@ -33,9 +31,12 @@ const AddCommentForm = memo((props: IAddCommentFormProps) => {
     const text = useSelector(getAddCommentFormText);
     const dispatch = useAppDispatch();
 
-    const onChangeText = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+    const onChangeText = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
+        },
+        [dispatch]
+    );
 
     const onSendHandler = useCallback(() => {
         onChangeText('');
@@ -44,21 +45,16 @@ const AddCommentForm = memo((props: IAddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div
-                className={classNames(cls.AddCommentForm, {}, [className])}
-            >
+            <div className={classNames(cls.AddCommentForm, {}, [className])}>
                 <Input
                     placeholder={t('Введите текст комментария')}
                     value={text}
                     onChange={onChangeText}
                     className={cls.input}
                 />
-                <Button onClick={onSendHandler}>
-                    {t('Отправить')}
-                </Button>
+                <Button onClick={onSendHandler}>{t('Отправить')}</Button>
             </div>
         </DynamicModuleLoader>
-
     );
 });
 

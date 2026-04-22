@@ -22,18 +22,14 @@ export const NormalDark: Story = {
         width: '100%',
         height: 200,
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };
 export const NormalRed: Story = {
     args: {
         width: '100%',
         height: 200,
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.RED)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.RED)(Story)],
 };
 
 export const Circle: Story = {
@@ -50,9 +46,7 @@ export const CircleDark: Story = {
         width: 100,
         height: 100,
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };
 
 export const CircleRed: Story = {
@@ -61,7 +55,5 @@ export const CircleRed: Story = {
         width: 100,
         height: 100,
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.RED)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.RED)(Story)],
 };

@@ -20,7 +20,7 @@ export const TextSize = {
     L: 'sizeL',
 } as const;
 
-const mapSizeToHeaderTag: Record<typeof TextSize[keyof typeof TextSize], React.ElementType> = {
+const mapSizeToHeaderTag: Record<(typeof TextSize)[keyof typeof TextSize], React.ElementType> = {
     [TextSize.S]: 'h3',
     [TextSize.M]: 'h2',
     [TextSize.L]: 'h1',
@@ -30,16 +30,17 @@ interface ITextProps {
     className?: string;
     title?: string;
     text?: string;
-    theme?: typeof TextTheme[keyof typeof TextTheme];
-    align?: typeof TextAlign[keyof typeof TextAlign];
-    size?: typeof TextSize[keyof typeof TextSize];
+    theme?: (typeof TextTheme)[keyof typeof TextTheme];
+    align?: (typeof TextAlign)[keyof typeof TextAlign];
+    size?: (typeof TextSize)[keyof typeof TextSize];
 }
 
 export const Text = memo((props: ITextProps) => {
     const {
         className,
         text,
-        title, theme = TextTheme.PRIMARY,
+        title,
+        theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
         size = TextSize.M,
     } = props;
@@ -47,15 +48,9 @@ export const Text = memo((props: ITextProps) => {
     const HeaderTag = mapSizeToHeaderTag[size];
 
     return (
-        <div
-            className={classNames(
-                cls.Text,
-                {},
-                [className, cls[theme], cls[align], cls[size]],
-            )}
-        >
-            {title && (<HeaderTag className={cls.title}>{title}</HeaderTag>)}
-            {text && (<p className={cls.text}>{text}</p>)}
+        <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
+            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
+            {text && <p className={cls.text}>{text}</p>}
         </div>
     );
 });

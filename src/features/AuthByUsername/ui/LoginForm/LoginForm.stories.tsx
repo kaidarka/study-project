@@ -11,45 +11,45 @@ export default meta;
 type Story = StoryObj<typeof LoginForm>;
 
 export const Primary: Story = {
-    args: {
-    },
+    args: {},
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            loginForm: {
-                username: 'asdf',
-                password: 'asdf',
-                isLoading: false,
-            },
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                loginForm: {
+                    username: 'asdf',
+                    password: 'asdf',
+                    isLoading: false,
+                },
+            })(Story),
     ],
 };
 
 export const WithError: Story = {
-    args: {
-    },
+    args: {},
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            loginForm: {
-                username: 'asdf',
-                password: 'asdf',
-                isLoading: false,
-                error: 'error',
-            },
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                loginForm: {
+                    username: 'asdf',
+                    password: 'asdf',
+                    isLoading: false,
+                    error: 'error',
+                },
+            })(Story),
     ],
 };
 
 export const WithLoading: Story = {
-    args: {
-    },
+    args: {},
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            loginForm: {
-                username: '',
-                password: '',
-                isLoading: true,
-                error: 'error',
-            },
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                loginForm: {
+                    username: '',
+                    password: '',
+                    isLoading: true,
+                    error: 'error',
+                },
+            })(Story),
     ],
 };

@@ -6,15 +6,13 @@ import { IArticleCodeBlock } from '../../model/types/article';
 
 interface IArticleImageCodeComponentProps {
     className?: string;
-    block: IArticleCodeBlock
+    block: IArticleCodeBlock;
 }
 
 export const ArticleCodeBlockComponent = memo((props: IArticleImageCodeComponentProps) => {
     const { className, block } = props;
     return (
-        <div
-            className={classNames(cls.ArticleImageCodeComponent, {}, [className])}
-        >
+        <div className={classNames(cls.ArticleImageCodeComponent, {}, [className])}>
             <Code text={block.code} />
         </div>
     );

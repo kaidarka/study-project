@@ -1,5 +1,8 @@
 import {
-    Listbox as HeadlessListbox, ListboxButton, ListboxOption, ListboxOptions,
+    Listbox as HeadlessListbox,
+    ListboxButton,
+    ListboxOption,
+    ListboxOptions,
 } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -22,12 +25,18 @@ interface ListBoxProps {
     onChange: <T extends string>(value: T) => void;
     placeholder?: string;
     readonly?: boolean;
-    label?: string
+    label?: string;
 }
 
 export const ListBox = (props: ListBoxProps) => {
     const {
-        items, value, className, onChange, placeholder = 'Select...', readonly = false, label,
+        items,
+        value,
+        className,
+        onChange,
+        placeholder = 'Select...',
+        readonly = false,
+        label,
     } = props;
 
     return (
@@ -41,15 +50,11 @@ export const ListBox = (props: ListBoxProps) => {
                 disabled={readonly}
             >
                 <ListboxButton
-                    className={classNames(
-                        popupCls.button,
-                        { [buttonCls.disabled]: readonly },
-                        [
-                            buttonCls.Button,
-                            buttonCls[ButtonTheme.OUTLINE],
-                            buttonCls[ButtonSize.M],
-                        ],
-                    )}
+                    className={classNames(popupCls.button, { [buttonCls.disabled]: readonly }, [
+                        buttonCls.Button,
+                        buttonCls[ButtonTheme.OUTLINE],
+                        buttonCls[ButtonSize.M],
+                    ])}
                 >
                     {items.find((item) => item.value === value)?.content || placeholder}
                 </ListboxButton>

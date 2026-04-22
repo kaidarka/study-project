@@ -7,20 +7,21 @@ const meta: Meta<typeof Code> = {
     title: 'shared/Code',
     component: Code,
     args: {
-        text: 'import { classNames } from \'shared/lib/classNames/classNames\';\n'
-            + 'import { memo } from \'react\';\n'
-            + 'import cls from \'./Code.module.scss\';\n'
-            + '\n'
-            + 'export const Code = memo((props: ICodeProps) => {\n'
-            + '    const { className, text } = props;\n'
-            + '    return (\n'
-            + '        <code\n'
-            + '            className={classNames(cls.Code, {}, [className])}\n'
-            + '        >\n'
-            + '            {text}\n'
-            + '        </code>\n'
-            + '    );\n'
-            + '});\n',
+        text:
+            "import { classNames } from 'shared/lib/classNames/classNames';\n" +
+            "import { memo } from 'react';\n" +
+            "import cls from './Code.module.scss';\n" +
+            '\n' +
+            'export const Code = memo((props: ICodeProps) => {\n' +
+            '    const { className, text } = props;\n' +
+            '    return (\n' +
+            '        <code\n' +
+            '            className={classNames(cls.Code, {}, [className])}\n' +
+            '        >\n' +
+            '            {text}\n' +
+            '        </code>\n' +
+            '    );\n' +
+            '});\n',
     },
 };
 
@@ -33,14 +34,10 @@ export const Normal: Story = {
 
 export const Dark: Story = {
     args: {},
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };
 
 export const Red: Story = {
     args: {},
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.RED)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.RED)(Story)],
 };

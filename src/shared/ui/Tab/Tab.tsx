@@ -11,10 +11,7 @@ interface TabProps extends TabItem {
 }
 
 export const Tab = (props: TabProps) => {
-    const {
-        className, content, onClick, value,
-        active,
-    } = props;
+    const { className, content, onClick, value, active } = props;
     return (
         <Card
             className={classNames(cls.Tab, { [cls.active]: active }, [className])}

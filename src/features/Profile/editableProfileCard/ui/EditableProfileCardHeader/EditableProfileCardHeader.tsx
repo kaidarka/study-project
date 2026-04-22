@@ -43,40 +43,26 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
     }, [dispatch]);
 
     return (
-        <div
-            className={classNames(cls.EditableProfileCardHeader, {}, [className])}
-        >
+        <div className={classNames(cls.EditableProfileCardHeader, {}, [className])}>
             <Text title={t('Профиль')} />
             {canEdit && (
                 <div>
                     {readonly ? (
-                        <Button
-                            onClick={onEdit}
-                            theme={ButtonTheme.OUTLINE}
-                        >
+                        <Button onClick={onEdit} theme={ButtonTheme.OUTLINE}>
                             {t('Редактировать')}
                         </Button>
                     ) : (
-                        <div
-                            className={cls.buttonsBlock}
-                        >
-                            <Button
-                                onClick={onCancelEdit}
-                                theme={ButtonTheme.OUTLINE_RED}
-                            >
+                        <div className={cls.buttonsBlock}>
+                            <Button onClick={onCancelEdit} theme={ButtonTheme.OUTLINE_RED}>
                                 {t('Отмена')}
                             </Button>
-                            <Button
-                                theme={ButtonTheme.OUTLINE}
-                                onClick={onSave}
-                            >
+                            <Button theme={ButtonTheme.OUTLINE} onClick={onSave}>
                                 {t('Сохранить')}
                             </Button>
                         </div>
                     )}
                 </div>
             )}
-
         </div>
     );
 };

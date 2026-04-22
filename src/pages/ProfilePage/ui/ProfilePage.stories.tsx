@@ -11,33 +11,30 @@ const meta: Meta<typeof ProfilePage> = {
     title: 'pages/ProfilePage',
     component: ProfilePage,
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            profile: {
-                form: {
-                    username: 'asd',
-                    age: 123,
-                    country: Country.Russia,
-                    firstName: 'dsa',
-                    lastName: 'dsa',
-                    currency: Currency.EUR,
-                    city: 'spb',
+        (Story: StoryFn) =>
+            StoreDecorator({
+                profile: {
+                    form: {
+                        username: 'asd',
+                        age: 123,
+                        country: Country.Russia,
+                        firstName: 'dsa',
+                        lastName: 'dsa',
+                        currency: Currency.EUR,
+                        city: 'spb',
+                    },
                 },
-            },
-        })(Story),
+            })(Story),
     ],
 };
 
 export default meta;
-type Story = StoryObj<typeof ProfilePage>
+type Story = StoryObj<typeof ProfilePage>;
 
 export const Light: Story = {
-    args: {
-    },
+    args: {},
 };
 export const Dark: Story = {
-    args: {
-    },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    args: {},
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };

@@ -10,16 +10,17 @@ interface IAvatarProps {
 }
 
 export const Avatar = (props: IAvatarProps) => {
-    const {
-        className, src, alt, size = 150,
-    } = props;
+    const { className, src, alt, size = 150 } = props;
 
     const mods: Mods = {};
 
-    const styles = useMemo<CSSProperties>(() => ({
-        width: size,
-        height: size,
-    }), [size]);
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size]
+    );
 
     return (
         <img

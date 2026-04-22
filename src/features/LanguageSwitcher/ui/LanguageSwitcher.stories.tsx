@@ -15,7 +15,5 @@ type Story = StoryObj<typeof LanguageSwitcher>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };

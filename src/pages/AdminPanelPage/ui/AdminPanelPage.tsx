@@ -11,9 +11,7 @@ const AdminPanelPage = (props: AdminPanelPageProps) => {
     const { className } = props;
 
     return (
-        <Page className={classNames(cls.AdminPanelPage, {}, [className])}>
-            admin panel page
-        </Page>
+        <Page className={classNames(cls.AdminPanelPage, {}, [className])}>admin panel page</Page>
     );
 };
 

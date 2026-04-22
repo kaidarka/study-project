@@ -23,9 +23,13 @@ export const Sidebar = memo((props: ISidebarProps) => {
         setCollapsed((state) => !state);
     };
 
-    const itemsList = useMemo(() => sidebarItemsList.map((item) => (
-        <SidebarItem item={item} key={item.path} collapsed={collapsed} />
-    )), [collapsed, sidebarItemsList]);
+    const itemsList = useMemo(
+        () =>
+            sidebarItemsList.map((item) => (
+                <SidebarItem item={item} key={item.path} collapsed={collapsed} />
+            )),
+        [collapsed, sidebarItemsList]
+    );
 
     return (
         <aside

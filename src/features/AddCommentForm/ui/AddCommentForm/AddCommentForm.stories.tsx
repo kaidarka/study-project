@@ -11,10 +11,6 @@ export default meta;
 type Story = StoryObj<typeof AddCommentForm>;
 
 export const Normal: Story = {
-    args: {
-    },
-    decorators: [
-        (Story: StoryFn) => StoreDecorator({
-        })(Story),
-    ],
+    args: {},
+    decorators: [(Story: StoryFn) => StoreDecorator({})(Story)],
 };

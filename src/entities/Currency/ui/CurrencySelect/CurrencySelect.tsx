@@ -28,9 +28,12 @@ export const CurrencySelect = (props: ICurrencySelectProps) => {
     const { value, onChange, readonly } = props;
     const { t } = useTranslation();
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Currency);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Currency);
+        },
+        [onChange]
+    );
 
     return (
         <ListBox

@@ -8,8 +8,8 @@ import cls from './SidebarItem.module.scss';
 import { SidebarItemsType } from '../../model/types/sidebar';
 
 interface ISidebarItemProps {
-    item: SidebarItemsType
-    collapsed: boolean
+    item: SidebarItemsType;
+    collapsed: boolean;
 }
 
 export const SidebarItem = memo((props: ISidebarItemProps) => {
@@ -28,12 +28,8 @@ export const SidebarItem = memo((props: ISidebarItemProps) => {
             theme={AppLinkTheme.PRIMARY}
             className={classNames(cls.SidebarItem, { [cls.collapsed]: collapsed })}
         >
-            {item?.Icon && (<item.Icon className={cls.icon} />)}
-            <span
-                className={cls.link}
-            >
-                {t(item.text)}
-            </span>
+            {item?.Icon && <item.Icon className={cls.icon} />}
+            <span className={cls.link}>{t(item.text)}</span>
         </AppLink>
     );
 });

@@ -15,25 +15,28 @@ type Story = StoryObj<typeof Sidebar>;
 
 export const Light: Story = {
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            user: { authData: {} },
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                user: { authData: {} },
+            })(Story),
     ],
 };
 
 export const Dark: Story = {
     decorators: [
         (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-        (Story: StoryFn) => StoreDecorator({
-            user: { authData: {} },
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                user: { authData: {} },
+            })(Story),
     ],
 };
 
 export const NoAuth: Story = {
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            user: {},
-        })(Story),
+        (Story: StoryFn) =>
+            StoreDecorator({
+                user: {},
+            })(Story),
     ],
 };

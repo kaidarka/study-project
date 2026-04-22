@@ -1,9 +1,7 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from '@/entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { Avatar } from '@/shared/ui/Avatar';
 import { AnchorPosition, Dropdown } from '@/shared/ui/Popups';
@@ -34,11 +32,11 @@ export const AvatarDropdown = () => {
                 { content: t('Профиль'), href: getRouteProfile(authData.id) },
                 ...(isAdminPanelAvailable
                     ? [
-                        {
-                            content: t('Админ панель'),
-                            href: getRouteAdminPanel(),
-                        },
-                    ]
+                          {
+                              content: t('Админ панель'),
+                              href: getRouteAdminPanel(),
+                          },
+                      ]
                     : []),
                 { content: t('Выйти'), onClick: logout },
             ]}

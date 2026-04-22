@@ -17,11 +17,7 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
 
     if (isLoading) {
         return (
-            <VStack
-                gap="sm"
-                max
-                className={classNames('', {}, [className])}
-            >
+            <VStack gap="sm" max className={classNames('', {}, [className])}>
                 <Skeleton width="100%" height={100} border="8px" />
                 <Skeleton width="100%" height={100} border="8px" />
                 <Skeleton width="100%" height={100} border="8px" />
@@ -30,16 +26,9 @@ export const NotificationsList = memo((props: NotificationsListProps) => {
     }
 
     return (
-        <VStack
-            gap="md"
-            max
-            className={classNames('', {}, [className])}
-        >
+        <VStack gap="md" max className={classNames('', {}, [className])}>
             {notifications?.map((notification) => (
-                <NotificationItem
-                    key={notification.id}
-                    notification={notification}
-                />
+                <NotificationItem key={notification.id} notification={notification} />
             ))}
         </VStack>
     );

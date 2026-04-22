@@ -70,9 +70,7 @@ export const PrimaryDark: Story = {
     args: {
         children: 'Text',
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };
 
 export const ClearDark: Story = {
@@ -80,9 +78,7 @@ export const ClearDark: Story = {
         children: 'Text',
         theme: ButtonTheme.CLEAR,
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };
 
 export const OutlineDark: Story = {
@@ -90,9 +86,7 @@ export const OutlineDark: Story = {
         children: 'Text',
         theme: ButtonTheme.OUTLINE,
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };
 
 export const BackgroundTheme: Story = {

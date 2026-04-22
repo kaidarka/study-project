@@ -8,7 +8,7 @@ export const FlexAlignItems = {
     end: 'end',
 } as const;
 
-type FlexAlignItemsType = typeof FlexAlignItems[keyof typeof FlexAlignItems];
+type FlexAlignItemsType = (typeof FlexAlignItems)[keyof typeof FlexAlignItems];
 
 export const FlexJustifyContent = {
     start: 'start',
@@ -17,14 +17,14 @@ export const FlexJustifyContent = {
     between: 'between',
 } as const;
 
-type FlexJustifyContentType = typeof FlexJustifyContent[keyof typeof FlexJustifyContent];
+type FlexJustifyContentType = (typeof FlexJustifyContent)[keyof typeof FlexJustifyContent];
 
 export const FlexDirection = {
     row: 'row',
     column: 'column',
 } as const;
 
-type FlexDirectionType = typeof FlexDirection[keyof typeof FlexDirection];
+type FlexDirectionType = (typeof FlexDirection)[keyof typeof FlexDirection];
 
 export const FlexGap = {
     xs: 'xs',
@@ -33,7 +33,7 @@ export const FlexGap = {
     lg: 'lg',
 } as const;
 
-type FlexGapType = typeof FlexGap[keyof typeof FlexGap];
+type FlexGapType = (typeof FlexGap)[keyof typeof FlexGap];
 
 const alignClasses: Record<FlexAlignItemsType, string> = {
     start: cls.alignItemsStart,
@@ -60,7 +60,7 @@ const gapClasses: Record<FlexGapType, string> = {
     lg: cls.gapLg,
 };
 
-type DivProps = DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+type DivProps = DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 export interface FlexProps extends DivProps {
     className?: string;
@@ -69,7 +69,7 @@ export interface FlexProps extends DivProps {
     justifyContent?: FlexJustifyContentType;
     direction?: FlexDirectionType;
     gap?: FlexGapType;
-    max?: boolean
+    max?: boolean;
 }
 
 export const Flex = (props: FlexProps) => {

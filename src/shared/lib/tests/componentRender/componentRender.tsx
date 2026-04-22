@@ -6,7 +6,7 @@ import i18nForTests from '@/shared/config/i18n/i18nForTests';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 
 export interface IComponentRenderOptions {
-    route?: string
+    route?: string;
     initialState?: DeepPartial<StateSchema>;
 }
 
@@ -15,11 +15,8 @@ export function componentRender(component: ReactNode, options: IComponentRenderO
     return render(
         <MemoryRouter initialEntries={[route]}>
             <StoreProvider initialState={initialState}>
-                <I18nextProvider i18n={i18nForTests}>
-                    {component}
-                </I18nextProvider>
+                <I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
             </StoreProvider>
         </MemoryRouter>
-        ,
     );
 }

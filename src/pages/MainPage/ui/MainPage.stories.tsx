@@ -21,7 +21,5 @@ export const Dark: Story = {
     args: {
         children: 'Text',
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };

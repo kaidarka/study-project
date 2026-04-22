@@ -15,7 +15,5 @@ type Story = StoryObj<typeof Loader>;
 export const Light: Story = {};
 
 export const Dark: Story = {
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };

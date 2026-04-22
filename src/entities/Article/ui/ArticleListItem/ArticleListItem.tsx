@@ -11,7 +11,10 @@ import { getRouteArticleDetailed } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/AppLink';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
-    ArticleBlockType, ArticlesViews, Article, IArticleTextBlock,
+    ArticleBlockType,
+    ArticlesViews,
+    Article,
+    IArticleTextBlock,
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
@@ -23,9 +26,7 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const {
-        className, article, view = ArticlesViews.GRID, target,
-    } = props;
+    const { className, article, view = ArticlesViews.GRID, target } = props;
     const { t } = useTranslation();
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -38,12 +39,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     switch (view) {
         case ArticlesViews.LIST: {
             const textBlock = article.blocks.find(
-                (block) => block.type === ArticleBlockType.TEXT,
+                (block) => block.type === ArticleBlockType.TEXT
             ) as IArticleTextBlock;
             return (
-                <div
-                    className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-                >
+                <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                     <Card>
                         <div className={cls.header}>
                             <Avatar size={30} src={article.user.avatar} />
@@ -61,9 +60,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         )}
                         <div className={cls.footer}>
                             <AppLink to={getRouteArticleDetailed(article.id)} target={target}>
-                                <Button theme={ButtonTheme.OUTLINE}>
-                                    {t('Читать далее...')}
-                                </Button>
+                                <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
                             </AppLink>
                             {views}
                         </div>

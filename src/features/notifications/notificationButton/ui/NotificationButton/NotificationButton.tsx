@@ -36,10 +36,7 @@ export const NotificationButton = () => {
     return (
         <div>
             <BrowserView>
-                <Popover
-                    buttonContent={triggerDesktop}
-                    anchor={AnchorPosition.TOP_END}
-                >
+                <Popover buttonContent={triggerDesktop} anchor={AnchorPosition.TOP_END}>
                     <NotificationsList className={cls.notifications} />
                 </Popover>
             </BrowserView>
@@ -50,6 +47,5 @@ export const NotificationButton = () => {
                 </Drawer>
             </MobileView>
         </div>
-
     );
 };

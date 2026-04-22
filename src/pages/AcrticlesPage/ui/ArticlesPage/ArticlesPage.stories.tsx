@@ -14,11 +14,12 @@ type Story = StoryObj<typeof ArticlesPage>;
 export const Normal: Story = {
     args: {},
     decorators: [
-        (Story) => StoreDecorator({
-            articlesPage: {
-                view: ArticlesViews.LIST,
-                entities: {},
-            },
-        })(Story),
+        (Story) =>
+            StoreDecorator({
+                articlesPage: {
+                    view: ArticlesViews.LIST,
+                    entities: {},
+                },
+            })(Story),
     ],
 };

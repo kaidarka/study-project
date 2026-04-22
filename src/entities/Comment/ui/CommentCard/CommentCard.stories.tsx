@@ -17,8 +17,8 @@ export const Normal: Story = {
             user: {
                 id: '1',
                 avatar:
-                    'https://img.freepik.com/premium-vector'
-                    + '/man-avatar-profile-round-icon_24640-14044.jpg?w=740',
+                    'https://img.freepik.com/premium-vector' +
+                    '/man-avatar-profile-round-icon_24640-14044.jpg?w=740',
                 username: 'admin',
             },
         },

@@ -22,16 +22,12 @@ export const Dark: Story = {
     args: {
         children: <Text text="text" title="TITLE" />,
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story)],
 };
 
 export const Red: Story = {
     args: {
         children: <Text text="text" title="TITLE" />,
     },
-    decorators: [
-        (Story: StoryFn) => ThemeDecorator(Theme.RED)(Story),
-    ],
+    decorators: [(Story: StoryFn) => ThemeDecorator(Theme.RED)(Story)],
 };

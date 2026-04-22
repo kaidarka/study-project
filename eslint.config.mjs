@@ -4,6 +4,8 @@ import i18next from 'eslint-plugin-i18next';
 import reactHooks from 'eslint-plugin-react-hooks';
 import pathChecker from 'eslint-plugin-path-checker-kaidarka';
 import unusedImports from "eslint-plugin-unused-imports";
+import prettierPlugin from 'eslint-plugin-prettier';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 
 export default [
@@ -35,6 +37,7 @@ export default [
             'react-hooks': reactHooks,
             'path-checker-kaidarka': pathChecker,
             "unused-imports": unusedImports,
+            prettier: prettierPlugin,
         },
         rules: {
             indent: [2, 4, { SwitchCase: 1 }],
@@ -77,6 +80,7 @@ export default [
                 }
             ],
             "unused-imports/no-unused-imports": "error",
+            'prettier/prettier': 'error',
         },
     },
     {
@@ -86,4 +90,5 @@ export default [
             'max-len': 'off',
         },
     },
+    eslintConfigPrettier,
 ];

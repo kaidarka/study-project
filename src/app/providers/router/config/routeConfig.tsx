@@ -8,8 +8,8 @@ import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
-import { 
-    AppRoutes, 
+import {
+    AppRoutes,
     getRouteAbout,
     getRouteAdminPanel,
     getRouteArticleCreate,
@@ -18,7 +18,7 @@ import {
     getRouteArticles,
     getRouteForbidden,
     getRouteMain,
-    getRouteProfile 
+    getRouteProfile,
 } from '@/shared/const/router';
 import { AppRoutesProps } from '@/shared/types/router';
 
@@ -32,7 +32,7 @@ export const routeConfig = {
         element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
-        path: getRouteProfile(':id')    ,
+        path: getRouteProfile(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
@@ -68,7 +68,7 @@ export const routeConfig = {
     },
     // LAST
     [AppRoutes.NOT_FOUND]: {
-        path: "*",
+        path: '*',
         element: <NotFoundPage />,
     },
-} as const satisfies Record<typeof AppRoutes[keyof typeof AppRoutes], AppRoutesProps>;
+} as const satisfies Record<(typeof AppRoutes)[keyof typeof AppRoutes], AppRoutesProps>;

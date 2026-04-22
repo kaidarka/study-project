@@ -13,15 +13,9 @@ import { Avatar } from '@/shared/ui/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye.svg?react';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg?react';
 import { Icon } from '@/shared/ui/Icon';
-import {
-    ArticleCodeBlockComponent,
-} from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-    ArticleTextBlockComponent,
-} from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import {
-    ArticleImageBlockComponent,
-} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleBlockType, TArticleBlock } from '../../model/types/article';
 import { articleDetailedReducer } from '../../model/slice/articleDetailedSlice';
 import { fetchArticleById } from '../../model/services/fetchAtricleById/fetchArticleById';
@@ -82,10 +76,7 @@ export const ArticleDetailed = memo((props: IArticleDetailedProps) => {
         );
     } else if (error) {
         content = (
-            <Text
-                title={t('Произошла ошибка при загрузке статьи.')}
-                align={TextAlign.CENTER}
-            />
+            <Text title={t('Произошла ошибка при загрузке статьи.')} align={TextAlign.CENTER} />
         );
     } else {
         content = (
@@ -100,32 +91,21 @@ export const ArticleDetailed = memo((props: IArticleDetailedProps) => {
                     size={TextSize.L}
                 />
                 <div className={cls.articleExtraInfo}>
-                    <Icon
-                        Svg={EyeIcon}
-                    />
+                    <Icon Svg={EyeIcon} />
                     <Text text={String(article?.views)} />
                 </div>
                 <div className={cls.articleExtraInfo}>
-                    <Icon
-                        Svg={CalendarIcon}
-                    />
+                    <Icon Svg={CalendarIcon} />
                     <Text text={article?.createdAt} />
                 </div>
-                <div className={cls.blocks}>
-                    {article?.blocks.map(renderBlock)}
-                </div>
+                <div className={cls.blocks}>{article?.blocks.map(renderBlock)}</div>
             </>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div
-                className={classNames(cls.ArticleDetailed, {}, [className])}
-            >
-                {content}
-            </div>
+            <div className={classNames(cls.ArticleDetailed, {}, [className])}>{content}</div>
         </DynamicModuleLoader>
-
     );
 });

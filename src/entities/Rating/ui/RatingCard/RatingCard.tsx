@@ -2,9 +2,7 @@ import { useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
-import {
-    FlexGap, FlexJustifyContent, HStack, VStack,
-} from '@/shared/ui/Stack';
+import { FlexGap, FlexJustifyContent, HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import cls from './RatingCard.module.scss';
 import { StarRating } from '@/shared/ui/StarRating';
@@ -21,31 +19,26 @@ type RatingCardProps = {
     onAccept?: (starsCount: number, feedback?: string) => void;
     onCancel?: (starsCount: number) => void;
     rate?: number;
-}
+};
 
 export const RatingCard = (props: RatingCardProps) => {
-    const {
-        className,
-        title,
-        feedbackTitle,
-        hasFeedback,
-        onAccept,
-        onCancel,
-        rate,
-    } = props;
+    const { className, title, feedbackTitle, hasFeedback, onAccept, onCancel, rate } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState<number| undefined>(rate);
+    const [starsCount, setStarsCount] = useState<number | undefined>(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((starsCount: number) => {
-        setStarsCount(starsCount);
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(starsCount);
-        }
-    }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (starsCount: number) => {
+            setStarsCount(starsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(starsCount);
+            }
+        },
+        [hasFeedback, onAccept]
+    );
 
     const acceptHandler = useCallback(() => {
         onAccept?.(starsCount || 0, feedback);
@@ -75,24 +68,16 @@ export const RatingCard = (props: RatingCardProps) => {
                     <VStack max gap={FlexGap.lg}>
                         {modalContent}
                         <HStack max gap={FlexGap.md} justifyContent={FlexJustifyContent.end}>
-                            <Button
-                                theme={ButtonTheme.OUTLINE_RED}
-                                onClick={cancelHandler}
-                            >
+                            <Button theme={ButtonTheme.OUTLINE_RED} onClick={cancelHandler}>
                                 Закрыть
                             </Button>
-                            <Button onClick={acceptHandler}>
-                                Отправить
-                            </Button>
+                            <Button onClick={acceptHandler}>Отправить</Button>
                         </HStack>
                     </VStack>
                 </Modal>
             </BrowserView>
             <MobileView>
-                <Drawer
-                    isOpen={isModalOpen}
-                    onClose={() => setIsModalOpen(false)}
-                >
+                <Drawer isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                     <VStack max gap={FlexGap.lg}>
                         {modalContent}
                         <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={acceptHandler}>

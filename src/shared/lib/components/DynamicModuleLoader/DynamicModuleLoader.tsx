@@ -6,18 +6,16 @@ import { StateSchemaKey } from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
-}
+};
 
 interface IDynamicModuleLoaderProps {
-    children: ReactNode
+    children: ReactNode;
     reducers: ReducersList;
     removeAfterUnmount?: boolean;
 }
 
 export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = (props) => {
-    const {
-        children, reducers, removeAfterUnmount = true,
-    } = props;
+    const { children, reducers, removeAfterUnmount = true } = props;
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
     useEffect(() => {

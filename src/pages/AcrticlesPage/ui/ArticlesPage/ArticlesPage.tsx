@@ -11,12 +11,8 @@ import { Page } from '@/widgets/Page';
 import { ArticlesPageFilters } from '../Filters/ArticlesPageFilters';
 import { VStack } from '@/shared/ui/Stack';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import {
-    fetchArticlesNextPage,
-} from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
-import {
-    articlePageReducer,
-} from '../../model/slices/articlePageSlice';
+import { fetchArticlesNextPage } from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
+import { articlePageReducer } from '../../model/slices/articlePageSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
 interface IArticlesPageProps {
@@ -42,10 +38,7 @@ const ArticlesPage = (props: IArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page
-                className={classNames('', {}, [className])}
-                onScrollEnd={onLoadNextPart}
-            >
+            <Page className={classNames('', {}, [className])} onScrollEnd={onLoadNextPart}>
                 <VStack gap="md" max>
                     <ArticlesPageFilters />
                     <ArticleInfiniteList />

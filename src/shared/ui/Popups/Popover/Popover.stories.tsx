@@ -5,15 +5,7 @@ import { Button } from '../../Button/Button';
 const meta: Meta<typeof Popover> = {
     title: 'shared/Popups/Popover',
     component: Popover,
-    decorators: [
-        (Story) => (
-            <div style={{
-            }}
-            >
-                {Story()}
-            </div>
-        ),
-    ],
+    decorators: [(Story) => <div style={{}}>{Story()}</div>],
 };
 
 export default meta;
@@ -24,9 +16,7 @@ export const Normal: Story = {
         buttonContent: <Button>Dropdown</Button>,
         children: (
             <div>
-                <p>
-                    Any content
-                </p>
+                <p>Any content</p>
                 <Button>Click</Button>
             </div>
         ),

@@ -14,9 +14,7 @@ export default meta;
 type Story = StoryObj<typeof Navbar>;
 
 export const Light: Story = {
-    decorators: [
-        (Story: StoryFn) => StoreDecorator({})(Story),
-    ],
+    decorators: [(Story: StoryFn) => StoreDecorator({})(Story)],
 };
 
 export const Dark: Story = {
@@ -28,27 +26,29 @@ export const Dark: Story = {
 
 export const AuthLight: Story = {
     decorators: [
-        (Story: StoryFn) => StoreDecorator({
-            user: {
-                authData: {
-                    id: '1',
-                    username: 'asd',
+        (Story: StoryFn) =>
+            StoreDecorator({
+                user: {
+                    authData: {
+                        id: '1',
+                        username: 'asd',
+                    },
                 },
-            },
-        })(Story),
+            })(Story),
     ],
 };
 
 export const AuthDark: Story = {
     decorators: [
         (Story: StoryFn) => ThemeDecorator(Theme.DARK)(Story),
-        (Story: StoryFn) => StoreDecorator({
-            user: {
-                authData: {
-                    id: '1',
-                    username: 'asd',
+        (Story: StoryFn) =>
+            StoreDecorator({
+                user: {
+                    authData: {
+                        id: '1',
+                        username: 'asd',
+                    },
                 },
-            },
-        })(Story),
+            })(Story),
     ],
 };

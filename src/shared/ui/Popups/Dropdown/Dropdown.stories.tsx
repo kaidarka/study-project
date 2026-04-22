@@ -8,9 +8,13 @@ const meta: Meta<typeof Dropdown> = {
     component: Dropdown,
     decorators: [
         (Story) => (
-            <div style={{
-                display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh',
-            }}
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '100vh',
+                }}
             >
                 {Story()}
             </div>
