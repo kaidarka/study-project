@@ -6,6 +6,7 @@ interface IBuildBabelLoaderOptions extends IBuildOptions {
 }
 
 export function buildBabelLoader({ isDev, isTsx }: IBuildBabelLoaderOptions) {
+    const isProd = !isDev;  
     return {
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
@@ -15,19 +16,11 @@ export function buildBabelLoader({ isDev, isTsx }: IBuildBabelLoaderOptions) {
                 presets: ['@babel/preset-env'],
                 plugins: [
                     [
-                        'i18next-extract',
-                        {
-                            locales: ['ru', 'en'],
-                            keyAsDefaultValue: true,
-                        },
-
-                    ],
-                    [
                         '@babel/plugin-transform-typescript',
                         { isTsx },
                     ],
                     '@babel/plugin-transform-runtime',
-                    isTsx && [
+                    isProd && isTsx && [
                         babelRemovePropsPlugin,
                         {
                             props: ['data-testid'],
