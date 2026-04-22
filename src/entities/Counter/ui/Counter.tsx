@@ -1,29 +1,34 @@
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/Button';
-import { counterActions } from '../model/slice/counterSlice';
+import { useCounterActions } from '../model/slice/counterSlice';
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
 export const Counter = () => {
-    const dispatch = useDispatch();
     const counterValue = useCounterValue();
     const { t } = useTranslation();
+    const { add, decrement, increment } = useCounterActions();
 
-    const increment = () => {
-        dispatch(counterActions.increment());
+    const handleIncrement = () => {
+        increment();
     };
-    const decrement = () => {
-        dispatch(counterActions.decrement());
+    const handleDecrement = () => {
+        decrement();
+    };
+    const handleAddThree = () => {
+        add(3);
     };
 
     return (
         <div>
             <h1 data-testid="value-title">{counterValue}</h1>
-            <Button data-testid="increment-button" onClick={increment}>
+            <Button data-testid="increment-button" onClick={handleIncrement}>
                 {t('increment')}
             </Button>
-            <Button data-testid="decrement-button" onClick={decrement}>
+            <Button data-testid="decrement-button" onClick={handleDecrement}>
                 {t('decrement')}
+            </Button>
+            <Button data-testid="add-three-button" onClick={handleAddThree}>
+                {t('add three')}
             </Button>
         </div>
     );
