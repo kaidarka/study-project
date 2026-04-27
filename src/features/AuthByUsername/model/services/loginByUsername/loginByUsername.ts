@@ -8,11 +8,7 @@ interface LoginByUsernameProps {
     password: string;
 }
 
-export const loginByUsername = createAsyncThunk<
-    User,
-    LoginByUsernameProps,
-    ThunkConfig<string>
->(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
     'login/loginByUsername',
     async (data, thunkAPI) => {
         const { dispatch, extra, rejectWithValue } = thunkAPI;
@@ -28,5 +24,5 @@ export const loginByUsername = createAsyncThunk<
             console.log(e);
             return rejectWithValue('error');
         }
-    },
+    }
 );

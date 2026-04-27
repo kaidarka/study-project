@@ -551,6 +551,10 @@
       "roles": [
         "admin"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isArticleCounterEnabled": true
+      },
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     },
     {
@@ -560,6 +564,10 @@
       "roles": [
         "user"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isArticleCounterEnabled": false
+      },
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     },
     {
@@ -569,6 +577,10 @@
       "roles": [
         "manager"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isArticleCounterEnabled": true
+      },
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     }
   ],

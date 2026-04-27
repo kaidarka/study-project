@@ -8,12 +8,13 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
-import { ArticleRecomendationsList } from '@/features/Articles/articleRecomendationsList';
 import cls from './ArticleDetailedPage.module.scss';
 import { articleDetailedPageReducer } from '../../model/slices';
 import { ArticleDetailedPageHeader } from '../ArticleDetailedPageHeader/ArticleDetailedPageHeader';
 import { ArticleDetailedComments } from '../ArticleDeatiledComments/ArticleDetailedComments';
 import { ArticleRating } from '@/features/Articles/articleRating';
+import { getFeatureFlag } from '@/shared/lib/features';
+import { Counter } from '@/entities/Counter';
 
 interface IArticleDetailedPageProps {
     className?: string;
@@ -28,6 +29,9 @@ const ArticleDetailedPage = (props: IArticleDetailedPageProps) => {
     const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
 
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    const isArticleCounterEnabled = getFeatureFlag('isArticleCounterEnabled');
+
     if (!id) {
         return (
             <Page className={classNames(cls.ArticleDetailedPage, {}, [className])}>
@@ -41,8 +45,8 @@ const ArticleDetailedPage = (props: IArticleDetailedPageProps) => {
             <Page className={classNames(cls.ArticleDetailedPage, {}, [className])}>
                 <ArticleDetailedPageHeader />
                 <ArticleDetailed id={id} />
-                <ArticleRating articleId={id} />
-                <ArticleRecomendationsList />
+                {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                {isArticleCounterEnabled && <Counter />}
                 <ArticleDetailedComments id={id} />
             </Page>
         </DynamicModuleLoader>
