@@ -64,6 +64,71 @@
 - `plop-templates/` - шаблоны для генераторов
 - `public/` - статические файлы
 
+## Feature Flags: правила использования и удаления
+
+В проекте feature flags реализованы через:
+
+- тип флагов `src/shared/types/featureFlags.ts`
+- функции `setFeatureFlags` / `getFeatureFlag` / `toggleFeatures` из `src/shared/lib/features`
+
+### Как добавлять новую функцию под флаг
+
+1. Добавить новый флаг в `FeatureFlags`:
+
+```ts
+export type FeatureFlags = {
+    isArticleRatingEnabled?: boolean;
+    isArticleCounterEnabled?: boolean;
+    isNewFeatureEnabled?: boolean;
+};
+```
+
+2. В точке использования обернуть поведение в `toggleFeatures`:
+
+```tsx
+const newBlock = toggleFeatures({
+    name: 'isNewFeatureEnabled',
+    on: () => <NewFeatureComponent />,
+    off: () => <OldFeatureComponent />,
+});
+```
+
+3. Соблюдать правила применения:
+- имя флага в формате `is<Name>Enabled`
+- `on` и `off` должны содержать только взаимозаменяемые варианты одной и той же бизнес-функции
+- не вкладывать флаги друг в друга без явной необходимости
+- временные флаги должны быть локальными для конкретной фичи и удаляться после принятия решения
+
+### Как удалять новую функцию после решения
+
+После того как принято решение оставить только один вариант (`on` или `off`), флаг нужно удалить из кода.
+
+1. Запустить скрипт удаления флага:
+
+```bash
+npx tsx ./scripts/remove-feature.ts isNewFeatureEnabled on
+```
+
+Где:
+- `isNewFeatureEnabled` - имя флага
+- `on` - какой вариант оставить (`on` или `off`)
+
+2. Нормализовать абсолютные импорты после рефакторинга:
+
+```bash
+npx tsx ./scripts/refactor/updateImports.ts
+```
+
+3. Удалить сам флаг из `src/shared/types/featureFlags.ts`.
+4. Прогнать проверки:
+
+```bash
+npm run lint:ts
+npm run test:unit
+```
+
+Это обязательный финальный шаг для любой временной фичи: после релизного решения в проекте не должно оставаться "мертвых" флагов.
+
 ## Быстрый старт
 
 ### 1) Установка зависимостей
