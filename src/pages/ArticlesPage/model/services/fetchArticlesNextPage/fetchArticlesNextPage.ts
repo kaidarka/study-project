@@ -8,11 +8,7 @@ import {
     getArticlesPageIsLoading,
 } from '../../selectors/articlesPageSelector';
 
-export const fetchArticlesNextPage = createAsyncThunk<
-    void,
-    void,
-    ThunkConfig<string>
->(
+export const fetchArticlesNextPage = createAsyncThunk<void, void, ThunkConfig<string>>(
     'articlesPage/fetchArticlesNextPage',
     async (_, thunkAPI) => {
         const { getState, dispatch } = thunkAPI;
@@ -24,5 +20,5 @@ export const fetchArticlesNextPage = createAsyncThunk<
 
             dispatch(articlePageActions.setPage(page + 1));
         }
-    },
+    }
 );

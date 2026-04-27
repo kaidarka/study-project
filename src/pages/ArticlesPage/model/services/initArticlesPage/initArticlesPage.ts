@@ -6,11 +6,7 @@ import { getArticlesPageHasInited } from '../../selectors/articlesPageSelector';
 import { articlePageActions } from '../../slices/articlePageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
-export const initArticlesPage = createAsyncThunk<
-    void,
-    URLSearchParams,
-    ThunkConfig<string>
->(
+export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
     'articlesPage/initArticlesPage',
     async (searchParams, thunkAPI) => {
         const { dispatch, getState } = thunkAPI;
@@ -35,5 +31,5 @@ export const initArticlesPage = createAsyncThunk<
             dispatch(articlePageActions.initState());
             dispatch(fetchArticlesList({}));
         }
-    },
+    }
 );

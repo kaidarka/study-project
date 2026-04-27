@@ -1,14 +1,11 @@
 import { CounterSchema } from '@/entities/Counter';
 import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUsername';
-import {
-    EnhancedStore, Reducer, ReducersMapObject,
-    UnknownAction,
-} from '@reduxjs/toolkit';
+import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailedSchema } from '@/entities/Article';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
-import { ArticlesPageSchema } from '@/pages/AcrticlesPage';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { ScrollSchema } from '@/widgets/Page';
 import { ArticleDetailedPageSchema } from '@/pages/ArticleDetailedPage';
 import { rtkApi } from '@/shared/api/rtkApi';
@@ -18,14 +15,14 @@ export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     scroll: ScrollSchema;
-    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // async reducers
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetailed?: ArticleDetailedSchema;
-    articlesPage?: ArticlesPageSchema
-    addCommentForm?: AddCommentFormSchema
+    articlesPage?: ArticlesPageSchema;
+    addCommentForm?: AddCommentFormSchema;
     articleDetailedPage?: ArticleDetailedPageSchema;
 }
 
@@ -39,7 +36,7 @@ export interface ReducerManager {
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
-    reducerManager: ReducerManager
+    reducerManager: ReducerManager;
 }
 
 interface ThunkExtraArg {

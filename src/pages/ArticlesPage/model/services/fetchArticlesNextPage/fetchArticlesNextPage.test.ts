@@ -22,8 +22,7 @@ describe('fetchArticlesNextPage.test', () => {
 
         await thunk.callThunk();
 
-        expect(thunk.dispatch)
-            .toBeCalledTimes(4);
+        expect(thunk.dispatch).toBeCalledTimes(4);
         expect(fetchArticlesList).toHaveBeenCalled();
     });
 
@@ -41,8 +40,7 @@ describe('fetchArticlesNextPage.test', () => {
 
         await thunk.callThunk();
 
-        expect(thunk.dispatch)
-            .toBeCalledTimes(2);
+        expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).not.toHaveBeenCalled();
     });
 
@@ -60,8 +58,7 @@ describe('fetchArticlesNextPage.test', () => {
 
         await thunk.callThunk();
 
-        expect(thunk.dispatch)
-            .toBeCalledTimes(2);
+        expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).not.toHaveBeenCalled();
     });
 });
