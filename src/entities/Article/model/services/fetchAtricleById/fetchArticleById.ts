@@ -2,11 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { IArticle } from '../../types/article';
 
-export const fetchArticleById = createAsyncThunk<
-    IArticle,
-    string,
-    ThunkConfig<string>
->(
+export const fetchArticleById = createAsyncThunk<IArticle, string, ThunkConfig<string>>(
     'articleDetailed/fetchArticleById',
     async (articleId, thunkAPI) => {
         const { extra, rejectWithValue } = thunkAPI;
@@ -26,5 +22,5 @@ export const fetchArticleById = createAsyncThunk<
             console.log(e);
             return rejectWithValue('error');
         }
-    },
+    }
 );

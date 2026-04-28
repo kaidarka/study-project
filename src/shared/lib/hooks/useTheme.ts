@@ -4,14 +4,14 @@ import { ThemeContext } from '../context/ThemeContext';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 
 interface IUseThemeResult {
-    themeToggle: () => void;
-    theme: typeof Theme[keyof typeof Theme];
+    themeToggle: (saveAction: (theme: (typeof Theme)[keyof typeof Theme]) => void) => void;
+    theme: (typeof Theme)[keyof typeof Theme];
 }
 
 export function useTheme(): IUseThemeResult {
     const { theme, setTheme } = useContext(ThemeContext);
 
-    const themeToggle = () => {
+    const themeToggle = (saveAction: (theme: (typeof Theme)[keyof typeof Theme]) => void) => {
         let newTheme;
         switch (theme) {
             case Theme.DARK:
@@ -28,6 +28,7 @@ export function useTheme(): IUseThemeResult {
                 break;
         }
         setTheme?.(newTheme);
+        saveAction?.(newTheme);
         document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };

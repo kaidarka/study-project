@@ -555,7 +555,17 @@
         "isArticleRatingEnabled": true,
         "isArticleCounterEnabled": true
       },
-      "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
+      "jsonSettings": {
+        "theme": "app_light_theme",
+        "isFirstVisit": false,
+        "settingsPageHasBeenOpened": false,
+        "isArticlePageOpened": true
+      },
+      "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740",
+      "theme": "app_light_theme",
+      "isFirstVisit": false,
+      "settingsPageHasBeenOpened": false,
+      "isArticlePageOpened": true
     },
     {
       "id": "2",
@@ -567,6 +577,11 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isArticleCounterEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app_light_theme",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpened": false
       },
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     },
@@ -580,6 +595,11 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isArticleCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app_light_theme",
+        "isFirstVisit": false,
+        "settingsPageHasBeenOpened": false
       },
       "avatar": "https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740"
     }

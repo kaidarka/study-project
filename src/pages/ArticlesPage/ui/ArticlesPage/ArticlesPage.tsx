@@ -8,8 +8,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Page } from '@/widgets/Page';
-import { ArticlesPageFilters } from '../Filters/ArticlesPageFilters';
+import { ArticlePageGreeting } from '@/features/Articles/articlePageGreeting';
 import { VStack } from '@/shared/ui/Stack';
+import { ArticlesPageFilters } from '../Filters/ArticlesPageFilters';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPage } from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
 import { articlePageReducer } from '../../model/slices/articlePageSlice';
@@ -42,6 +43,7 @@ const ArticlesPage = (props: IArticlesPageProps) => {
                 <VStack gap="md" max>
                     <ArticlesPageFilters />
                     <ArticleInfiniteList />
+                    <ArticlePageGreeting />
                 </VStack>
             </Page>
         </DynamicModuleLoader>

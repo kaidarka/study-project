@@ -1,4 +1,5 @@
 import { FeatureFlags } from '@/shared/types/featureFlags';
+import { JsonSettings } from './jsonSettings';
 
 export const UserRole = {
     Admin: 'admin',
@@ -14,6 +15,7 @@ export interface User {
     avatar?: string;
     roles?: UserRoleType[];
     features?: FeatureFlags;
+    jsonSettings?: JsonSettings;
 }
 
 export interface UserSchema {
