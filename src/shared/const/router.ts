@@ -3,14 +3,14 @@ export const AppRoutes = {
     ABOUT: 'about',
     PROFILE: 'profile',
     ARTICLES: 'articles',
-    ARTICLE_DETAILED:'articleDetailed',
+    ARTICLE_DETAILED: 'articleDetailed',
     ARTICLE_CREATE: 'articleCreate',
     ARTICLE_EDIT: 'articleEdit',
     ADMIN_PANEL: 'adminPanel',
     FORBIDDEN: 'forbidden',
     // LAST
     NOT_FOUND: 'not_found',
-} as const
+} as const;
 
 export const getRouteMain = () => '/';
 export const getRouteAbout = () => '/about';

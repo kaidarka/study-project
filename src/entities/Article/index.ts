@@ -1,6 +1,6 @@
-export { 
+export {
     ArticlesViews,
-    ArticleSortField, 
+    ArticleSortField,
     ArticleBlockType,
     ArticleType,
     type Article,

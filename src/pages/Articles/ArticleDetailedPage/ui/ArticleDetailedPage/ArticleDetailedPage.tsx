@@ -10,7 +10,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import cls from './ArticleDetailedPage.module.scss';
 import { articleDetailedPageReducer } from '../../model/slices';
 import { ArticleDetailedPageHeader } from '../ArticleDetailedPageHeader/ArticleDetailedPageHeader';
@@ -37,19 +37,17 @@ const ArticleDetailedPage = (props: IArticleDetailedPageProps) => {
         );
     }
 
-    const counter = toggleFeatures({
-        name: 'isArticleCounterEnabled',
-        on: () => <Counter />,
-        off: () => <div>Counter is disabled</div>,
-    });
-
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticleDetailedPage, {}, [className])}>
                 <ArticleDetailedPageHeader />
                 <ArticleDetailed id={id} />
                 <ArticleRating articleId={id} />
-                {counter}
+                <ToggleFeatures
+                    name="isArticleCounterEnabled"
+                    on={<Counter />}
+                    off={<div>Counter is disabled</div>}
+                />
                 <ArticleDetailedComments id={id} />
             </Page>
         </DynamicModuleLoader>

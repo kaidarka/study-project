@@ -18,7 +18,6 @@ describe('shared/url/addQueryParams', () => {
         const params = getQueryParams({
             test: undefined,
             test2: 'value2',
-
         });
         expect(params).toBe('');
     });

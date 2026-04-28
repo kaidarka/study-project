@@ -1,21 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getUserAuthData } from '@/entities/User';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { getArticleDetailedData } from '@/entities/Article/model/selectors/articleDetailed';
-import {
-    fetchCommentsByArticleId,
-} from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleDetailedData } from '@/entities/Article';
+import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-export const addCommentForArticle = createAsyncThunk<
-    Comment,
-    string,
-    ThunkConfig<string>
->(
+export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
     'articleDetailed/addCommentForArticle',
     async (text, thunkAPI) => {
-        const {
-            dispatch, extra, rejectWithValue, getState,
-        } = thunkAPI;
+        const { dispatch, extra, rejectWithValue, getState } = thunkAPI;
         const userData = getUserAuthData(getState());
         const article = getArticleDetailedData(getState());
 
@@ -28,7 +20,6 @@ export const addCommentForArticle = createAsyncThunk<
                 articleId: article.id,
                 userId: userData.id,
                 text,
-
             });
             if (!response.data) {
                 throw new Error();
@@ -41,5 +32,5 @@ export const addCommentForArticle = createAsyncThunk<
             console.log(e);
             return rejectWithValue('error');
         }
-    },
+    }
 );

@@ -1,6 +1,4 @@
-import {
-    configureStore, Reducer, ReducersMapObject,
-} from '@reduxjs/toolkit';
+import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
 import { ScrollSliceReducer } from '@/widgets/Page';
@@ -11,7 +9,7 @@ import { StateSchema } from './StateSchema';
 
 export function createReduxStore(
     initialState?: StateSchema,
-    asyncReducers?: ReducersMapObject<StateSchema>,
+    asyncReducers?: ReducersMapObject<StateSchema>
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
@@ -27,13 +25,14 @@ export function createReduxStore(
         reducer: reducerManager.reduce as Reducer<StateSchema>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-            thunk: {
-                extraArgument: {
-                    api: $api,
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: {
+                        api: $api,
+                    },
                 },
-            },
-        }).concat(rtkApi.middleware),
+            }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore

@@ -1,21 +1,16 @@
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Article } from '@/entities/Article';
-import {
-    ArticleDetailedRecommendationsSchema,
-} from '../types/ArticleDetailedRecommendationsSchema';
-import {
-    fetchArticlesRecommendations,
-} from '../services/fetchArticlesRecommendations/fetchArticlesRecommendations';
+import { ArticleDetailedRecommendationsSchema } from '../types/ArticleDetailedRecommendationsSchema';
+import { fetchArticlesRecommendations } from '../services/fetchArticlesRecommendations/fetchArticlesRecommendations';
 
 const recommendationsAdapter = createEntityAdapter<Article, string>({
     selectId: (article) => article.id,
 });
 
 export const getArticleRecommendations = recommendationsAdapter.getSelectors<StateSchema>(
-    (state) => (
+    (state) =>
         state.articleDetailedPage?.recommendations || recommendationsAdapter.getInitialState()
-    ),
 );
 
 const initialState: ArticleDetailedRecommendationsSchema = recommendationsAdapter.getInitialState({
@@ -38,7 +33,7 @@ const articleDetailedRecommendationsSlice = createSlice({
                 (state, action: PayloadAction<Article[]>) => {
                     state.isLoading = false;
                     recommendationsAdapter.setAll(state, action.payload);
-                },
+                }
             )
             .addCase(fetchArticlesRecommendations.rejected, (state, action) => {
                 state.isLoading = false;
@@ -47,6 +42,5 @@ const articleDetailedRecommendationsSlice = createSlice({
     },
 });
 
-export const {
-    reducer: articleDetailedRecommendationsReducer,
-} = articleDetailedRecommendationsSlice;
+export const { reducer: articleDetailedRecommendationsReducer } =
+    articleDetailedRecommendationsSlice;

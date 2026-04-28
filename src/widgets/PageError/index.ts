@@ -1,5 +1,3 @@
-import { PageError } from '@/widgets/PageError/ui/PageError';
+import { PageError } from './ui/PageError';
 
-export {
-    PageError,
-};
+export { PageError };

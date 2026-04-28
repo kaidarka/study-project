@@ -3,7 +3,7 @@ import tsPlugin from '@typescript-eslint/eslint-plugin';
 import i18next from 'eslint-plugin-i18next';
 import reactHooks from 'eslint-plugin-react-hooks';
 import pathChecker from 'eslint-plugin-path-checker-kaidarka';
-import unusedImports from "eslint-plugin-unused-imports";
+import unusedImports from 'eslint-plugin-unused-imports';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
@@ -36,7 +36,7 @@ export default [
             i18next,
             'react-hooks': reactHooks,
             'path-checker-kaidarka': pathChecker,
-            "unused-imports": unusedImports,
+            'unused-imports': unusedImports,
             prettier: prettierPlugin,
         },
         rules: {
@@ -64,22 +64,26 @@ export default [
             'no-undef': 'off',
             'no-shadow': 'off',
             'no-underscore-dangle': 'off',
-            'path-checker-kaidarka/path-checker': ['error', {alias: '@'}],
+            'path-checker-kaidarka/path-checker': ['error', { alias: '@' }],
             'path-checker-kaidarka/public-api-imports': [
                 'error',
                 {
                     alias: '@',
-                    testFilesPatterns: ['**/*.stories.tsx', '**/*.test.tsx', '**/StoreDecorator.tsx'],
-                }
+                    testFilesPatterns: [
+                        '**/*.stories.tsx',
+                        '**/*.test.tsx',
+                        '**/StoreDecorator.tsx',
+                    ],
+                },
             ],
             'path-checker-kaidarka/layer-imports': [
                 'error',
                 {
                     alias: '@',
                     ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-                }
+                },
             ],
-            "unused-imports/no-unused-imports": "error",
+            'unused-imports/no-unused-imports': 'error',
             'prettier/prettier': 'error',
         },
     },

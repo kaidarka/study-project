@@ -5,5 +5,5 @@ export const getScrollPosition = (state: StateSchema) => state.scroll.scroll;
 export const getScrollByPath = createSelector(
     getScrollPosition,
     (state: StateSchema, path: string) => path,
-    (scroll, path) => scroll[path] || 0,
+    (scroll, path) => scroll[path] || 0
 );

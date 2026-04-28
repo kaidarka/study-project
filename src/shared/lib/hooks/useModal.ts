@@ -1,17 +1,13 @@
-import {
-    useCallback, useEffect, useRef, useState,
-} from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type UseModalProps = {
     isOpen: boolean;
     onClose?: () => void;
     animationDelay?: number;
-}
+};
 
 export function useModal(props: UseModalProps) {
-    const {
-        isOpen, onClose, animationDelay = 100,
-    } = props;
+    const { isOpen, onClose, animationDelay = 100 } = props;
 
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
@@ -33,11 +29,14 @@ export function useModal(props: UseModalProps) {
         }
     }, [animationDelay, onClose]);
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            close();
-        }
-    }, [close]);
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                close();
+            }
+        },
+        [close]
+    );
 
     useEffect(() => {
         if (isOpen) {

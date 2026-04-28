@@ -16,7 +16,7 @@ export enum ArticleType {
     ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
-    ECONOMICS = 'ECONOMICS'
+    ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticlesViews {
@@ -26,7 +26,7 @@ export enum ArticlesViews {
 
 export interface IArticleBlockBase {
     id: string;
-    type: ArticleBlockType,
+    type: ArticleBlockType;
 }
 
 export interface IArticleCodeBlock extends IArticleBlockBase {
@@ -37,7 +37,7 @@ export interface IArticleCodeBlock extends IArticleBlockBase {
 export interface IArticleImageBlock extends IArticleBlockBase {
     type: ArticleBlockType.IMAGE;
     src: string;
-    title: string
+    title: string;
 }
 
 export interface IArticleTextBlock extends IArticleBlockBase {
@@ -53,12 +53,12 @@ export interface Article {
     title: string;
     subtitle: string;
     img: string;
-    views: number,
+    views: number;
     createdAt: string;
-    user: User,
-    blocks: TArticleBlock[]
-    type: ArticleType[],
+    user: User;
+    blocks: TArticleBlock[];
+    type: ArticleType[];
 }
 
 /** @deprecated use Article instead */
-export type IArticle = Article
+export type IArticle = Article;

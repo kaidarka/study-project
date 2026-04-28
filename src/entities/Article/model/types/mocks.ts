@@ -10,8 +10,7 @@ export const article: IArticle = {
     createdAt: '26.02.2022',
     user: {
         id: '1',
-        avatar:
-            'https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740',
+        avatar: 'https://img.freepik.com/premium-vector/man-avatar-profile-round-icon_24640-14044.jpg?w=740',
         username: 'Admin',
     },
     type: [ArticleType.IT],

@@ -1,1 +1,1 @@
-export {articleDetailedReducer} from './model/slice/articleDetailedSlice'
+export { articleDetailedReducer } from './model/slice/articleDetailedSlice';

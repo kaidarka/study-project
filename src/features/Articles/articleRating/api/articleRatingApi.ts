@@ -1,8 +1,8 @@
 import { rtkApi } from '@/shared/api/rtkApi';
 import { Rating } from '@/entities/Rating';
 
-type GetArticleRatingArg = {userId: string, articleId: string}
-type RateArticleArg = {userId: string, articleId: string, rate: number, feedback?: string}
+type GetArticleRatingArg = { userId: string; articleId: string };
+type RateArticleArg = { userId: string; articleId: string; rate: number; feedback?: string };
 
 const articleRatingApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({

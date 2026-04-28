@@ -12,21 +12,21 @@ const sharedDir = project.getDirectory(path.resolve(__dirname, '..', '..', 'src'
 
 const componentsDirs = sharedDir?.getDirectories();
 
-
 componentsDirs?.forEach((dir) => {
     const indexFilePath = dir.getPath() + '/index.ts';
     const indexFile = dir.getSourceFile(indexFilePath);
     if (!indexFile) {
         const content = `export * from './${dir.getBaseName()}';\n`;
-        
+
         const file = dir.createSourceFile(indexFilePath, content, { overwrite: true });
         file.save();
     }
 });
 
 function isAbsolute(value: string) {
-    return ['app', 'entities', 'features', 'widgets', 'pages', 'shared']
-        .some((folder) => value.startsWith(folder));
+    return ['app', 'entities', 'features', 'widgets', 'pages', 'shared'].some((folder) =>
+        value.startsWith(folder)
+    );
 }
 
 files.forEach((file) => {
@@ -38,11 +38,11 @@ files.forEach((file) => {
         const segments = valueWithoutAliases.split('/');
 
         const isShared = segments?.[0] === 'shared';
-        
+
         if (!isShared) return;
 
         const isSharedUi = isShared && segments?.[1] === 'ui';
-        
+
         if (!isSharedUi) return;
 
         if (isAbsolute(valueWithoutAliases)) {

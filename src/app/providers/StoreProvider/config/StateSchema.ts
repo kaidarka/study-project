@@ -5,9 +5,9 @@ import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@redux
 import { AxiosInstance } from 'axios';
 import { ArticleDetailedSchema } from '@/entities/Article';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
-import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { ArticlesPageSchema } from '@/pages/Articles/ArticlesPage';
 import { ScrollSchema } from '@/widgets/Page';
-import { ArticleDetailedPageSchema } from '@/pages/ArticleDetailedPage';
+import { ArticleDetailedPageSchema } from '@/pages/Articles/ArticleDetailedPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ProfileSchema } from '@/features/Profile/editableProfileCard';
 

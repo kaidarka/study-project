@@ -1,34 +1,33 @@
 name: lint, test, build
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 jobs:
-  pipeline:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [24.x]
+    pipeline:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [24.x]
 
-    steps:
-      - uses: actions/checkout@v4
-      - name: Starting Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
-        run: npm ci
-      - name: build prod
-        run: npm run build:prod
-        if: always()
-      - name: lint ts
-        run: npm run lint:ts
-        if: always()
-      - name: lint css
-        run: npm run lint:scss
-        if: always()
-      - name: unit testing
-        if: always()
-        run: npm run test:unit
-
+        steps:
+            - uses: actions/checkout@v4
+            - name: Starting Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: install modules
+              run: npm ci
+            - name: build prod
+              run: npm run build:prod
+              if: always()
+            - name: lint ts
+              run: npm run lint:ts
+              if: always()
+            - name: lint css
+              run: npm run lint:scss
+              if: always()
+            - name: unit testing
+              if: always()
+              run: npm run test:unit
