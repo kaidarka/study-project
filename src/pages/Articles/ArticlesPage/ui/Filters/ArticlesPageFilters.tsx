@@ -6,12 +6,12 @@ import { ArticleSortSelector } from '@/features/Articles/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/Articles/ArticleTypeTabs';
 import { ArticleViewSelector } from '@/features/Articles/ArticleViewSelector';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui/Input';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { SortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { TabItem } from '@/shared/ui/Tab';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { TabItem } from '@/shared/ui/deprecated/Tab';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 
 import {
     getArticlesPageOrder,

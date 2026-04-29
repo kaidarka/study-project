@@ -2,11 +2,11 @@ import React, { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/AppLogo';
+import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';

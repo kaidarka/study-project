@@ -4,9 +4,9 @@ import { useCallback } from 'react';
 
 import { getUserAuthData } from '@/entities/User';
 
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
-import { TabItem, Tabs } from '@/shared/ui/Tab';
+import { TabItem, Tabs } from '@/shared/ui/deprecated/Tab';
 import { ArticleType } from '@/entities/Article';
 
 type ArticleTypeTabsProps = {

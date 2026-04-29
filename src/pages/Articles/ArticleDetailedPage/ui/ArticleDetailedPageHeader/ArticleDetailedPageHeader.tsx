@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { getArticleDetailedData } from '@/entities/Article';
 import cls from './ArticleDetailedPageHeader.module.scss';
 import { getCanEditArticle } from '../../model/selectors/article';

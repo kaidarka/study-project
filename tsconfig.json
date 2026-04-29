@@ -14,7 +14,8 @@
         "moduleResolution": "bundler",
         // Для абсолютного импорта
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "*": ["./src/*"]
         },
         "strict": true,
         "esModuleInterop": true,

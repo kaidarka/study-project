@@ -9,7 +9,7 @@ import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Page } from '@/widgets/Page';
 import { ArticlePageGreeting } from '@/features/Articles/articlePageGreeting';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ArticlesPageFilters } from '../Filters/ArticlesPageFilters';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPage } from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';

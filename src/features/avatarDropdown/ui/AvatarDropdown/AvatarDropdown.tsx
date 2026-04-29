@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
-import { Avatar } from '@/shared/ui/Avatar';
-import { AnchorPosition, Dropdown } from '@/shared/ui/Popups';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { AnchorPosition, Dropdown } from '@/shared/ui/deprecated/Popups';
 
 export const AvatarDropdown = () => {
     const { t } = useTranslation();
