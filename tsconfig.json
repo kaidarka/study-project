@@ -23,10 +23,5 @@
         "resolveJsonModule": true,
         "isolatedModules": true
     },
-    "ts-node": {
-        "compilerOptions": {
-            "module": "CommonJS"
-        }
-    },
     "include": ["./config/**/*.ts", "./config/**/*.tsx", "./src/**/*.ts", "./src/**/*.tsx"]
 }
