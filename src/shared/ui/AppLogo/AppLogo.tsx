@@ -8,5 +8,12 @@ interface IAppLogoProps {
 
 export const AppLogo = (props: IAppLogoProps) => {
     const { className } = props;
-    return <LogoIcon className={classNames(cls.AppLogo, {}, [className])} />;
+    return (
+        <LogoIcon
+            className={classNames(cls.AppLogo, {}, [className])}
+            color="currentColor"
+            width={200}
+            height={100}
+        />
+    );
 };
