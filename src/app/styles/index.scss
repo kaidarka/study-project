@@ -8,7 +8,7 @@ body,
 .app,
 .app_drawer,
 .app_modal {
-    font: var(--font-m);
+    font: var(--font-md);
     color: var(--primary-color);
 }
 
@@ -20,7 +20,7 @@ body,
 .app_redesigned {
     min-height: 100vh;
     background: var(--bg-color-redesigned);
-    font: var(--font-m-redesigned);
+    font: var(--font-md-redesigned);
     color: var(--primary-color);
 }
 

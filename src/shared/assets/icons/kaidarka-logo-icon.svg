@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="kaidarka icon">
+    <defs>
+        <linearGradient id="kd-bar-icon" x1="2" y1="26" x2="28" y2="4" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#5ed3f3" />
+            <stop offset="1" stop-color="currentColor" />
+        </linearGradient>
+    </defs>
+    <rect x="2" y="17" width="6" height="9" rx="2" fill="url(#kd-bar-icon)" />
+    <rect x="12" y="11" width="6" height="15" rx="2" fill="url(#kd-bar-icon)" />
+    <rect x="22" y="5" width="6" height="21" rx="2" fill="url(#kd-bar-icon)" />
+</svg>

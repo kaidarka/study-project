@@ -4,59 +4,58 @@
     width: var(--sidebar-width);
     position: relative;
     transition: width 0.3s;
-}
 
-.switchers {
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.lang {
-    margin-left: 20px;
-}
-
-.collapseBtn {
-    position: absolute;
-    right: -32px;
-    bottom: 32px;
-    z-index: var(--sidebar-z-index);
-}
-
-.link {
-    opacity: 1;
-}
-
-.items {
-    padding-left: 10px;
-}
-
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-
-    & .switchers {
-        flex-direction: column;
-        align-items: center;
+    .switchers {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
-    & .lang {
-        margin-left: 0;
+    .lang {
+        margin-left: 20px;
     }
 
-    & .link {
-        opacity: 0;
-        transition: 0.2s opacity;
-        width: 0;
+    .collapseBtn {
+        position: absolute;
+        right: -32px;
+        bottom: 32px;
+        z-index: var(--sidebar-z-index);
     }
 
-    & .items {
-        margin-left: 0;
-        align-items: center;
+    .link {
+        opacity: 1;
+    }
+
+    .items {
+        padding-left: 10px;
+    }
+
+    &.collapsed {
+        width: var(--sidebar-width-collapsed);
+
+        .switchers {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lang {
+            margin-left: 0;
+        }
+
+        .link {
+            opacity: 0;
+            transition: 0.2s opacity;
+            width: 0;
+        }
+
+        .items {
+            margin-left: 0;
+            align-items: center;
+        }
     }
 }
-
 
 .SidebarRedesigned {
     background: var(--light-bg-color-redesigned);
@@ -65,9 +64,63 @@
     border-radius: 32px;
     display: flex;
     flex-direction: column;
+    position: relative;
 
     .appLogo {
-        align-self: center;
         padding: 20px;
+    }
+
+    .appLogoCollapsed {
+        margin: 12px 0;
+    }
+
+    .appLogoLink {
+        color: var(--text-redesigned);
+        align-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .redesignedItems {
+        margin-top: 20px;
+    }
+
+    .collapseBtnRedesigned {
+        position: absolute;
+        right: 8px;
+        bottom: 50%;
+        transform: rotate(180deg);
+        z-index: var(--sidebar-z-index);
+    }
+
+    .switchersRedesigned {
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 16px;
+    }
+
+    &.collapsedRedesigned {
+        width: 50px;
+
+        .redesignedItems {
+            margin-top: 40px;
+            margin-left: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .collapseBtnRedesigned {
+            transform: rotate(0deg);
+        }
+
+        .switchersRedesigned {
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
