@@ -74,12 +74,12 @@ function replaceToggleComponent(node: Node) {
     const offAttribute = getAttributeNodeByName(attributes, 'off');
     const featureNameAttribute = getAttributeNodeByName(attributes, 'name');
 
-    const featureName = featureNameAttribute
+    const componentFeatureName = featureNameAttribute
         ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
         ?.getText()
         ?.slice(1, -1);
 
-    if (featureName !== featureName) return;
+    if (componentFeatureName !== featureName) return;
 
     const offValue = offAttribute
         ?.getFirstDescendantByKind(SyntaxKind.JsxExpression)
@@ -98,14 +98,20 @@ function replaceToggleComponent(node: Node) {
 }
 
 files.forEach((file) => {
-    file.forEachDescendant((node) => {
-        if (node.isKind(SyntaxKind.CallExpression) && isToggleFeaturesFunc(node)) {
-            replaceToggleFunction(node);
-        }
+    const toggleFunctionNodes = file
+        .getDescendantsOfKind(SyntaxKind.CallExpression)
+        .filter(isToggleFeaturesFunc);
+    const toggleComponentNodes = file
+        .getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement)
+        .filter(isToggleFeaturesComponent);
 
-        if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleFeaturesComponent(node)) {
-            replaceToggleComponent(node);
-        }
+    // Replace from bottom to top to avoid invalidating following nodes.
+    [...toggleFunctionNodes].reverse().forEach((node) => {
+        replaceToggleFunction(node);
+    });
+
+    [...toggleComponentNodes].reverse().forEach((node) => {
+        replaceToggleComponent(node);
     });
 });
 

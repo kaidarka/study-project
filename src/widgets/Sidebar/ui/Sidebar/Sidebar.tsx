@@ -2,10 +2,8 @@ import React, { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { getRouteMain } from '@/shared/const/router';
@@ -40,64 +38,32 @@ export const Sidebar = memo((props: ISidebarProps) => {
     );
 
     return (
-        <ToggleFeatures
-            name="isAppRedesigned"
-            on={
-                <aside
-                    data-testid="sidebar"
-                    className={classNames(
-                        cls.SidebarRedesigned,
-                        { [cls.collapsedRedesigned]: collapsed },
-                        [className]
-                    )}
-                >
-                    <AppLink className={cls.appLogoLink} to={getRouteMain()}>
-                        {collapsed ? (
-                            <Icon
-                                Svg={LogoOnlyIcon}
-                                className={cls.appLogoCollapsed}
-                                width={28}
-                                height={28}
-                            />
-                        ) : (
-                            <AppLogo className={cls.appLogo} size={100} />
-                        )}
-                    </AppLink>
-                    <VStack gap="md" className={cls.redesignedItems} role="navigation">
-                        {itemsList}
-                    </VStack>
-                    <Icon Svg={SendIcon} onClick={onToggle} className={cls.collapseBtnRedesigned} />
-                    <div className={cls.switchersRedesigned}>
-                        <ThemeSwitcher />
-                        <LanguageSwitcher className={cls.lang} short={collapsed} />
-                    </div>
-                </aside>
-            }
-            off={
-                <aside
-                    data-testid="sidebar"
-                    className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
-                >
-                    <Button
-                        data-testid="sidebar-toggle"
-                        type="button"
-                        onClick={onToggle}
-                        className={cls.collapseBtn}
-                        theme={ButtonTheme.BACKGROUND_INVERTED}
-                        size={ButtonSize.L}
-                        square
-                    >
-                        {collapsed ? '>' : '<'}
-                    </Button>
-                    <VStack gap="md" className={cls.items} role="navigation">
-                        {itemsList}
-                    </VStack>
-                    <div className={cls.switchers}>
-                        <ThemeSwitcher />
-                        <LanguageSwitcher className={cls.lang} short={collapsed} />
-                    </div>
-                </aside>
-            }
-        />
+        <aside
+            data-testid="sidebar"
+            className={classNames(cls.SidebarRedesigned, { [cls.collapsedRedesigned]: collapsed }, [
+                className,
+            ])}
+        >
+            <AppLink className={cls.appLogoLink} to={getRouteMain()}>
+                {collapsed ? (
+                    <Icon
+                        Svg={LogoOnlyIcon}
+                        className={cls.appLogoCollapsed}
+                        width={28}
+                        height={28}
+                    />
+                ) : (
+                    <AppLogo className={cls.appLogo} size={100} />
+                )}
+            </AppLink>
+            <VStack gap="md" className={cls.redesignedItems} role="navigation">
+                {itemsList}
+            </VStack>
+            <Icon Svg={SendIcon} onClick={onToggle} className={cls.collapseBtnRedesigned} />
+            <div className={cls.switchersRedesigned}>
+                <ThemeSwitcher />
+                <LanguageSwitcher className={cls.lang} short={collapsed} />
+            </div>
+        </aside>
     );
 });

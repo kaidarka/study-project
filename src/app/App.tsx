@@ -9,7 +9,6 @@ import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { PageLoader } from '@/widgets/PageLoader';
-import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 
 export const App = () => {
@@ -31,31 +30,15 @@ export const App = () => {
     }
 
     return (
-        <ToggleFeatures
-            name="isAppRedesigned"
-            off={
-                <div className={classNames('app', {}, [theme])}>
-                    <Suspense fallback="">
-                        <Navbar />
-                        <div className="content-page">
-                            <Sidebar />
-                            <AppRouter />
-                        </div>
-                    </Suspense>
-                </div>
-            }
-            on={
-                <div className={classNames('app_redesigned', {}, [theme])}>
-                    <Suspense fallback="">
-                        <MainLayout
-                            content={<AppRouter />}
-                            header={<Navbar />}
-                            sidebar={<Sidebar />}
-                            toolbar={<div>toolbar</div>}
-                        />
-                    </Suspense>
-                </div>
-            }
-        />
+        <div className={classNames('app_redesigned', {}, [theme])}>
+            <Suspense fallback="">
+                <MainLayout
+                    content={<AppRouter />}
+                    header={<Navbar />}
+                    sidebar={<Sidebar />}
+                    toolbar={<div>toolbar</div>}
+                />
+            </Suspense>
+        </div>
     );
 };

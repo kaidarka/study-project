@@ -10,7 +10,6 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import cls from './Page.module.scss';
-import { toggleFeatures } from '@/shared/lib/features';
 
 interface IPageProps {
     className?: string;
@@ -47,11 +46,7 @@ export const Page = memo((props: IPageProps) => {
         );
     }, 500);
 
-    const pageClass = toggleFeatures({
-        name: 'isAppRedesigned',
-        on: () => cls.PageRedesigned,
-        off: () => cls.Page,
-    });
+    const pageClass = cls.PageRedesigned;
 
     return (
         <main
