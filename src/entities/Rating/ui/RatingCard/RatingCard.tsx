@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/deprecated/Card';
-import { FlexGap, FlexJustifyContent, HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { FlexGap, FlexJustifyContent, HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
 import cls from './RatingCard.module.scss';
 import { StarRating } from '@/shared/ui/deprecated/StarRating';

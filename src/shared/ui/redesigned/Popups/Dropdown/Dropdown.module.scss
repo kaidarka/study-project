@@ -1,0 +1,13 @@
+.Dropdown {
+    position: relative;
+}
+
+.item {
+    padding: var(--padding-xs) var(--padding-sm);
+    width: 100%;
+    border: none;
+    outline: none;
+    color: var(--text-redesigned);
+    background: var(--dark-bg-color-redesigned);
+    cursor: pointer;
+}

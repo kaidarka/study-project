@@ -1,0 +1,24 @@
+.button {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.items {
+    overflow: hidden;
+    background: var(--dark-bg-color-redesigned);
+    border-radius: 20px;
+    border: 1px solid var(--accent-redesigned);
+}
+
+.active {
+    background: var(--light-bg-color-redesigned);
+    color: var(--accent-redesigned);
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

@@ -72,7 +72,6 @@ export interface FlexProps extends DivProps {
     max?: boolean;
 }
 
-/** @deprecated Используйте аналогичный компонент из папки redesigned */
 export const Flex = (props: FlexProps) => {
     const {
         className,

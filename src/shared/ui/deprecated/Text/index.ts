@@ -1,7 +1,1 @@
-export {
-    /* @nonDeprecated */
-    Text,
-    TextTheme,
-    TextAlign,
-    TextSize,
-} from './Text';
+export { Text, TextTheme, TextAlign, TextSize } from './Text';

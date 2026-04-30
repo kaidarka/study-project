@@ -1,13 +1,12 @@
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
-interface IPortalProps {
+interface PortalProps {
     children: ReactNode;
     element?: HTMLElement;
 }
 
-/** @deprecated Используйте аналогичный компонент из папки redesigned */
-export const Portal = (props: IPortalProps) => {
+export const Portal = (props: PortalProps) => {
     const { children, element = document.body } = props;
     return createPortal(children, element);
 };

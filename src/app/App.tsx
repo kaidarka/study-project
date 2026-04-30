@@ -21,6 +21,11 @@ export const App = () => {
         dispatch(initAuthData());
     }, [dispatch]);
 
+    // Нужно для корректного отображения темы в portal, так как он находится вне app
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
+
     if (!initedUser) {
         return <PageLoader />;
     }

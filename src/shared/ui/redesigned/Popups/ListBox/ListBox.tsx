@@ -6,8 +6,8 @@ import {
 } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ButtonSize, ButtonTheme } from '../../Button/Button';
-import { HStack } from '../../../redesigned/Stack';
+import { ButtonSize, ButtonVariant } from '../../Button/Button';
+import { HStack } from '../../Stack';
 import buttonCls from '../../Button/Button.module.scss';
 import cls from './ListBox.module.scss';
 import popupCls from '../styles/popup.module.scss';
@@ -28,7 +28,6 @@ interface ListBoxProps {
     label?: string;
 }
 
-/** @deprecated Используйте аналогичный компонент из папки redesigned */
 export const ListBox = (props: ListBoxProps) => {
     const {
         items,
@@ -53,8 +52,8 @@ export const ListBox = (props: ListBoxProps) => {
                 <ListboxButton
                     className={classNames(popupCls.button, { [buttonCls.disabled]: readonly }, [
                         buttonCls.Button,
-                        buttonCls[ButtonTheme.OUTLINE],
-                        buttonCls[ButtonSize.M],
+                        buttonCls[ButtonVariant.outline],
+                        buttonCls[ButtonSize.md],
                     ])}
                 >
                     {items.find((item) => item.value === value)?.content || placeholder}

@@ -6,15 +6,14 @@ import { AppImage } from '../../redesigned/AppImage';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 
-interface IAvatarProps {
+type AvatarProps = {
     className?: string;
     src?: string;
     alt?: string;
     size?: number;
-}
+};
 
-/** @deprecated Используйте аналогичный компонент из папки redesigned */
-export const Avatar = (props: IAvatarProps) => {
+export const Avatar = (props: AvatarProps) => {
     const { className, src, alt, size = 150 } = props;
 
     const mods: Mods = {};

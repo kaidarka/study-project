@@ -11,7 +11,7 @@ import { Input } from '@/shared/ui/deprecated/Input';
 import { SortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { TabItem } from '@/shared/ui/deprecated/Tab';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import {
     getArticlesPageOrder,
