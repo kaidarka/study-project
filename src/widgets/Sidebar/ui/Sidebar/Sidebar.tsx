@@ -62,7 +62,7 @@ export const Sidebar = memo((props: ISidebarProps) => {
             <Icon Svg={SendIcon} onClick={onToggle} className={cls.collapseBtnRedesigned} />
             <div className={cls.switchersRedesigned}>
                 <ThemeSwitcher />
-                <LanguageSwitcher className={cls.lang} short={collapsed} />
+                <LanguageSwitcher />
             </div>
         </aside>
     );
