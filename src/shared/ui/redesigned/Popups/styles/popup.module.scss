@@ -14,8 +14,8 @@
 }
 
 .active {
-    background: var(--light-bg-color-redesigned);
-    color: var(--accent-redesigned);
+    background: var(--light-bg-color-redesigned) !important;
+    color: var(--accent-redesigned) !important;
 }
 
 .disabled {

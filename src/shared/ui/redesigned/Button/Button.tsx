@@ -5,6 +5,7 @@ import cls from './Button.module.scss';
 export const ButtonVariant = {
     clear: 'clear',
     outline: 'outline',
+    filled: 'filled',
 } as const;
 
 export const ButtonSize = {

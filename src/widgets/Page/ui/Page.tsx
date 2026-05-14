@@ -10,6 +10,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useMountEffect } from '@/shared/lib/hooks/useMountEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import cls from './Page.module.scss';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface IPageProps {
     className?: string;
@@ -19,15 +20,19 @@ interface IPageProps {
 
 export const Page = memo((props: IPageProps) => {
     const { className, children, onScrollEnd } = props;
-    const wrapperRef = useRef<HTMLElement | null>(null);
     const triggerRef = useRef<HTMLDivElement | null>(null);
+    const wrapperRef = useRef<HTMLElement | null>(null);
     const { pathname } = useLocation();
     const dispatch = useAppDispatch();
     const scrollPosition = useSelector((state: StateSchema) => getScrollByPath(state, pathname));
 
     useInfinityScroll({
         triggerRef,
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => null,
+            off: () => wrapperRef,
+        }),
         callback: onScrollEnd,
     });
 

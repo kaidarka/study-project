@@ -15,6 +15,10 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { fetchArticlesNextPage } from '../../model/services/fetchArticlesNextPage/fetchArticlesNextPage';
 import { articlePageReducer } from '../../model/slices/articlePageSlice';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
 interface IArticlesPageProps {
     className?: string;
@@ -37,15 +41,41 @@ const ArticlesPage = (props: IArticlesPageProps) => {
         dispatch(initArticlesPage(searchParams));
     });
 
+    const content = (
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={
+                <StickyContentLayout
+                    content={
+                        <Page
+                            className={classNames('', {}, [className])}
+                            onScrollEnd={onLoadNextPart}
+                        >
+                            <VStack gap="md" max>
+                                <ArticleInfiniteList />
+                                <ArticlePageGreeting />
+                            </VStack>
+                        </Page>
+                    }
+                    left={<ViewSelectorContainer />}
+                    right={<FiltersContainer />}
+                />
+            }
+            off={
+                <Page className={classNames('', {}, [className])} onScrollEnd={onLoadNextPart}>
+                    <VStack gap="md" max>
+                        <ArticlesPageFilters />
+                        <ArticleInfiniteList />
+                        <ArticlePageGreeting />
+                    </VStack>
+                </Page>
+            }
+        />
+    );
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page className={classNames('', {}, [className])} onScrollEnd={onLoadNextPart}>
-                <VStack gap="md" max>
-                    <ArticlesPageFilters />
-                    <ArticleInfiniteList />
-                    <ArticlePageGreeting />
-                </VStack>
-            </Page>
+            {content}
         </DynamicModuleLoader>
     );
 };

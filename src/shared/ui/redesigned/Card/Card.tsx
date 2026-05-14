@@ -5,6 +5,7 @@ import cls from './Card.module.scss';
 export const CardVariant = {
     normal: 'normal',
     outlined: 'outlined',
+    light: 'light',
 } as const;
 
 export const paddingVariants = {
@@ -14,11 +15,17 @@ export const paddingVariants = {
     lg: 'lg',
 } as const;
 
+export const borderVariants = {
+    round: 'round',
+    normal: 'normal',
+} as const;
+
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     variant?: (typeof CardVariant)[keyof typeof CardVariant];
     children: ReactNode;
     padding?: (typeof paddingVariants)[keyof typeof paddingVariants];
+    border?: (typeof borderVariants)[keyof typeof borderVariants];
 }
 
 export const Card = (props: CardProps) => {
@@ -27,11 +34,17 @@ export const Card = (props: CardProps) => {
         children,
         variant = CardVariant.normal,
         padding = paddingVariants.md,
+        border = borderVariants.normal,
         ...restProps
     } = props;
     return (
         <div
-            className={classNames(cls.Card, {}, [className, cls[variant], cls[padding]])}
+            className={classNames(cls.Card, {}, [
+                className,
+                cls[variant],
+                cls[padding],
+                cls[`border-${border}`],
+            ])}
             {...restProps}
         >
             {children}

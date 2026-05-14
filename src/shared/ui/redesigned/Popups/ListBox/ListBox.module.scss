@@ -2,6 +2,7 @@
 }
 
 .item {
-    padding: var(--padding-xs) var(--padding-sm);
-    background: var(--listbox-bg);
+    color: var(--text-redesigned);
+    cursor: pointer;
+    padding: 8px 16px;
 }

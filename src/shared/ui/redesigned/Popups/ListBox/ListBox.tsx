@@ -12,23 +12,24 @@ import buttonCls from '../../Button/Button.module.scss';
 import cls from './ListBox.module.scss';
 import popupCls from '../styles/popup.module.scss';
 
-export interface ListBoxItem {
-    value: string;
+export interface ListBoxItem<T extends string> {
+    value: T;
     content: ReactNode;
     disabled?: boolean;
 }
 
-interface ListBoxProps {
-    items: ListBoxItem[];
+interface ListBoxProps<T extends string> {
+    items: ListBoxItem<T>[];
     className?: string;
-    value?: string;
-    onChange: <T extends string>(value: T) => void;
+    value?: T;
+    onChange: (value: T) => void;
     placeholder?: string;
     readonly?: boolean;
     label?: string;
+    anchor?: 'top' | 'bottom' | 'left' | 'right';
 }
 
-export const ListBox = (props: ListBoxProps) => {
+export const ListBox = <T extends string>(props: ListBoxProps<T>) => {
     const {
         items,
         value,
@@ -37,6 +38,7 @@ export const ListBox = (props: ListBoxProps) => {
         placeholder = 'Select...',
         readonly = false,
         label,
+        anchor = 'top',
     } = props;
 
     return (
@@ -52,13 +54,13 @@ export const ListBox = (props: ListBoxProps) => {
                 <ListboxButton
                     className={classNames(popupCls.button, { [buttonCls.disabled]: readonly }, [
                         buttonCls.Button,
-                        buttonCls[ButtonVariant.outline],
+                        buttonCls[ButtonVariant.filled],
                         buttonCls[ButtonSize.md],
                     ])}
                 >
                     {items.find((item) => item.value === value)?.content || placeholder}
                 </ListboxButton>
-                <ListboxOptions anchor="top" className={popupCls.items}>
+                <ListboxOptions anchor={anchor} className={popupCls.items}>
                     {items.map((item) => (
                         <ListboxOption
                             key={item.value}

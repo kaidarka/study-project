@@ -1,6 +1,10 @@
 .ArticleViewSelector {
+    fill: var(--text-redesigned);
+    cursor: pointer;
+    font-size: var(--font-size-lg);
+    background-color: var(--light-bg-color-redesigned);
 }
 
-.notSelected path {
-    fill: var(--secondary-color);
+.notSelected {
+    fill: var(--hint-redesigned);
 }

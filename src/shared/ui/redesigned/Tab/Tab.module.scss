@@ -1,0 +1,10 @@
+.Tab {
+    cursor: pointer;
+    background: var(--bg-color-redesigned);
+    color: var(--text-redesigned);
+    padding: 8px 16px;
+}
+
+.active {
+    background: var(--light-bg-color-redesigned)!important;
+}
